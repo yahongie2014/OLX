@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,119 +10,110 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    <link href="{{asset('')}}css/app.css" rel="stylesheet">
-
-    <style>
-        .chat {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .chat li {
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px dotted #B3A9A9;
-        }
-
-        .chat li .chat-body p {
-            margin: 0;
-            color: #777777;
-        }
-
-        .panel-body {
-            overflow-y: scroll;
-            height: 350px;
-        }
-
-        ::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            background-color: #F5F5F5;
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-            background-color: #F5F5F5;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: #555;
-        }
-    </style>
-
     <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-            'pusherKey' => config('broadcasting.connections.pusher.key'),
-            'pusherCluster' => config('broadcasting.connections.pusher.options.cluster')
-        ]) !!};
-    </script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<!-- resources/views/layouts/app.blade.php -->
+
+<style>
+    .chat {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .chat li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted #B3A9A9;
+    }
+
+    .chat li .chat-body p {
+        margin: 0;
+        color: #777777;
+    }
+
+    .panel-body {
+        overflow-y: scroll;
+        height: 350px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
+</style>
 <body>
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
+                <ul class="navbar-nav mr-auto">
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
                         </li>
-                    @endif
+                    @endguest
                 </ul>
             </div>
         </div>
     </nav>
 
-    @yield('content')
+    <main class="py-4">
+        @yield('content')
+    </main>
 </div>
-
-<!-- Scripts -->
-<script src="{{asset('')}}js/app.js"></script>
 </body>
 </html>
