@@ -17,7 +17,7 @@ class CountryApi extends JsonResource
         return [
             "Identifier" => $this->id,
             "Name" => $this->name,
-            "Flag" => $this->flag,
+            "Flag" => url('/storage/app/public/Flag/'.$this->flag),
             "Available" => $this->is_active,
             "KeyCode" => $this->code,
         ];
