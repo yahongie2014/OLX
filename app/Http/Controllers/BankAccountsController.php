@@ -45,11 +45,17 @@ class BankAccountsController extends Controller
      */
     public function store(BankForm $request)
     {
+
         $bank = new $this->bank($request->all());
-        $banks = $this->bank->findOrFail($bank->id);
-        $banks->user_id = $request->user()->id;
-        $banks->update();
-        DB::commit();
+        if($bank){
+            $banks = $this->bank->findOrFail($bank->id);
+            if ($request->user()->id != $request->user_id) {
+                return response()->json(['error' => 'You can only create your Accounts.'], 403);
+            }
+            $banks->user_id = $request->user()->id;
+            $banks->update();
+        }
+      //  DB::commit();
         return new BankApi($bank);
 
 
