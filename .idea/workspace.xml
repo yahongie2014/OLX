@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BankApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BankApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ServicesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ServicesApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BankAccounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BankAccounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,20 +26,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="411" />
+          <entry key=".env file" value="13" />
+          <entry key="PHP" value="425" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="env" value="3" />
+          <entry key="env" value="6" />
           <entry key="php" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="411" />
+          <entry key="env" value="13" />
+          <entry key="php" value="425" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -54,7 +51,7 @@
       <usages-collector id="statistics.php.new.class" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="3" />
+          <entry key=".env file" value="6" />
           <entry key="PHP" value="55" />
         </counts>
       </usages-collector>
@@ -65,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+            <state relative-caret-position="258">
+              <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
               <folding>
                 <element signature="e#40#71#0#PHP" expanded="true" />
                 <element signature="e#1470#2169#0#PHP" />
@@ -79,10 +76,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4109">
-              <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+            <state relative-caret-position="84">
+              <caret line="4" column="7" selection-start-line="4" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -96,7 +93,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_134204_create_rates_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_134220_create_bookmarks_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_16_113800_create_advertisings_table.php" />
@@ -108,6 +104,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/BankForm.php" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" />
       </list>
     </option>
@@ -320,12 +317,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539909432158</updated>
       <workItem from="1539909435218" duration="5493000" />
-      <workItem from="1539916139885" duration="2348000" />
+      <workItem from="1539916139885" duration="3271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7841000" />
+    <option name="totallyTimeSpent" value="8764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -363,13 +360,6 @@
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-483" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="26" selection-end-line="39" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_10_15_134204_create_rates_table.php">
@@ -525,10 +515,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="60" column="18" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="65" column="47" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
+        <state relative-caret-position="258">
+          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
           <folding>
             <element signature="e#40#71#0#PHP" expanded="true" />
             <element signature="e#1470#2169#0#PHP" />
@@ -539,10 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductsController.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4109">
-          <caret line="248" lean-forward="true" selection-start-line="248" selection-end-line="248" />
+        <state relative-caret-position="84">
+          <caret line="4" column="7" selection-start-line="4" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
