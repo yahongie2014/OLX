@@ -11,7 +11,7 @@
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="<?php echo e(asset('')); ?>css/app.css" rel="stylesheet">
 
     <style>
         .chat {
@@ -125,6 +125,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="/js/app.js"></script>
+<script src="<?php echo e(asset('')); ?>js/app.js"></script>
 </body>
 </html>
