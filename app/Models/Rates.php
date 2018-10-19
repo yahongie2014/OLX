@@ -33,7 +33,7 @@ class Rates extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = ["user_type" => "boolean"];
 
     /**
      * The attributes that should be mutated to dates.

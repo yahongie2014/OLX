@@ -18,7 +18,7 @@ class RatesApi extends JsonResource
             "Identifier" => (int)$this->id,
             "Services Name" => (string)$this->ads->desc,
             "UserName" => (string)$this->users->name,
-            "UserType" => (int)$this->user_type,
+            "UserType" => (boolean)$this->user_type,
             "Average" => (int)$this->average,
         ];
     }

@@ -14,7 +14,7 @@ class BookmarkController extends Controller
     public function __construct(Bookmark $book)
     {
         App::setLocale("ar");
-
+        $this->middleware('auth:api');
         $this->book = $book;
     }
 
@@ -46,12 +46,10 @@ class BookmarkController extends Controller
      */
     public function store(BookmarkForm $request)
     {
-        if ($request->user()->id != $request->user_id) {
-            return response()->json(['error' => 'You cant create any bookmark'], 403);
-        }
-
         $bookmark = new $this->book($request->all());
-         DB::commit();
+        $bookmark->user_id = $request->user()->id;
+        $bookmark->save();
+        DB::commit();
         return new FavouriteApi($bookmark);
 
     }

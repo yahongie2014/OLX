@@ -16,7 +16,7 @@ class BankAccounts extends Model
      *
      * @var string
      */
-    protected $table = 'bankAccounts';
+    protected $table = 'bank_accounts';
 
     /**
      * Attributes that should be mass-assignable.

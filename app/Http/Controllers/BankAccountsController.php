@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class BankAccountsController extends Controller
 {
+
     public function __construct(BankAccounts $bank)
     {
         App::setLocale("ar");
         $this->bank = $bank;
+
     }
 
     /**
@@ -45,17 +47,10 @@ class BankAccountsController extends Controller
      */
     public function store(BankForm $request)
     {
-
         $bank = new $this->bank($request->all());
-        if($bank){
-            $banks = $this->bank->findOrFail($bank->id);
-            if ($request->user()->id != $request->user_id) {
-                return response()->json(['error' => 'You can only create your Accounts.'], 403);
-            }
-            $banks->user_id = $request->user()->id;
-            $banks->update();
-        }
-      //  DB::commit();
+        $bank->user_id = $request->user()->id;
+        $bank->save();
+        DB::commit();
         return new BankApi($bank);
 
 

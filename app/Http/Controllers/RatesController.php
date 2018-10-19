@@ -47,14 +47,14 @@ class RatesController extends Controller
      */
     public function store(RatesForm $request)
     {
-        if ($request->user()->id != $request->user_id) {
-            return response()->json(['error' => 'You cant create any Rate for Other User'], 403);
-        }
         $rates = new $this->rate($request->all());
-
-        $rate = new $this->rate();
-        $rate->user_type = $request->user()->is_vendor;
-        $rate->update();
+        $rates->user_id = $request->user()->id;
+        if($request->vendor == 0){
+            $rates->user_type = $request->vendor;
+        }else{
+            $rates->user_type = $request->vendor;
+        }
+        $rates->save();
         DB::commit();
         return new RatesApi($rates);
 

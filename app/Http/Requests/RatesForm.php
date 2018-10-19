@@ -25,7 +25,6 @@ class RatesForm extends FormRequest
     {
         return [
             'ads_id' => 'required|integer',
-            'user_id' => 'required|integer',
             'average' => 'required',
         ];
     }
@@ -35,8 +34,6 @@ class RatesForm extends FormRequest
             'average.required' => 'average Required!',
             'ads_id.required' => 'Ads Required!',
             'ads_id.integer' => 'Ads must be integer!',
-            'user_id.required' => 'UserName is required!',
-            'user_id.integer' => 'UserName must be integer!',
 
         ];
     }
