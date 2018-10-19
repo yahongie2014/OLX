@@ -21,3 +21,11 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 Broadcast::channel('chat', function ($user) {
     return Auth::check();
 });
+Broadcast::channel('survey.{survey_id}', function ($user, $survey_id) {
+    return [
+        'id' => $user->id,
+        'image' => $user->image(),
+        'name' => $user->name
+    ];
+
+});

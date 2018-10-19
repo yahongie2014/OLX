@@ -4,6 +4,7 @@
             <div class="chat-body clearfix">
                 <div class="header">
                     <strong class="primary-font">
+                        <img :src="message.user.image" :width="30" :height="30" >
                         {{ message.user.name }}
                     </strong>
                 </div>
