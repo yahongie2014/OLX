@@ -46,12 +46,9 @@ class BankAccountsController extends Controller
     public function store(BankForm $request)
     {
         $bank = new $this->bank($request->all());
-        if($bank->id){
-            $banks = $this->bank->findOrFail($bank->id);
-            $banks->user_id = $request->user()->id;
-            $banks->update();
-        }
-        $bank->save();
+        $banks = $this->bank->findOrFail($bank->id);
+        $banks->user_id = $request->user()->id;
+        $banks->update();
         DB::commit();
         return new BankApi($bank);
 
@@ -117,7 +114,7 @@ class BankAccountsController extends Controller
      * @param  \App\Models\BankAccounts $bankAccounts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
         $validator = \Validator::make(
             ['id' => $id],
@@ -129,9 +126,9 @@ class BankAccountsController extends Controller
             ]
         );
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
-        }else{
+        } else {
             $soft = $this->bank->findOrFail($id);
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Account Bank.'], 403);
