@@ -19,7 +19,6 @@ class CreateRatesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->integer('user_type');
             $table->float('average',13,2);
-            $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

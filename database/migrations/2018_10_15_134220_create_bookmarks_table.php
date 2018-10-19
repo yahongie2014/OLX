@@ -17,7 +17,6 @@ class CreateBookmarksTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('ads_id');
             $table->unsignedInteger('user_id');
-            $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
