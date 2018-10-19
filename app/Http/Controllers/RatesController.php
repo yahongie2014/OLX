@@ -105,7 +105,7 @@ class RatesController extends Controller
         $validator = \Validator::make(
             ['id' => $id],
             array(
-                'id' => 'required|exists:products,id|integer',
+                'id' => 'required|exists:rates,id|integer',
             ),
             [
                 'id' => __("validation.required"),

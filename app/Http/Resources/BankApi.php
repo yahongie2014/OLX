@@ -14,6 +14,11 @@ class BankApi extends JsonResource
      */
     public function toArray($request)
     {
-        return[];
+        return[
+            "Identifier" => $this->id,
+            "Bank Name" => $this->account_number,
+            "Account Number" => $this->account_number,
+            "User Name" => $this->users->name,
+        ];
     }
 }

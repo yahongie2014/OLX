@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class BankAccounts extends Model
@@ -45,5 +46,9 @@ class BankAccounts extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function users(){
+        return $this->belongsTo(User::class,"user_id");
+    }
 
 }

@@ -18,7 +18,7 @@ class ServicesApi extends JsonResource
             "Identifier" => $this->id,
             "Name" => $this->name,
             "Descerption" => $this->desc,
-            "Icon" => $this->icon,
+            "Icon" => url('/storage/app/public/Services/'.$this->icon),
             "Status" => $this->is_active,
             "longitude" => $this->longitude,
             "latitudes" => $this->latitudes,
