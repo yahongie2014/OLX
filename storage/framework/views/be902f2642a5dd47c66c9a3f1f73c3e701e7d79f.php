@@ -40,13 +40,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Phone')); ?></label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control<?php echo e($errors->has('phone') ? ' is-invalid' : ''); ?>" name="phone" value="<?php echo e(old('phone')); ?>" required>
-
-                                <?php if($errors->has('phone')): ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('phone')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
+                                <input id="phone" type="phone" class="form-control" name="phone" value="<?php echo e(old('phone')); ?>" required>
                             </div>
                         </div>
 
