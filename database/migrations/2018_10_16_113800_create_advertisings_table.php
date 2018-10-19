@@ -28,13 +28,10 @@ class CreateAdvertisingsTable extends Migration
         Schema::table('rates', function (Blueprint $table) {
             $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
         });
-<<<<<<< HEAD
         Schema::table('bookmarks', function (Blueprint $table) {
             $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
         });
 
-=======
->>>>>>> master
 
     }
 
