@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
