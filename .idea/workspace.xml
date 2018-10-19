@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,22 +27,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="13" />
-          <entry key="PHP" value="425" />
+          <entry key=".env file" value="21" />
+          <entry key="PHP" value="428" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="6" />
-          <entry key="php" value="55" />
+          <entry key="php" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="env" value="13" />
-          <entry key="php" value="425" />
+          <entry key="env" value="21" />
+          <entry key="php" value="428" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -52,18 +53,18 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="6" />
-          <entry key="PHP" value="55" />
+          <entry key="PHP" value="57" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="258">
-              <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+              <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
               <folding>
                 <element signature="e#40#71#0#PHP" expanded="true" />
                 <element signature="e#1470#2169#0#PHP" />
@@ -71,15 +72,6 @@
                 <element signature="e#2646#2737#0#PHP" />
                 <element signature="e#2941#3721#0#PHP" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="7" selection-start-line="4" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -96,7 +88,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_134204_create_rates_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_134220_create_bookmarks_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_16_113800_create_advertisings_table.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/CountryApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ServicesApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/BankApi.php" />
@@ -104,8 +95,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/BankForm.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/config/app.php" />
       </list>
     </option>
   </component>
@@ -279,7 +271,7 @@
             <path>
               <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -317,12 +309,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539909432158</updated>
       <workItem from="1539909435218" duration="5493000" />
-      <workItem from="1539916139885" duration="3271000" />
+      <workItem from="1539916139885" duration="4092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8764000" />
+    <option name="totallyTimeSpent" value="9585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -385,13 +377,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="30" column="32" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -522,10 +507,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
-          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
           <folding>
             <element signature="e#40#71#0#PHP" expanded="true" />
             <element signature="e#1470#2169#0#PHP" />
@@ -533,13 +532,6 @@
             <element signature="e#2646#2737#0#PHP" />
             <element signature="e#2941#3721#0#PHP" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="7" selection-start-line="4" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>

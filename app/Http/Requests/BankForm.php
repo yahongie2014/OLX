@@ -26,6 +26,7 @@ class BankForm extends FormRequest
         return [
             'bank_name' => 'required|string',
             'account_number' => 'required',
+            'user_id' => 'required',
         ];
     }
     public function messages()
@@ -33,6 +34,7 @@ class BankForm extends FormRequest
         return [
             'bank_name.required' => 'Bank Required!',
             'account_number.required' => 'Account is required!',
+            'user_id.required' => 'Account is required!',
 
         ];
     }
