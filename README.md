@@ -6,9 +6,9 @@ Read the feed programmatically and categorize the messages according to the sent
 
 #Source JSON  
 ---------------------------------
->[Source JSON](http://serinc.tech/myservices/api/)
+>[Test JSON](https://fierce-depths-12045.herokuapp.com/api/)
 --------------------------------------
->[Article End User](http://serinc.tech/myservices)
+>[Article End User](https://fierce-depths-12045.herokuapp.com/)
 # How To start type :
 >Composer update --no-scripts
 >cp .env.example .env
@@ -28,7 +28,7 @@ Read the feed programmatically and categorize the messages according to the sent
 
 #Or Visit
 ---------------
->[Online](https://serinc.tech/Task/public)
+>[Online](https://fierce-depths-12045.herokuapp.com/)
 
 >For Api Resource:
 ---------------------------
