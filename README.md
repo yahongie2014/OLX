@@ -6,13 +6,14 @@ Read the feed programmatically and categorize the messages according to the sent
 
 #Source JSON  
 ---------------------------------
->[Source JSON](https://spreadsheets.google.com/feeds/list/0Ai2EnLApq68edEVRNU0xdW9QX1BqQXhHRl9sWDNfQXc/od6/public/basic?alt=json)
+>[Source JSON](http://serinc.tech/myservices/api/)
 --------------------------------------
->[Article End User](https://spreadsheets.google.com/feeds/list/14zFud_rIym9GIqewBXV6mYh-s6hbAGBOIWs1NqAbdik/od6/public/basic)
+>[Article End User](http://serinc.tech/myservices)
 # How To start type :
 >Composer update --no-scripts
 >cp .env.example .env
 >php artisan key:generate
+>php artisan migrate
 >php artisan server 
 
 >will show u 
@@ -31,7 +32,7 @@ Read the feed programmatically and categorize the messages according to the sent
 
 >For Api Resource:
 ---------------------------
-Click On [API MAP](https://serinc.tech/Task/public/api/map)
+Click On [API PostMan](https://documenter.getpostman.com/view/2836787/RWgtTwts)
 Will Appear That Data Like Image
 ![alt tag](http://serinc.tech/Task/public/zx.png "Data Retrive from Api")
 --------------------------------
