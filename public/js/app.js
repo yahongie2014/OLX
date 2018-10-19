@@ -1152,7 +1152,7 @@ window._ = __webpack_require__(13);
 
 window.$ = window.jQuery = __webpack_require__(15);
 
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"bootstrap-sass\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+//require('bootstrap-sass');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
