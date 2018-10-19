@@ -25,6 +25,14 @@ const app = new Vue({
 
     created() {
         this.fetchMessages();
+
+        Echo.private('chat')
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
     },
 
     methods: {
@@ -33,13 +41,10 @@ const app = new Vue({
                 this.messages = response.data;
             });
         },
-
         addMessage(message) {
             this.messages.push(message);
 
-            axios.post('/messages', message).then(response => {
-                console.log(response.data);
-            });
+            axios.post('/messages', message).then(response => {});
         }
     }
 });
