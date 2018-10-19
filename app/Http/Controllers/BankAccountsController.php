@@ -131,7 +131,7 @@ class BankAccountsController extends Controller
             return response()->json($validator)->setStatusCode(400);
         } else {
             $soft = $this->bank->findOrFail($id);
-            if ($request->user()->id !== $soft->user_id) {
+            if (!$request->user()->id) {
                 return response()->json(['error' => 'You can only delete your Account Bank.'], 403);
             }
             $soft->delete();

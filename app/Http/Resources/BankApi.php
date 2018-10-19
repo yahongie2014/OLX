@@ -16,7 +16,7 @@ class BankApi extends JsonResource
     {
         return[
             "Identifier" => $this->id,
-            "Bank Name" => $this->account_number,
+            "Bank Name" => $this->bank_name,
             "Account Number" => $this->account_number,
             "User Name" => $this->users->name,
         ];

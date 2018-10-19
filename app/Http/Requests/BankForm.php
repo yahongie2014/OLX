@@ -25,13 +25,14 @@ class BankForm extends FormRequest
     {
         return [
             'bank_name' => 'required|string',
-            'account_number' => 'required',
+            'account_number' => 'required|min:10',
         ];
     }
     public function messages()
     {
         return [
             'bank_name.required' => 'Bank Required!',
+            'account_number.integer' => 'Account Number Must Be integer!',
             'account_number.required' => 'Account is required!',
 
         ];

@@ -130,9 +130,6 @@ class BookmarkController extends Controller
             return response()->json($validator)->setStatusCode(400);
         }else{
             $soft = $this->book->findOrFail($id);
-            if ($request->user()->id != $soft->user_id) {
-                return response()->json(['error' => 'You can only delete your Bookmark Service.'], 403);
-            }
             $soft->delete();
 
             return response()->json(["message" => "Your Bookmark Was Deleted"]);
