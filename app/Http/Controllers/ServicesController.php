@@ -11,7 +11,7 @@ class ServicesController extends Controller
 {
     public function __construct(Services $services)
     {
-        App::setLocale("ar");
+        App::setLocale(env("LOCALE"));
 
         $this->services = $services;
 

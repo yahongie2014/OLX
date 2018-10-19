@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Advertising;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class AdvertisingController extends Controller
 {
+    public function __construct(Advertising $ads)
+    {
+        App::setLocale(env("LOCALE"));
+        $this->ads = $ads;
+
+    }
+
     /**
      * Display a listing of the resource.
      *

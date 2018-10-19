@@ -11,7 +11,7 @@ class CitiesController extends Controller
 {
     public function __construct(Cities $cities)
     {
-        App::setLocale("ar");
+        App::setLocale(env("LOCALE"));
 
         $this->city = $cities;
 

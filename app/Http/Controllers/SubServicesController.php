@@ -11,7 +11,7 @@ class SubServicesController extends Controller
 {
     public function __construct(SubServices $sub)
     {
-        App::setLocale("ar");
+        App::setLocale(env("LOCALE"));
 
         $this->sub = $sub;
 

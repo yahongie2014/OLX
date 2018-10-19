@@ -13,7 +13,7 @@ class BookmarkController extends Controller
 {
     public function __construct(Bookmark $book)
     {
-        App::setLocale("ar");
+        App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
         $this->book = $book;
     }

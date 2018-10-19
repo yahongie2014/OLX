@@ -12,7 +12,7 @@ class CountryController extends Controller
 
     public function __construct(Country $country)
     {
-        App::setLocale("ar");
+        App::setLocale(env("LOCALE"));
 
         $this->country = $country;
   }
