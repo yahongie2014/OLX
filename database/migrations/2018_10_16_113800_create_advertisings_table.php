@@ -25,6 +25,11 @@ class CreateAdvertisingsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::table('rates', function (Blueprint $table) {
+            $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
+        });
+
+
     }
 
     /**
