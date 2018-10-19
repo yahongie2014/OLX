@@ -91,13 +91,11 @@
 
                 success:function(data)
                 {
-                    alert('success');
+                 //   alert('success');
                 }
 
             });
         });
-        lat.getElementsByTagName('latitude');
-        lng.getElementsByTagName('longitude');
 
     }
 

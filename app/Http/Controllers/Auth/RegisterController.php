@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/chat';
 
     /**
      * Create a new controller instance.
@@ -71,12 +71,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $genrator = rand(200,6000);
+        $longitude= 33.6;
+        $latitude= 31.2;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'longitude' => $this->request->input('longitude'),
-            'latitudes' => $this->request->input('latitude'),
+            'longitude' => $longitude,
+            'latitudes' => $latitude,
             'activation_code' => $genrator,
             'password' => bcrypt($data['password']),
         ]);

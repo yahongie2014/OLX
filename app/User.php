@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Models\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,5 +43,10 @@ class User extends Authenticatable  {
      * @var array
      */
     protected $dates = ['expires_at','deleted_at'];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 
 }
