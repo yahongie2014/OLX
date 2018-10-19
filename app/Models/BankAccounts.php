@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BankAccounts extends Model
 {
     const CREATED_AT = 'created_at';
-    // protected $dateFormat = 'U';
     public $timestamps = true;
 
 
@@ -17,7 +16,7 @@ class BankAccounts extends Model
      *
      * @var string
      */
-    protected $table = 'bank_accounts';
+    protected $table = 'bankAccounts';
 
     /**
      * Attributes that should be mass-assignable.
@@ -48,6 +47,7 @@ class BankAccounts extends Model
     protected $dates = ['deleted_at'];
 
     public function users(){
+
         return $this->belongsTo(User::class,"user_id");
     }
 
