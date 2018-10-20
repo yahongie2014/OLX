@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\ProductsImages;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsApi extends JsonResource
 {
@@ -24,7 +25,7 @@ class ProductsApi extends JsonResource
             "CompanyImage" => $this->users->image,
             "Price" => $this->price,
             "Status" => $this->is_active,
-            "Cover" =>  url('/storage/app/public/Products/'.$this->cover_image),
+            "Cover" =>  url(Storage::url('app/public/Products/'. $this->cover_image)),
             "FeatureImages" =>  ProductImageApi::collection(ProductsImages::with("ImgPro")->where("products_id",$this->id)->get()),
             "Time" => $this->created_at,
         ];
