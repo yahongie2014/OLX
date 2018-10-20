@@ -9,6 +9,7 @@ use App\Models\AdsCities;
 use App\Models\AdsImages;
 use App\Models\AdsProducts;
 use App\Models\Advertising;
+use App\Models\AdvertisingTranslation;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdvertisingController extends Controller
 {
-    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images)
+    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images,AdvertisingTranslation $trnsalator)
     {
         //   App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
@@ -26,6 +27,7 @@ class AdvertisingController extends Controller
         $this->adproducts = $adproducts;
         $this->city_id = $city_id;
         $this->images = $images;
+        $this->trnslator = $trnsalator;
     }
 
     /**
@@ -56,6 +58,20 @@ class AdvertisingController extends Controller
      */
     public function store(AdsForm $request)
     {
+        if ($request->locale_ar) {
+
+            $rules = array(
+                'desc_ar' => 'required',
+            );
+            $messages = array(
+                'desc_ar.required' => 'Arabic Info Required',
+            );
+            $validator = \Validator::make(Input::all(), $rules, $messages);
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()->all()])->setStatusCode(422);
+            }
+        }
+
         $ads = new $this->ads($request->all());
         $ads->user_id = $request->user()->id;
         if ($ads->save()) {
@@ -74,15 +90,25 @@ class AdvertisingController extends Controller
                 $city->save();
             }
 
-            $file = $request->file('Images');
-            for ($i = 0; $i < count($file); $i++) {
-                $name_pic = $file->getClientOriginalName();
-                $ext = $file->getClientOriginalExtension();
-                $name = Storage::putFileAs('/public/AdsImages', $file, $name_pic);
+            $file_make = $request->file('Images');
+            foreach ($file_make as $files) {
+                $name_image = $files->getClientOriginalName();
+                $ext = $files->getClientOriginalExtension();
+                $name = Storage::putFileAs('/public/AdsImages', $files, $name_image);
                 $img = new $this->images($request->all());
                 $img->ads_id = $ads->id;
-                $img->path = $name_pic[$i];
+                $img->path = $name_image;
                 $img->save();
+            }
+            if ($request->locale_ar) {
+                $ads_tr = new $this->trnslator();
+                $ads_tr->advertising_id = $ads->id;
+                $ads_tr->percentage = $ads->percentage;
+                $ads_tr->is_delivery = $ads->is_delivery;
+                $ads_tr->locale = $request->locale_ar;
+                $ads_tr->desc = $request->desc_ar;
+                $ads_tr->save();
+
             }
 
 
@@ -154,7 +180,7 @@ class AdvertisingController extends Controller
             }
             $soft->delete();
 
-            return response()->json(["message" => "Ads $soft->name IS Deleted"]);
+            return response()->json(["message" => "Ads $soft->desc IS Deleted"]);
         }
 
     }
