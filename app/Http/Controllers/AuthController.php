@@ -14,8 +14,9 @@ use Symfony\Component\Console\Input\Input;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    public function __construct(User $user)
     {
+        $this->user = $user;
     }
 
     /**
@@ -30,7 +31,6 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-        $input = $request->all();
         $generate_number = rand(1544, 100000);
         if ($request->vendor) {
             $request->validate([
@@ -50,7 +50,7 @@ class AuthController extends Controller
             'CityId' => 'required|exists:cities,id|integer',
         ]);
 
-        $user = new User([
+        $user = new $this->user([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->input('phone'),
@@ -67,7 +67,7 @@ class AuthController extends Controller
                 'vendor' => 'required|integer',
                 'CompanyNumber' => 'required',
             ]);
-            $vendor = User::find($user->id);
+            $vendor = $this->user->find($user->id);
             $vendor->is_vendor = $request->vendor;
             $vendor->company_number = $request->CompanyNumber;
             $vendor->update();
@@ -151,7 +151,6 @@ class AuthController extends Controller
         if (!$query && $query == '')
             return response()->json(['error' => 300, 'message' => 'check your phone number please'])->setStatusCode(400);
 
-        //$pass_reset = rand(1000, 9999);
         $pass_reset = rand(100000, 999999);//(6);
 
         $regenerate = Hash::make($pass_reset);
@@ -234,16 +233,23 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         if ($request->input()) {
-            $userprofile = User::find($request->user()->id);
+
+            $userprofile = $this->user->find($request->user()->id);
             if ($request->UserName) {
+                $request->validate([
+                    'UserName' => 'required|string',
+                ]);
                 $userprofile->name = $request->UserName;
             }
             if ($request->Email) {
+                $request->validate([
+                    'Email' => 'required|string|email|unique:users',
+                ]);
                 $userprofile->email = $request->Email;
             }
-            if ($request->Phone && $request->Phone == $request->user()->phone) {
+            if ($request->Phone) {
                 $userprofile->phone = $request->Phone;
-            }else{
+            }elseif($request->Phone == $request->user()->phone){
                 $userprofile->phone = $request->Phone;
                 $generate_number = rand(1544, 100000);
                 $userprofile->activation_code = $generate_number;
@@ -252,6 +258,11 @@ class AuthController extends Controller
                 $request->user()->token()->revoke();
             }
             if ($request->company_number) {
+                if ($request->user()->is_vendor == 1) {
+                    $request->validate([
+                        'CompanyNumber' => 'required',
+                    ]);
+                }
                 $userprofile->company_number = $request->company_number;
             }
             if ($request->City) {
@@ -262,7 +273,7 @@ class AuthController extends Controller
                 $request->user()->token()->revoke();
             }
             if ($request->DeactiveAccount) {
-                $userprofile->is_blocked = bcrypt($request->DeactiveAccount);
+                $userprofile->is_blocked = $request->DeactiveAccount;
             }
             if ($request->file('image')) {
                 $image = $request->file('image');
@@ -276,6 +287,6 @@ class AuthController extends Controller
 
         }
 
-        return response()->json( ["Data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" =>$request->user()->city->name]);
+        return response()->json( ["Data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
     }
 }
