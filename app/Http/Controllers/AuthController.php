@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Cities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
 class AuthController extends Controller
@@ -29,8 +31,8 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $input = $request->all();
-        $generate_number = rand(1544,100000);
-        if($request->vendor) {
+        $generate_number = rand(1544, 100000);
+        if ($request->vendor) {
             $request->validate([
                 'vendor' => 'required|integer',
                 'CompanyNumber' => 'required',
@@ -60,7 +62,7 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-        if($request->vendor){
+        if ($request->vendor) {
             $request->validate([
                 'vendor' => 'required|integer',
                 'CompanyNumber' => 'required',
@@ -71,7 +73,7 @@ class AuthController extends Controller
             $vendor->update();
         }
 
-        $send = $this->SendSms($request->input('phone'),'Welcome to My Services, your verification code ' . $generate_number);
+        $send = $this->SendSms($request->input('phone'), 'Welcome to My Services, your verification code ' . $generate_number);
 
         DB::commit();
 
@@ -100,7 +102,7 @@ class AuthController extends Controller
 
         $credentials = request(['email', 'password']);
 
-        if(!Auth::attempt($credentials))
+        if (!Auth::attempt($credentials))
             return response()->json([
                 'message' => 'Unauthorized'
             ], 401);
@@ -114,7 +116,7 @@ class AuthController extends Controller
             $token->expires_at = Carbon::now()->addWeeks(1);
 
         $token->save();
-        if($request->user()->is_vendor == 1){
+        if ($request->user()->is_vendor == 1) {
             return response()->json([
                 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
@@ -129,13 +131,15 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
+            'VendorAccess' => false,
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString()
         ]);
     }
 
-    public function reset(Request $request){
+    public function reset(Request $request)
+    {
 
         $input = $request->all();
 
@@ -145,30 +149,30 @@ class AuthController extends Controller
             return response()->json(['error' => 'no phone found'])->setStatusCode(400);
         }
         if (!$query && $query == '')
-            return response()->json(['error' => 300,'message' =>'check your phone number please'])->setStatusCode(400);
+            return response()->json(['error' => 300, 'message' => 'check your phone number please'])->setStatusCode(400);
 
         //$pass_reset = rand(1000, 9999);
-        $pass_reset = rand(100000,999999);//(6);
+        $pass_reset = rand(100000, 999999);//(6);
 
         $regenerate = Hash::make($pass_reset);
 
         $user = User::select('*')
-            ->where('phone', '=', $query )
-            ->update(['password'=> $regenerate]);
+            ->where('phone', '=', $query)
+            ->update(['password' => $regenerate]);
 
-        if(!$user){
-            return response()->json(['error' => 300,'message' =>'check your phone number please'])->setStatusCode(400);
+        if (!$user) {
+            return response()->json(['error' => 300, 'message' => 'check your phone number please'])->setStatusCode(400);
 
         }
 
         $send = $this->SendSms("$query", 'Welcome to My Services, your new Password is ' . ' : ' . $pass_reset . '' . ' ' . 'Use this to complete your Login');
 
 
-
-        return response()->json(['result' => 'Succefuly Resend','success' => true]);
+        return response()->json(['result' => 'Succefuly Resend', 'success' => true]);
     }
 
-    public function confirm(Request $request){
+    public function confirm(Request $request)
+    {
         $input = $request->all();
         $rules = array(
             'phone' => 'required|min:10',
@@ -180,7 +184,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             $errores = $validator->errors();
             $error_string = '';
-            foreach ($errores->messages() as $key=>$value){
+            foreach ($errores->messages() as $key => $value) {
                 $error_string .= $value[0];
             }
             return response()->json(['error' => 67, 'message' => $error_string])->setStatusCode(400);
@@ -192,10 +196,10 @@ class AuthController extends Controller
         $token = $tokenResult->token;
 
         if ($request->phone != $user->phone) {
-            return response()->json(['error' => 54,'message'=> 'wrong phone'])->setStatusCode(401);
+            return response()->json(['error' => 54, 'message' => 'wrong phone'])->setStatusCode(401);
         }
 
-        if ($request->activation_code == $user->activation_code ) {
+        if ($request->activation_code == $user->activation_code) {
             $active = User::find($user->id);
             $active->is_verify = 1;
             $active->save();
@@ -229,6 +233,49 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return response()->json($request->user());
+        if ($request->input()) {
+            $userprofile = User::find($request->user()->id);
+            if ($request->UserName) {
+                $userprofile->name = $request->UserName;
+            }
+            if ($request->Email) {
+                $userprofile->email = $request->Email;
+            }
+            if ($request->Phone && $request->Phone == $request->user()->phone) {
+                $userprofile->phone = $request->Phone;
+            }else{
+                $userprofile->phone = $request->Phone;
+                $generate_number = rand(1544, 100000);
+                $userprofile->activation_code = $generate_number;
+                $userprofile->is_verify = 0;
+                $send = $this->SendSms($request->Phone, 'your Update verification code ' . $generate_number);
+                $request->user()->token()->revoke();
+            }
+            if ($request->company_number) {
+                $userprofile->company_number = $request->company_number;
+            }
+            if ($request->City) {
+                $userprofile->city_id = $request->City;
+            }
+            if ($request->password) {
+                $userprofile->password = bcrypt($request->Password);
+                $request->user()->token()->revoke();
+            }
+            if ($request->DeactiveAccount) {
+                $userprofile->is_blocked = bcrypt($request->DeactiveAccount);
+            }
+            if ($request->file('image')) {
+                $image = $request->file('image');
+                $name_cover = $image->getClientOriginalName();
+                $ext_cover = $image->getClientOriginalExtension();
+                $avatar = Storage::putFileAs('/public/Avatar', $image, $name_cover);
+                $userprofile->image = $name_cover;
+            }
+
+            $userprofile->update();
+
+        }
+
+        return response()->json( ["Data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" =>$request->user()->city->name]);
     }
 }

@@ -31,7 +31,7 @@ Route::apiResource('User/Ads','AdsUserController');
 Route::middleware('auth:api')->group( function () {
 Route::post('confirmation', 'AuthController@confirm');
 Route::get('logout', 'AuthController@logout');
-Route::get('profile', 'AuthController@user');
+Route::post('profile', 'AuthController@user');
 Route::apiResource('Vendor/Products','ProductsController');
 Route::apiResource('Vendor/Ads','AdvertisingController');
 Route::apiResource('Bank','BankAccountsController');
