@@ -6,9 +6,9 @@ Read the feed programmatically and categorize the messages according to the sent
 
 #Source JSON  
 ---------------------------------
->[Test JSON](https://fierce-depths-12045.herokuapp.com/api/)
+>[JSON sample](http://fierce-depths-12045.herokuapp.com/api/Countries)
 --------------------------------------
->[Article End User](https://fierce-depths-12045.herokuapp.com/)
+>[Chat For Users](https://fierce-depths-12045.herokuapp.com/)
 # How To start type :
 >Composer update --no-scripts
 >cp .env.example .env
@@ -20,7 +20,7 @@ Read the feed programmatically and categorize the messages according to the sent
 ---------------------------------
 > PHP 7.2.1 Development Server started at TU Sept 25 19:11:46 2018
 >Listening on 127.0.0.1
->Document root is C:\users\Desktop\DataJsonHandeling
+>Document root is C:\users\Desktop\OLX
 ?Press Ctrl-C to quit.
 >Express server listening on port 8000  development mode 
 >After that open browser and type 
