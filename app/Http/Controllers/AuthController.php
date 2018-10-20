@@ -29,7 +29,13 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $input = $request->all();
-        $generate_number =rand(1544,100000);
+        $generate_number = rand(1544,100000);
+        if($request->vendor) {
+            $request->validate([
+                'vendor' => 'required|integer',
+                'CompanyNumber' => 'required',
+            ]);
+        }
 
         $request->validate([
             'name' => 'required|string',
@@ -38,7 +44,8 @@ class AuthController extends Controller
             'longitude' => 'required',
             'latitudes' => 'required',
             'password' => 'required|string',
-            'vendor' => 'integer'
+            'vendor' => 'integer',
+            'CityId' => 'required|exists:cities,id|integer',
         ]);
 
         $user = new User([
@@ -47,13 +54,20 @@ class AuthController extends Controller
             'phone' => $request->input('phone'),
             'longitude' => $request->longitude,
             'latitudes' => $request->latitudes,
+            'city_id' => $request->CityId,
             'activation_code' => $generate_number,
             'password' => bcrypt($request->password)
         ]);
         $user->save();
+
         if($request->vendor){
+            $request->validate([
+                'vendor' => 'required|integer',
+                'CompanyNumber' => 'required',
+            ]);
             $vendor = User::find($user->id);
             $vendor->is_vendor = $request->vendor;
+            $vendor->company_number = $request->CompanyNumber;
             $vendor->update();
         }
 

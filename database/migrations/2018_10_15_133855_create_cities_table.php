@@ -15,12 +15,18 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('longitude',13,2);
+            $table->float('latitudes',13,2);
             $table->integer('is_active')->default(1);
             $table->unsignedInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+        });
+
     }
 
     /**

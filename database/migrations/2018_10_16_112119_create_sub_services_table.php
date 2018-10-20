@@ -17,7 +17,6 @@ class CreateSubServicesTable extends Migration
             $table->increments('id');
             $table->integer('is_active')->default(1);
             $table->integer('services_id')->unsigned();
-            $table->enum('locale',array(["en","ar"]));
             $table->foreign('services_id')->references('id')->on('services')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

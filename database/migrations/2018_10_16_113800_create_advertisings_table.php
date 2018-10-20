@@ -16,6 +16,7 @@ class CreateAdvertisingsTable extends Migration
         Schema::create('advertisings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('is_active')->default(1);
+            $table->integer('viewer')->default(0);
             $table->unsignedInteger('services_id');
             $table->unsignedInteger('subservices_id');
             $table->unsignedInteger('user_id');

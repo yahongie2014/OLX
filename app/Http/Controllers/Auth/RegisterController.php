@@ -72,10 +72,12 @@ class RegisterController extends Controller
         $genrator = rand(200,6000);
         $longitude= 33.6;
         $latitude= 31.2;
+        $city = 1 ;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'city_id' => $city,
             'longitude' => $longitude,
             'latitudes' => $latitude,
             'activation_code' => $genrator,
