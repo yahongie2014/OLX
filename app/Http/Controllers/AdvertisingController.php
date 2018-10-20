@@ -20,9 +20,9 @@ class AdvertisingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return AdsApi::collection($this->ads->paginate());
+        return AdsApi::collection($this->ads->with("users")->where("user_id",$request->user()->id)->paginate());
     }
 
     /**
