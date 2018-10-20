@@ -14,9 +14,7 @@ class BankAccountsController extends Controller
 
     public function __construct(BankAccounts $bank)
     {
-        App::setLocale(env("LOCALE"));
         $this->bank = $bank;
-
     }
 
     /**
