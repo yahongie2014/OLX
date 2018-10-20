@@ -28,7 +28,7 @@ class SubServices extends Model
      *
      * @var array
      */
-    protected $fillable = ['is_active', 'services_id', 'locale', 'deleted_at'];
+    protected $fillable = ['is_active', 'services_id', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

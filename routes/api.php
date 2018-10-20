@@ -25,16 +25,18 @@ Route::apiResource('Cities','CitiesController');
 Route::apiResource('Countries','CountryController');
 Route::apiResource('Services','ServicesController');
 Route::apiResource('Child-Services','SubServicesController');
+Route::apiResource('User/Products','ProductUserController');
+Route::apiResource('User/Ads','AdsUserController');
 //Protected Login To Authntcate
 Route::middleware('auth:api')->group( function () {
 Route::post('confirmation', 'AuthController@confirm');
 Route::get('logout', 'AuthController@logout');
 Route::get('profile', 'AuthController@user');
-Route::apiResource('Products','ProductsController');
-Route::apiResource('Ads','AdvertisingController');
+Route::apiResource('Vendor/Products','ProductsController');
+Route::apiResource('Vendor/Ads','AdvertisingController');
 Route::apiResource('Bank','BankAccountsController');
 Route::apiResource('Favourites','BookmarkController');
-Route::apiResource('Orders','OrdersController');
+Route::apiResource('Vendor/Orders','OrdersController');
 Route::apiResource('Rates','RatesController');
 });
 

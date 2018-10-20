@@ -5,9 +5,8 @@ namespace App\Http\Resources;
 use App\Models\ProductsImages;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductsApi extends JsonResource
+class ProductUserApi extends JsonResource
 {
-
     /**
      * Transform the resource into an array.
      *

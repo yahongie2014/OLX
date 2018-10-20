@@ -109,9 +109,7 @@ class AdvertisingController extends Controller
                 $ads_tr->locale = $request->locale_ar;
                 $ads_tr->desc = $request->desc_ar;
                 $ads_tr->save();
-
             }
-
 
             DB::commit();
         }
@@ -141,6 +139,8 @@ class AdvertisingController extends Controller
             return response()->json($validator)->setStatusCode(400);
         } else {
             $only = $this->ads->findOrFail($id);
+            $only->viewer = $only->viewer +1 ;
+            $only->update();
 
             if ($request->user()->id !== $only->user_id) {
                 return response()->json(['error' => 'You can only show your Advertising.'], 403);

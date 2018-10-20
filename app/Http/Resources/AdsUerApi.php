@@ -7,7 +7,7 @@ use App\Models\AdsImages;
 use App\Models\AdsProducts;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AdsApi extends JsonResource
+class AdsUerApi extends JsonResource
 {
     /**
      * Transform the resource into an array.

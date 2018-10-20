@@ -21,7 +21,7 @@ class User extends Authenticatable  {
      *
      * @var array
      */
-    protected $fillable = ['name','image', 'email', 'phone', 'password', 'longitude', 'latitudes', 'activation_code', 'is_verify', 'is_admin', 'is_vendor', 'remember_token', 'deleted_at'];
+    protected $fillable = ['name','image', 'email', 'city_id','phone', 'password', 'longitude', 'latitudes', 'activation_code', 'is_verify', 'is_admin', 'is_vendor', 'remember_token', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -47,6 +47,9 @@ class User extends Authenticatable  {
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+    public function city(){
+        return $this->belongsTo(Cities::class,"city_id");
     }
 
 }
