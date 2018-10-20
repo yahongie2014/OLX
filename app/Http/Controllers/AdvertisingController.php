@@ -62,6 +62,7 @@ class AdvertisingController extends Controller
 
             $rules = array(
                 'desc_ar' => 'required',
+                'locale_ar' => 'required',
             );
             $messages = array(
                 'desc_ar.required' => 'Arabic Info Required',
@@ -125,9 +126,29 @@ class AdvertisingController extends Controller
      * @param  \App\Models\Advertising $advertising
      * @return \Illuminate\Http\Response
      */
-    public function show(Advertising $advertising)
+    public function show(Request $request, $id)
     {
-        //
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:advertisings,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $only = $this->ads->findOrFail($id);
+
+            if ($request->user()->id !== $only->user_id) {
+                return response()->json(['error' => 'You can only show your Advertising.'], 403);
+            }
+
+            return new AdsApi($only);
+        }
+
     }
 
     /**
