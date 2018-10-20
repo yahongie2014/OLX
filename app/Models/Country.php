@@ -12,9 +12,9 @@ class Country extends Model
     use SoftDeletes, Translatable;
 
     public $timestamps = true;
-    public $useTranslationFallback = false;
+    public $useTranslationFallback = true;
     public $translationModel = CountriesTranslation::class;
-    public $translatedAttributes = ['name', 'flag'];
+    public $translatedAttributes = ['name','countries_id'];
 
 
     /**
@@ -53,8 +53,10 @@ class Country extends Model
 
     protected $with = ['translations'];
 
-    public function city(){
-        return $this->hasMany(Cities::class,"id");
+    public function cities(){
+        return $this->hasMany(Cities::class);
+
     }
+
 
 }

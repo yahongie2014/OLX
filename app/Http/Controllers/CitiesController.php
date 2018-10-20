@@ -11,7 +11,7 @@ class CitiesController extends Controller
 {
     public function __construct(Cities $cities)
     {
-        App::setLocale(env("LOCALE"));
+      //  App::setLocale(env("LOCALE"));
 
         $this->city = $cities;
 
@@ -59,7 +59,7 @@ class CitiesController extends Controller
         $validator = \Validator::make(
             ['id' => $id],
             array(
-                'id' => 'required|exists:countries,id|integer',
+                'id' => 'required|exists:cities,id|integer',
             ),
             [
                 'id' => __("validation.required"),

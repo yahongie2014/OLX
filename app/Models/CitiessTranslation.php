@@ -43,10 +43,5 @@ class CitiessTranslation extends Model
      */
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at'];
 
-    public function city(){
-
-        return $this->belongsTo(Cities::class,"cities_id");
-
-    }
 
 }

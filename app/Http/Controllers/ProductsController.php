@@ -17,7 +17,7 @@ class ProductsController extends Controller
 {
     public function __construct(Products $products,ProductsImages $image,ProductsTranslation $trnslator)
     {
-        App::setLocale(env("LOCALE"));
+       // App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
         $this->products = $products;
         $this->images = $image;

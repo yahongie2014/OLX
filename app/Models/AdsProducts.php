@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CountriesTranslation extends Model
+class AdsProducts extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'countries_translations';
+    protected $table = 'ads_products';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'countries_id', 'locale', 'deleted_at'];
+    protected $fillable = ['ads_id', 'product_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -40,5 +40,17 @@ class CountriesTranslation extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function Adsproducts(){
+
+        return $this->belongsTo(Advertising::class,"ads_id");
+
+    }
+
+    public function Products(){
+
+        return $this->belongsTo(Products::class,"product_id");
+
+    }
 
 }

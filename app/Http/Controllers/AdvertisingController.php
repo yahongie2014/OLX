@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AdsApi;
 use App\Models\Advertising;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -12,7 +13,6 @@ class AdvertisingController extends Controller
     {
         App::setLocale(env("LOCALE"));
         $this->ads = $ads;
-
     }
 
     /**
@@ -22,7 +22,7 @@ class AdvertisingController extends Controller
      */
     public function index()
     {
-        //
+        return AdsApi::collection($this->ads->paginate());
     }
 
     /**

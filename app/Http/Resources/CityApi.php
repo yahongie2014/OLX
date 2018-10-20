@@ -15,10 +15,8 @@ class CityApi extends JsonResource
     public function toArray($request)
     {
         return [
-            "Identifier" => $this->id,
-            "Available" => $this->is_active,
-            "CountryName" => $this->country->name,
-            "Cities" => $this->cities_lang,
+            "CityName" => $this->name,
+            "Available" => (boolean)$this->is_active,
         ];
     }
 }

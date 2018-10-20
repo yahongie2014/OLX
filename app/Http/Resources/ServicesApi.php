@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SubServices;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServicesApi extends JsonResource
@@ -22,7 +23,7 @@ class ServicesApi extends JsonResource
             "Status" => $this->is_active,
             "longitude" => $this->longitude,
             "latitudes" => $this->latitudes,
-            "child" => $this->sub_service,
+            "child" => SubServicesApi::collection(SubServices::where("services_id",$this->id)->get()),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Cities;
 use Illuminate\Database\Eloquent\Model;
 
 class AdsCities extends Model
@@ -41,5 +42,14 @@ class AdsCities extends Model
      * @var array
      */
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at'];
+
+    public function Adscity(){
+
+        return $this->belongsTo(Advertising::class,"ads_id");
+    }
+    public function City(){
+        return $this->belongsTo(Cities::class,"city_id");
+
+    }
 
 }

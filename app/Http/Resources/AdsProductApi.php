@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubServicesApi extends JsonResource
+class AdsProductApi extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,10 +15,8 @@ class SubServicesApi extends JsonResource
     public function toArray($request)
     {
         return [
-            "Identifier" => $this->id,
-            "Parent" => $this->services->name,
-            "SubParent" => $this->name,
-
+            "ProductName" => $this->Products->name,
+            "ProductImage" => url('/storage/app/public/Products/'. $this->Products->cover_image),
         ];
     }
 }

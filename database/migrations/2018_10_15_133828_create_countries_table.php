@@ -15,6 +15,7 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('flag');
             $table->integer('is_active')->default(1);
             $table->integer('code');
             $table->softDeletes();

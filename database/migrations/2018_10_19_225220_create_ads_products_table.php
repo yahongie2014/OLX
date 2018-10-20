@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountriesTranslationsTable extends Migration
+class CreateAdsProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCountriesTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries_translations', function (Blueprint $table) {
+        Schema::create('ads_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->unsignedInteger('country_id');
-            $table->enum('locale',array(["en","ar"]))->index();
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->unsignedInteger('ads_id');
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('ads_id')->references('id')->on('advertisings')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateCountriesTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries_translations');
+        Schema::dropIfExists('ads_products');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubServicesApi extends JsonResource
+class AdsCitiesApi extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,10 +15,7 @@ class SubServicesApi extends JsonResource
     public function toArray($request)
     {
         return [
-            "Identifier" => $this->id,
-            "Parent" => $this->services->name,
-            "SubParent" => $this->name,
-
+            "cityName" => $this->City->name,
         ];
     }
 }

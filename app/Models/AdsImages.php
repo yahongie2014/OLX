@@ -41,4 +41,10 @@ class AdsImages extends Model
      */
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at'];
 
+    public function Adsimage(){
+
+        return $this->belongsTo(Advertising::class,"ads_id");
+    }
+
+
 }

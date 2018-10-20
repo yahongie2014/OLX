@@ -11,12 +11,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cities extends Model  {
 
     use SoftDeletes, Translatable;
-    public $useTranslationFallback = true;
+
     public $translationModel = CitiessTranslation::class;
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = ['name','cities_id'];
 
     const CREATED_AT = 'created_at';
-    // protected $dateFormat = 'U';
     public $timestamps = true;
 
     protected $with = ['translations'];
@@ -58,11 +57,8 @@ class Cities extends Model  {
     protected $dates = ['deleted_at'];
 
     public function country(){
+
         return $this->belongsTo(Country::class,"country_id");
     }
-    public function cities_lang(){
-        return $this->hasMany(CitiessTranslation::class);
-    }
-
 
 }
