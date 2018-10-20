@@ -8,7 +8,7 @@ Read the feed programmatically and categorize the messages according to the sent
 ---------------------------------
 >[JSON sample](http://fierce-depths-12045.herokuapp.com/api/Countries)
 --------------------------------------
->[Chat For Users](https://fierce-depths-12045.herokuapp.com/)
+>[Chat For Users](http://fierce-depths-12045.herokuapp.com/)
 # How To start type :
 >Composer update --no-scripts
 >cp .env.example .env
