@@ -24,7 +24,7 @@ class RatesForm extends FormRequest
     public function rules()
     {
         return [
-            'ads_id' => 'required|integer',
+            'ads_id' => 'required|integer|exists:advertisings,id',
             'average' => 'required',
         ];
     }

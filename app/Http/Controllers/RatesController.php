@@ -14,7 +14,6 @@ class RatesController extends Controller
 {
     public function __construct(Rates $rates)
     {
-        App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
         $this->rate = $rates;
     }
