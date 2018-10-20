@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\SubServices;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesApi extends JsonResource
 {
@@ -19,7 +20,7 @@ class ServicesApi extends JsonResource
             "Identifier" => $this->id,
             "Name" => $this->name,
             "Descerption" => $this->desc,
-            "Icon" => url('/storage/app/public/Services/'.$this->icon),
+            "Icon" =>  url(Storage::url('Services/'. $this->icon)),
             "Status" => $this->is_active,
             "longitude" => $this->longitude,
             "latitudes" => $this->latitudes,
