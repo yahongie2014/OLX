@@ -9,9 +9,11 @@ use App\Models\AdsCities;
 use App\Models\AdsImages;
 use App\Models\AdsProducts;
 use App\Models\Advertising;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class AdvertisingController extends Controller
@@ -71,16 +73,18 @@ class AdvertisingController extends Controller
                 $city->city_id = $city_id[$i];
                 $city->save();
             }
-            $images = $request->file('Images');
-            $ext = $images->getClientOriginalExtension();
-            $name = Storage::putFileAs('/public/FeaturesProduct', $images ,$ext);
 
-            for ($i = 0; $i < count($images); $i++) {
+            $file = $request->file('Images');
+            for ($i = 0; $i < count($file); $i++) {
+                $name_pic = $file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                $name = Storage::putFileAs('/public/AdsImages', $file, $name_pic);
                 $img = new $this->images($request->all());
                 $img->ads_id = $ads->id;
-                $img->path = $name[$i];
+                $img->path = $name_pic[$i];
                 $img->save();
             }
+
 
             DB::commit();
         }

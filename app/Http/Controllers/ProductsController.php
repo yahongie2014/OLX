@@ -56,11 +56,12 @@ class ProductsController extends Controller
 
         $product = new $this->products($request->all());
         $file_cover = $request->file('cover_image');
+        $name_cover = $file_cover->getClientOriginalName();
         $ext_cover = $file_cover->getClientOriginalExtension();
-        $cover = Storage::putFileAs('/public/Products', $file_cover ,$ext_cover);
+        $cover = Storage::putFileAs('/public/Products', $file_cover ,$name_cover);
         if ($cover) {
             $product::find($product->id);
-            $product->cover_image = $ext_cover;
+            $product->cover_image = $name_cover;
             $product->user_id =  $request->user()->id;
             $product->update();
         }
@@ -68,11 +69,12 @@ class ProductsController extends Controller
         if($product->save()){
             $pictures = new $this->images();
             $file = $request->file('path');
+            $name = $file->getClientOriginalName();
             $ext = $file->getClientOriginalExtension();
-            $name = Storage::putFileAs('/public/FeaturesProduct', $file ,$ext);
+            $name = Storage::putFileAs('/public/FeaturesProduct', $file ,$name);
             if ($name) {
                  $pictures::create([
-                    'path' => $ext,
+                    'path' => $name,
                     'products_id' => $product->id
                 ]);
             }
