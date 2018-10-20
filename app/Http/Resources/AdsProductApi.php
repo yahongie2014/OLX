@@ -15,7 +15,10 @@ class AdsProductApi extends JsonResource
     public function toArray($request)
     {
         return [
+            "Identifier" => $this->Products->id,
             "ProductName" => $this->Products->name,
+            "ProductPrice" => $this->Products->price,
+            "ProductInfo" => $this->Products->desc,
             "ProductImage" => url('/storage/app/public/Products/'. $this->Products->cover_image),
         ];
     }

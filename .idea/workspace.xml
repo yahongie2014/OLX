@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdvertisingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdvertisingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/SubServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/RatesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/RatesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Rates.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Rates.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +35,7 @@
           <entry key=".env file" value="41" />
           <entry key="Blade" value="17" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="3628" />
+          <entry key="PHP" value="4166" />
           <entry key="Vue.js" value="120" />
         </counts>
       </usages-collector>
@@ -48,7 +46,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="3" />
-          <entry key="php" value="358" />
+          <entry key="php" value="365" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -57,7 +55,7 @@
         <counts>
           <entry key="env" value="41" />
           <entry key="js" value="18" />
-          <entry key="php" value="3645" />
+          <entry key="php" value="4183" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -72,7 +70,7 @@
           <entry key="Blade" value="10" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="348" />
+          <entry key="PHP" value="355" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -80,11 +78,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsApi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            <state relative-caret-position="140">
+              <caret line="23" selection-start-line="23" selection-end-line="32" />
+              <folding>
+                <element signature="e#38#63#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="34" />
               <folding>
                 <element signature="e#38#63#0#PHP" expanded="true" />
               </folding>
@@ -105,8 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/app/Events/MessagePushed.php" />
         <option value="$PROJECT_DIR$/routes/channels.php" />
@@ -115,7 +123,6 @@
         <option value="$PROJECT_DIR$/app/Http/Resources/AdsImagesApi.php" />
         <option value="$PROJECT_DIR$/app/Models/AdsCities.php" />
         <option value="$PROJECT_DIR$/app/Models/AdsProducts.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_134505_create_countries_translations_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_10_15_133828_create_countries_table.php" />
         <option value="$PROJECT_DIR$/app/Models/CountriesTranslation.php" />
@@ -148,14 +155,17 @@
         <option value="$PROJECT_DIR$/database/migrations/2018_10_16_112119_create_sub_services_table.php" />
         <option value="$PROJECT_DIR$/app/Models/SubServices.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdvertisingController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdsUserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductUserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ProductUserApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" />
+        <option value="$PROJECT_DIR$/app/Models/Rates.php" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/RatesApi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" />
       </list>
     </option>
   </component>
@@ -375,12 +385,12 @@
       <workItem from="1539916139885" duration="5307000" />
       <workItem from="1539925896228" duration="7782000" />
       <workItem from="1539970555906" duration="11415000" />
-      <workItem from="1539986750049" duration="29179000" />
+      <workItem from="1539986750049" duration="32444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59176000" />
+    <option name="totallyTimeSpent" value="62441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -437,26 +447,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_10_15_133828_create_countries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AdvertisingTranslation.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AdsCities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#30#45#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/CountriesTranslation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -499,16 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Advertising.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#30#43#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,16 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-          <folding>
-            <element signature="e#38#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdsUserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -797,10 +767,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Advertising.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="e#30#43#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/RatesApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Rates.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsApi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="140">
+          <caret line="23" selection-start-line="23" selection-end-line="32" />
+          <folding>
+            <element signature="e#38#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="34" />
           <folding>
             <element signature="e#38#63#0#PHP" expanded="true" />
           </folding>

@@ -19,7 +19,7 @@ class RatesApi extends JsonResource
             "Services Name" => (string)$this->ads->desc,
             "UserName" => (string)$this->users->name,
             "UserType" => (boolean)$this->user_type,
-            "Average" => (int)$this->average,
+            "Average" => $this->average,
         ];
     }
 }
