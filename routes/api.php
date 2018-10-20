@@ -32,8 +32,10 @@ Route::middleware('auth:api')->group( function () {
 Route::post('confirmation', 'AuthController@confirm');
 Route::get('logout', 'AuthController@logout');
 Route::post('profile', 'AuthController@user');
+Route::apiResource('User/Orders','OrdersUserController');
 Route::apiResource('Vendor/Products','ProductsController');
 Route::apiResource('Vendor/Ads','AdvertisingController');
+Route::apiResource('Vendor/Orders','OrdersController');
 Route::apiResource('Bank','BankAccountsController');
 Route::apiResource('Favourites','BookmarkController');
 Route::apiResource('Vendor/Orders','OrdersController');
