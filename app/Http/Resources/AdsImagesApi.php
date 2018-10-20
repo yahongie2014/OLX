@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class AdsImagesApi extends JsonResource
 {
@@ -15,7 +16,8 @@ class AdsImagesApi extends JsonResource
     public function toArray($request)
     {
         return[
-            "Images" =>  url('/storage/app/public/AdsImages/'. $this->path),
+            "Images" =>  url(Storage::url('AdsImages/'. $this->path)),
+
         ];
     }
 }

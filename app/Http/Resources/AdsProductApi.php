@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class AdsProductApi extends JsonResource
 {
@@ -19,7 +20,8 @@ class AdsProductApi extends JsonResource
             "ProductName" => $this->Products->name,
             "ProductPrice" => $this->Products->price,
             "ProductInfo" => $this->Products->desc,
-            "ProductImage" => url('/storage/app/public/Products/'. $this->Products->cover_image),
+            "ProductImage" =>  url(Storage::url('Products/'. $this->Products->cover_image)),
+
         ];
     }
 }
