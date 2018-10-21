@@ -430,7 +430,7 @@
                     })
                     .then(function (token) {
                         console.log(token); // Display user token
-                        var postData = {_token: "{{ csrf_token() }}", firebase_token: token, login_type:{{WEB}}}
+                        var postData = {_token: "{{ csrf_token() }}", firebase_token: token, login_type:1}
                         $.ajax({
                             url: '{{url("user/token")}}',
                             type: 'POST',
