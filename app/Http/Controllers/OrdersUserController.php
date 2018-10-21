@@ -88,10 +88,31 @@ class OrdersUserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:orders,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $only = $this->orders->findOrFail($id);
+
+            if ($request->user()->id !== $only->user_id) {
+                return response()->json(['error' => 'You can only show your Orders.'], 403);
+            }
+
+            return new OrdersApi($only);
+        }
+
     }
+
 
     /**
      * Show the form for editing the specified resource.

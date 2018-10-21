@@ -47,11 +47,11 @@ class Orders extends Model
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'expires_at', 'expires_at', 'expires_at', 'deleted_at', 'deleted_at'];
 
     public function user(){
-
         return $this->belongsTo(User::class,"user_id");
     }
     public function Items(){
         return $this->hasMany(OrderItmes::class,"user_id");
     }
+
 
 }
