@@ -25,7 +25,7 @@ class RatesController extends Controller
      */
     public function index(Request $request)
     {
-        return RatesApi::collection($this->rate->where("user_id",$request->user()->id)->paginate());
+        return RatesApi::collection($this->rate->where("user_id", $request->user()->id)->paginate());
     }
 
     /**
@@ -41,18 +41,21 @@ class RatesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(RatesForm $request)
     {
+        $count = $this->rate->where('ads_id', '=', $request->ads_id)->where('user_id', '=', $request->user()->id)->count();
+
+        if ($count) {
+            return response()->json(["message" => "The given data was invalid", 'errors' => 'you Already Rate That Service'])->setStatusCode(400);
+        }
+
         $rates = new $this->rate($request->all());
         $rates->user_id = $request->user()->id;
-        if($request->vendor == 0){
-            $rates->user_type = $request->vendor;
-        }else{
-            $rates->user_type = $request->vendor;
-        }
+        $rates->vendor_id = $request->vendor_id;
+        $rates->user_type = $request->user()->is_vendor;
         $rates->save();
         DB::commit();
         return new RatesApi($rates);
@@ -62,7 +65,7 @@ class RatesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rates  $rates
+     * @param  \App\Models\Rates $rates
      * @return \Illuminate\Http\Response
      */
     public function show(Rates $rates)
@@ -73,7 +76,7 @@ class RatesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rates  $rates
+     * @param  \App\Models\Rates $rates
      * @return \Illuminate\Http\Response
      */
     public function edit(Rates $rates)
@@ -84,8 +87,8 @@ class RatesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rates  $rates
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Rates $rates
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Rates $rates)
@@ -96,10 +99,10 @@ class RatesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rates  $rates
+     * @param  \App\Models\Rates $rates
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request ,$id)
+    public function destroy(Request $request, $id)
     {
         $validator = \Validator::make(
             ['id' => $id],
@@ -111,9 +114,9 @@ class RatesController extends Controller
             ]
         );
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
-        }else{
+        } else {
             $soft = $this->rate->findOrFail($id);
             if ($request->user()->id != $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Rate Service.'], 403);

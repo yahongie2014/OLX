@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrdersForm;
-use App\Http\Resources\OrdersApi;
+use App\Http\Resources\OrdersUserApi;
 use App\Models\Cart;
 use App\Models\OrderItmes;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
 
 class OrdersUserController extends Controller
 {
@@ -28,7 +27,7 @@ class OrdersUserController extends Controller
      */
     public function index(Request $request)
     {
-        return OrdersApi::collection($this->orders->where("user_id", $request->user()->id)->paginate());
+        return OrdersUserApi::collection($this->orders->where("user_id", $request->user()->id)->paginate());
 
     }
 
@@ -78,7 +77,7 @@ class OrdersUserController extends Controller
 
         }
         DB::commit();
-        return new OrdersApi($make);
+        return new OrdersUserApi($make);
 
     }
 
@@ -108,7 +107,7 @@ class OrdersUserController extends Controller
                 return response()->json(['error' => 'You can only show your Orders.'], 403);
             }
 
-            return new OrdersApi($only);
+            return new OrdersUserApi($only);
         }
 
     }

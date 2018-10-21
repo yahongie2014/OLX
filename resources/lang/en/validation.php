@@ -102,7 +102,13 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
-        ],
+        ]
+        ,
+        'loading_id' => [
+            'required' => 'Wrong input',
+            'integer' => 'Wrong input',
+            'exists' => 'Wrong input'
+        ]
     ],
 
     /*

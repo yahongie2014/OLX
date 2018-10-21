@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'city_id' => $city,
             'longitude' => $longitude,
             'latitudes' => $latitude,
+            'language_id' => $data['language_id'],
             'activation_code' => $genrator,
             'password' => bcrypt($data['password']),
         ]);

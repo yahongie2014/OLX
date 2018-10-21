@@ -20,7 +20,7 @@ class Rates extends Model
      *
      * @var array
      */
-    protected $fillable = ['ads_id', 'user_id', 'user_type', 'average', 'deleted_at'];
+    protected $fillable = ['ads_id','vendor_id', 'user_id', 'user_type', 'average', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -50,6 +50,10 @@ class Rates extends Model
     public function users(){
         return $this->belongsTo(User::class,"user_id");
     }
+    public function vendors(){
+        return $this->belongsTo(User::class,"vendor_id");
+    }
+
 
 
 }
