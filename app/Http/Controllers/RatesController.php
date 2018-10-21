@@ -54,6 +54,7 @@ class RatesController extends Controller
 
         $rates = new $this->rate($request->all());
         $rates->user_id = $request->user()->id;
+        $rates->vendor_id = $request->vendor_id;
         $rates->user_type = $request->user()->is_vendor;
         $rates->save();
         DB::commit();

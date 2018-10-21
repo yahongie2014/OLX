@@ -20,6 +20,8 @@ class CreateRatesTable extends Migration
             $table->integer('user_type');
             $table->float('average',13,2);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('vendor_id');
+            $table->foreign('vendor_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
