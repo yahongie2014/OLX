@@ -24,7 +24,7 @@ class CartForm extends FormRequest
     public function rules()
     {
         return [
-            'product_id' => 'required|integer',
+            'product_id' => 'required|integer|exists:products,id',
             'qty' => 'required|integer|max:20',
         ];
     }

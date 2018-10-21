@@ -70,9 +70,9 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+
     }
 
     /**
@@ -82,9 +82,17 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CartForm $request, $id)
     {
-        //
+        $cart =  $this->cart->findOrFail($id);
+        $product = $this->product->find($request->product_id);
+        $cart->price = $product->price * $request->qty;
+        $cart->qty = $request->qty;
+        $cart->user_id = $request->user()->id;
+        $cart->update();
+
+        return new CartApi($cart);
+
     }
 
     /**
@@ -93,8 +101,28 @@ class CartController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:cart,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $soft = $this->cart->findOrFail($id);
+            if ($request->user()->id !== $soft->user_id) {
+                return response()->json(['error' => 'You can only delete your Crt Item.'], 403);
+            }
+            $soft->delete();
+
+            return response()->json(["message" => "Item IS Deleted"]);
+        }
     }
 }
