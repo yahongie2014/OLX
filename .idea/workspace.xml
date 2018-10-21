@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +38,7 @@
           <entry key="Blade" value="129" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="10350" />
+          <entry key="PHP" value="10368" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -50,7 +50,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="6" />
-          <entry key="php" value="723" />
+          <entry key="php" value="726" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -61,7 +61,7 @@
           <entry key="env" value="56" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="10479" />
+          <entry key="php" value="10497" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -73,10 +73,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="27" />
-          <entry key="Blade" value="32" />
+          <entry key="Blade" value="33" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="691" />
+          <entry key="PHP" value="693" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -84,13 +84,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="329">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#39#74#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+              <folding>
+                <element signature="e#45#81#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Cart.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/CartApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CartForm.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" />
@@ -172,6 +183,7 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
       </list>
     </option>
   </component>
@@ -364,6 +376,14 @@
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myservice" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Middleware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -464,7 +484,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127609000" />
+    <option name="totallyTimeSpent" value="127931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -727,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/consts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LanguageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -755,11 +768,6 @@
             <element signature="e#465#525#1#PHP" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
@@ -841,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/deliverylayout.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -858,12 +859,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        <state relative-caret-position="329">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#39#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/consts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
