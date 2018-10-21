@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Orders extends Model
 {
     const CREATED_AT = 'created_at';
-    // protected $dateFormat = 'U';
     public $timestamps = true;
 
     /**
@@ -45,5 +45,9 @@ class Orders extends Model
      */
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'expires_at', 'expires_at', 'expires_at', 'deleted_at', 'deleted_at'];
 
+    public function user(){
+
+        return $this->belongsTo(User::class,"user_id");
+    }
 
 }

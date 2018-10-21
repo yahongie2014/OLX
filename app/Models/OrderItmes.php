@@ -11,7 +11,7 @@ class OrderItmes extends Model
      *
      * @var string
      */
-    protected $table = 'order_itmes';
+    protected $table = 'order_items';
 
     /**
      * Attributes that should be mass-assignable.
@@ -39,5 +39,16 @@ class OrderItmes extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'expires_at', 'expires_at', 'expires_at', 'deleted_at'];
+    protected $dates = [ 'expires_at','deleted_at'];
+
+    public function Items(){
+
+        return $this->hasMany(Orders::class);
+    }
+    public function Products(){
+
+        return $this->belongsTo(Products::class);
+    }
+
+
 }

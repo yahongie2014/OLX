@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('order_number');
             $table->unsignedInteger('promo_code_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->float('total',13,2);
             $table->softDeletes();
             $table->timestamps();

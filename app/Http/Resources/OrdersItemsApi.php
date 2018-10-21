@@ -14,6 +14,11 @@ class OrdersItemsApi extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            "Identifier" => $this->id,
+            "OrderRelated" => $this->order_id,
+            "ProductName" => $this->Products->name,
+            "ProductPrice" => $this->Products->price,
+        ];
     }
 }

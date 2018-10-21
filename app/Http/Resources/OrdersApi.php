@@ -15,7 +15,11 @@ class OrdersApi extends JsonResource
     public function toArray($request)
     {
         return [
-
+            "Identifier" => $this->id,
+            "OrderStatus" => $this->status,
+            "UserName" => $this->user->name,
+            "OrderNumber" => $this->order_number,
+            "TotalPrice" => $this->total,
         ];
     }
 }
