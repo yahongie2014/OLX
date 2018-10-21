@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="" />
+    <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,7 @@
           <entry key="Blade" value="118" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="10283" />
+          <entry key="PHP" value="10311" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -47,7 +49,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="6" />
-          <entry key="php" value="711" />
+          <entry key="php" value="712" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -58,7 +60,7 @@
           <entry key="env" value="49" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="10401" />
+          <entry key="php" value="10429" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -73,7 +75,7 @@
           <entry key="Blade" value="25" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="686" />
+          <entry key="PHP" value="687" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -81,14 +83,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="24" column="58" lean-forward="true" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+            <state relative-caret-position="336">
+              <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding>
-                <element signature="e#39#74#0#PHP" expanded="true" />
+                <element signature="e#39#52#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-546">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -444,12 +455,12 @@
       <workItem from="1540068127225" duration="26234000" />
       <workItem from="1540096095769" duration="11018000" />
       <workItem from="1540107823218" duration="9651000" />
-      <workItem from="1540147899942" duration="11613000" />
+      <workItem from="1540147899942" duration="11910000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126268000" />
+    <option name="totallyTimeSpent" value="126565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -506,13 +517,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/RatesApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Rates.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -880,11 +884,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="24" column="58" lean-forward="true" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
+        <state relative-caret-position="336">
+          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
           <folding>
-            <element signature="e#39#74#0#PHP" expanded="true" />
+            <element signature="e#39#52#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-546">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
