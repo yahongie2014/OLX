@@ -16,6 +16,8 @@ class CreateTableCart extends Migration
         Schema::create('cart', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('product_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('qty');
             $table->float('price',13,2);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');

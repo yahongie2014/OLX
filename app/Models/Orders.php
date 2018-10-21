@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\OrdersItemsApi;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,6 +49,12 @@ class Orders extends Model
     public function user(){
 
         return $this->belongsTo(User::class,"user_id");
+    }
+    public function Items(){
+        return $this->hasMany(OrderItmes::class,"user_id");
+    }
+    public function total(){
+        return OrderItmes::where("order_id",$this->id)->groupBy("order_id")->sum("price");
     }
 
 }

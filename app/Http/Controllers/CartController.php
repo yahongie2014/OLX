@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\OrdersApi;
-use App\Models\Orders;
+use App\Http\Requests\CartForm;
+use App\Http\Resources\CartApi;
+use App\Models\Cart;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class CartController extends Controller
 {
-    public function __construct(Orders $orders)
+    public function __construct(Cart $cart, Products $product)
     {
         $this->middleware('auth:api');
-        $this->orders = $orders;
+        $this->cart = $cart;
+        $this->product = $product;
     }
 
     /**
@@ -21,7 +24,7 @@ class OrdersController extends Controller
      */
     public function index(Request $request)
     {
-     return OrdersApi::collection($this->orders->where("user_id",$request->user()->id)->paginate());
+        return CartApi::collection($this->cart->where("user_id", $request->user()->id)->paginate());
     }
 
     /**
@@ -37,21 +40,26 @@ class OrdersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CartForm $request)
     {
-        //
+        $cart = new $this->cart($request->all());
+        $product = $this->product->find($request->product_id);
+        $cart->price = $product->price * $request->qty;
+        $cart->user_id = $request->user()->id;
+        $cart->save();
+        return new CartApi($cart);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Orders  $orders
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Orders $orders)
+    public function show($id)
     {
         //
     }
@@ -59,10 +67,10 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Orders  $orders
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orders $orders)
+    public function edit($id)
     {
         //
     }
@@ -70,11 +78,11 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Orders  $orders
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orders $orders)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +90,10 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Orders  $orders
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orders $orders)
+    public function destroy($id)
     {
         //
     }

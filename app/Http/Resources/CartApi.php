@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class OrdersItemsApi extends JsonResource
+class CartApi extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +15,15 @@ class OrdersItemsApi extends JsonResource
      */
     public function toArray($request)
     {
-        return[
+        return [
             "Identifier" => $this->id,
-            "ProductName" => $this->Products->name,
-            "ProductImage" => url(Storage::url('Products/'. $this->Products->cover_image)),
-            "ProductPrice" => $this->Products->price,
+            "ProductName" => $this->Product->name,
+            "ProductImage" => url(Storage::url('Products/'. $this->Product->cover_image)),
+            "ProductPrice" => $this->Product->price,
+            "UserName" => $this->users->name,
+            "UserImage" => $this->users->image,
             "Quantity" => $this->qty,
-            "OrderLang" => $this->order_long,
-            "OrderLat" => $this->order_lat,
+            "Total" => $this->Product->price * $this->qty,
         ];
     }
 }

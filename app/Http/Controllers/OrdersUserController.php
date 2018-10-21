@@ -2,20 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrdersApi;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 
 class OrdersUserController extends Controller
 {
+    public function __construct(Orders $orders)
+    {
+        $this->middleware('auth:api');
+        $this->orders = $orders;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        return OrdersApi::collection($this->orders->where("user_id",$request->user()->id)->paginate());
 
+    }
     /**
      * Show the form for creating a new resource.
      *

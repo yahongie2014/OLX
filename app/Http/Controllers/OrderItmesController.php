@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrdersItemsApi;
 use App\Models\OrderItmes;
 use Illuminate\Http\Request;
 
 class OrderItmesController extends Controller
 {
+    public function __construct(OrderItmes $items)
+    {
+        $this->middleware('auth:api');
+        $this->items = $items;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return OrdersItemsApi::collection($this->items->paginate());
     }
 
     /**

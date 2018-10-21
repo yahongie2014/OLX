@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\OrderItmes;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class OrdersApi extends JsonResource
@@ -18,8 +19,10 @@ class OrdersApi extends JsonResource
             "Identifier" => $this->id,
             "OrderStatus" => $this->status,
             "UserName" => $this->user->name,
-            "OrderNumber" => $this->order_number,
-            "TotalPrice" => $this->total,
+            "OrderNumber" => "#".$this->order_number,
+            "PromoCode" => (boolean)$this->promo_code_id,
+            "OrderItems" => OrdersItemsApi::collection(OrderItmes::with("Products")->where("order_id",$this->id)->get()),
+            "TotalPrice" => $this->total(),
         ];
     }
 }

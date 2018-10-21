@@ -2,23 +2,25 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderItmes extends Model
+class Cart extends Model
 {
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'order_items';
+    protected $table = 'cart';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['product_id', 'order_id', 'order_long', 'order_lat', 'qty', 'price', 'deleted_at'];
+    protected $fillable = ['user_id','product_id', 'qty','price'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -39,14 +41,17 @@ class OrderItmes extends Model
      *
      * @var array
      */
-    protected $dates = [ 'expires_at','deleted_at'];
+    protected $dates = ['deleted_at'];
 
-    public function Items(){
-
-        return $this->hasMany(Orders::class);
-    }
-    public function Products(){
+    public function Product(){
 
         return $this->belongsTo(Products::class,"product_id");
     }
+    public function users(){
+
+        return $this->belongsTo(User::class,"user_id");
+    }
+
+
+
 }
