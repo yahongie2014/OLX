@@ -24,12 +24,11 @@ class setLanguage
             $userLanguage = Session::get('userLanguage.symbol');
         else {
             // get user language symbol
-           // $userLanguage = Language::find(Auth::user()->language_id)->symbol;
-            $userLanguage = Session::get('userLanguage.symbol');
+            $userLanguage = Language::find(Auth::user()->language_id)->symbol;
 
         }
 
-        App::setLocale($userLanguage);
+        App::setLocale("$userLanguage");
         return $next($request);
     }
 }
