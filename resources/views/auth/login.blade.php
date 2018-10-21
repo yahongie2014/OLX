@@ -120,34 +120,6 @@
                                 <div class="form-wrap ">
                                     <form method="POST" action="{{ route('login') }}">
                                         {{ csrf_field() }}
-                                        <div class="form-group ">
-                                            <div class="radio-list">
-                                                <div class="radio-inline pl-0">
-                                                            <span class="radio radio-success ">
-                                                                <input type="radio" name="login_type" id="radio_5"
-                                                                       value="1" checked>
-                                                                <label for="radio_5"
-                                                                       class="brand-text-white">{{__("general.Operation")}}</label>
-                                                            </span>
-                                                </div>
-                                                <div class="radio-inline">
-                                                            <span class="radio radio-success">
-                                                                <input type="radio" name="login_type" id="radio_6"
-                                                                       value="2">
-                                                                <label for="radio_6"
-                                                                       class="brand-text-white">{{__("general.Provider")}}</label>
-                                                            </span>
-                                                </div>
-                                                <div class="radio-inline">
-                                                            <span class="radio radio-success">
-                                                                <input type="radio" name="login_type" id="radio_7"
-                                                                       value="3">
-                                                                <label for="radio_7"
-                                                                       class="brand-text-white">{{__("general.Driver")}}</label>
-                                                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} ">
                                             <label class="control-label mb-10 brand-text-white"
                                                    for="exampleInputEmail_2">{{__("general.Email")}}</label>
