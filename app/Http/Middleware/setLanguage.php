@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session ;
 use Illuminate\Support\Facades\Auth;
 use Closure;
-
-use App\Admin;
 use App\Language;
-use App;
+
 class setLanguage
 {
     /**
