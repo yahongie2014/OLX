@@ -22,7 +22,9 @@ class OrdersApi extends JsonResource
             "OrderNumber" => "#".$this->order_number,
             "PromoCode" => (boolean)$this->promo_code_id,
             "OrderItems" => OrdersItemsApi::collection(OrderItmes::with("Products")->where("order_id",$this->id)->get()),
-            "TotalPrice" => $this->total,
+            "ProductsPrice" => $this->total,
+            "PercentageWebsite" => env("PERCENTAGE")."%",
+            "TotalPrice" => $this->total + $this->total * env("PERCENTAGE") / 100,
         ];
     }
 }

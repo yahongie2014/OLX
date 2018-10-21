@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +19,7 @@
     <session id="1998660889">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
@@ -32,30 +32,30 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="46" />
+          <entry key=".env file" value="49" />
           <entry key="Blade" value="17" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="7703" />
+          <entry key="PHP" value="7821" />
           <entry key="Vue.js" value="120" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="env" value="21" />
+          <entry key="env" value="22" />
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="3" />
-          <entry key="php" value="540" />
+          <entry key="php" value="542" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="env" value="46" />
+          <entry key="env" value="49" />
           <entry key="js" value="18" />
-          <entry key="php" value="7720" />
+          <entry key="php" value="7838" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -66,11 +66,11 @@
       <usages-collector id="statistics.php.new.class" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="22" />
+          <entry key=".env file" value="23" />
           <entry key="Blade" value="10" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="530" />
+          <entry key="PHP" value="532" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -79,14 +79,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Resources/OrdersApi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="57" column="51" lean-forward="true" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+            <state relative-caret-position="462">
+              <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
               <folding>
-                <element signature="e#40#73#0#PHP" expanded="true" />
-                <element signature="e#312#413#0#PHP" />
+                <element signature="e#38#64#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -129,7 +137,6 @@
         <option value="$PROJECT_DIR$/app/Models/Cities.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ProductImageApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/AdsImagesApi.php" />
@@ -153,9 +160,10 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/CartForm.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" />
         <option value="$PROJECT_DIR$/app/Models/Orders.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" />
       </list>
     </option>
   </component>
@@ -323,13 +331,6 @@
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -384,18 +385,18 @@
       <workItem from="1539970555906" duration="11415000" />
       <workItem from="1539986750049" duration="32684000" />
       <workItem from="1540057059225" duration="5071000" />
-      <workItem from="1540068127225" duration="25415000" />
+      <workItem from="1540068127225" duration="26234000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93167000" />
+    <option name="totallyTimeSpent" value="93986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2677761" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2677761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -446,13 +447,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -730,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/OrdersForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Orders.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -753,16 +740,6 @@
           <caret line="45" column="27" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="27" />
           <folding>
             <element signature="e#30#43#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/OrdersApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-          <folding>
-            <element signature="e#38#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -789,11 +766,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="57" column="51" lean-forward="true" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+        <state relative-caret-position="652">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="e#40#73#0#PHP" expanded="true" />
             <element signature="e#312#413#0#PHP" />
+            <element signature="e#1166#2465#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/OrdersForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/OrdersApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding>
+            <element signature="e#38#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
