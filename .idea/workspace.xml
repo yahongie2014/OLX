@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/consts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +37,7 @@
           <entry key="Blade" value="85" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="10251" />
+          <entry key="PHP" value="10255" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -50,7 +49,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="6" />
-          <entry key="php" value="700" />
+          <entry key="php" value="701" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -61,7 +60,7 @@
           <entry key="env" value="49" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="10336" />
+          <entry key="php" value="10340" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -76,7 +75,7 @@
           <entry key="Blade" value="23" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="677" />
+          <entry key="PHP" value="678" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -84,22 +83,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6699">
-              <caret line="319" column="75" selection-start-line="319" selection-start-column="75" selection-end-line="319" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LanguageController.php">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="103" column="41" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
+            <state relative-caret-position="328">
+              <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
               <folding>
-                <element signature="e#39#88#0#PHP" expanded="true" />
+                <element signature="e#465#525#1#PHP" />
+                <element signature="e#1944#2256#1#PHP" />
               </folding>
             </state>
           </provider>
@@ -173,11 +164,11 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
         <option value="$PROJECT_DIR$/storage/framework/views/dff538d066746a013028acd8e7898c6751c13777.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/Dashboard/Admin/Languages.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -375,6 +366,11 @@
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myservice" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -433,12 +429,12 @@
       <workItem from="1540068127225" duration="26234000" />
       <workItem from="1540096095769" duration="11018000" />
       <workItem from="1540107823218" duration="9651000" />
-      <workItem from="1540147899942" duration="9964000" />
+      <workItem from="1540147899942" duration="10248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124619000" />
+    <option name="totallyTimeSpent" value="124903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -828,17 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="74" selection-start-line="47" selection-start-column="74" selection-end-line="47" selection-end-column="74" />
-          <folding>
-            <element signature="e#465#525#1#PHP" />
-            <element signature="e#1125#1833#2#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CORS.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
@@ -866,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6699">
-          <caret line="319" column="75" selection-start-line="319" selection-start-column="75" selection-end-line="319" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/consts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -886,6 +864,24 @@
           <caret line="103" column="41" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
           <folding>
             <element signature="e#39#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6111">
+          <caret line="319" column="75" selection-start-line="319" selection-start-column="75" selection-end-line="319" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+          <folding>
+            <element signature="e#465#525#1#PHP" />
+            <element signature="e#1944#2256#1#PHP" />
           </folding>
         </state>
       </provider>
