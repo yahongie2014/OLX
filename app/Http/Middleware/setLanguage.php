@@ -22,7 +22,7 @@ class setLanguage
 
         //set language
         if(Session::has('userLanguage'))
-            $userLanguage = Session::get('userLanguage.symbol');
+            $userLanguage = Language::find(Auth::user()->language_id)->symbol;
         else{
             // get user language symbol
             $userLanguage = Language::find(Auth::user()->language_id)->symbol;
