@@ -45,6 +45,11 @@ class CartController extends Controller
      */
     public function store(CartForm $request)
     {
+        $count = $this->cart->where('product_id', '=', $request->product_id)->where('user_id', '=', $request->user()->id)->count();
+
+        if ($count){
+            return response()->json(["message" => "The given data was invalid",'errors' => 'product already in your cart'])->setStatusCode(400);
+        }
         $cart = new $this->cart($request->all());
         $product = $this->product->find($request->product_id);
         $cart->price = $product->price * $request->qty;

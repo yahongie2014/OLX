@@ -9,6 +9,7 @@ use App\Models\OrderItmes;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class OrdersUserController extends Controller
 {
@@ -50,9 +51,10 @@ class OrdersUserController extends Controller
     public function store(OrdersForm $request)
     {
         $cart_item = $this->cart->where("user_id", $request->user()->id)->get();
-//        if ($cart_item != '') {
-//            return response()->json(["message" => "The given data was invalid", "errors" => "No Cart Item"]);
-//        }
+        $check = $this->cart->where("user_id", $request->user()->id)->sum('price');
+        if($check == null) {
+            return response()->json(["message" => "The given data was invalid", "errors" => "No Cart Item"]);
+        }
         $make = new $this->orders($request->all());
         $generated = rand(2222235, 8787878);
         $total = $this->cart->where("user_id", $request->user()->id)->groupBy("user_id")->sum("price");

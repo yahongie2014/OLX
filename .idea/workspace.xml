@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +35,7 @@
           <entry key=".env file" value="46" />
           <entry key="Blade" value="17" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="7587" />
+          <entry key="PHP" value="7703" />
           <entry key="Vue.js" value="120" />
         </counts>
       </usages-collector>
@@ -48,7 +46,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="3" />
-          <entry key="php" value="538" />
+          <entry key="php" value="540" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -57,7 +55,7 @@
         <counts>
           <entry key="env" value="46" />
           <entry key="js" value="18" />
-          <entry key="php" value="7604" />
+          <entry key="php" value="7720" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -72,7 +70,7 @@
           <entry key="Blade" value="10" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="528" />
+          <entry key="PHP" value="530" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -83,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+            <state relative-caret-position="305">
+              <caret line="57" column="51" lean-forward="true" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
               <folding>
                 <element signature="e#40#73#0#PHP" expanded="true" />
                 <element signature="e#312#413#0#PHP" />
@@ -153,10 +151,10 @@
         <option value="$PROJECT_DIR$/app/Http/Resources/CartApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/OrdersItemsApi.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CartForm.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" />
         <option value="$PROJECT_DIR$/app/Models/Orders.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" />
       </list>
     </option>
@@ -386,18 +384,18 @@
       <workItem from="1539970555906" duration="11415000" />
       <workItem from="1539986750049" duration="32684000" />
       <workItem from="1540057059225" duration="5071000" />
-      <workItem from="1540068127225" duration="24339000" />
+      <workItem from="1540068127225" duration="25415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92091000" />
+    <option name="totallyTimeSpent" value="93167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2677761" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2677761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -708,30 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/CartApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#38#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/CartForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="40" selection-start-line="23" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
-          <folding>
-            <element signature="e#40#71#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,10 +767,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/CartApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#38#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding>
+            <element signature="e#40#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+        <state relative-caret-position="305">
+          <caret line="57" column="51" lean-forward="true" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
           <folding>
             <element signature="e#40#73#0#PHP" expanded="true" />
             <element signature="e#312#413#0#PHP" />
