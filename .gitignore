@@ -9,6 +9,5 @@ vendor/
 npm-debug.log
 .DS_Store
 /*.env
-public/
 
 storage/framework/
