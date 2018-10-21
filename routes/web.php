@@ -14,11 +14,11 @@
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', 'ChatsController@index');
+Route::get('/chat', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 Route::get('home', 'HomeController@index')->name("home");
-Route::get("/welcome",function (){
+Route::get("/",function (){
    return view("welcome");
 });
 
