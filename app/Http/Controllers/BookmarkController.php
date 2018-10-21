@@ -45,6 +45,12 @@ class BookmarkController extends Controller
      */
     public function store(BookmarkForm $request)
     {
+        $count = $this->book->where('ads_id', '=', $request->ads_id)->where('user_id', '=', $request->user()->id)->count();
+
+        if ($count) {
+            return response()->json(["message" => "The given data was invalid", 'errors' => 'you Already Favourite That Service'])->setStatusCode(400);
+        }
+
         $bookmark = new $this->book($request->all());
         $bookmark->user_id = $request->user()->id;
         $bookmark->save();
