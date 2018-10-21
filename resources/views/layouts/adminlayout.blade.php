@@ -1,5 +1,5 @@
 @extends('layouts.mainlayout')
-@section('title', config('app.name', 'Laravel') . ' | Admin Dashboard')
+@section('title', env('APP_NAME', 'At Time') . ' | Admin Dashboard')
 
 @section('headerBar')
 <li>

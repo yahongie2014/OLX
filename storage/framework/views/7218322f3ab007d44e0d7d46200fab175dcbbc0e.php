@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', config('app.name', 'Laravel') . ' | Admin Dashboard'); ?>
+<?php $__env->startSection('title', env('APP_NAME', 'Laravel') . ' | Admin Dashboard'); ?>
 
 <?php $__env->startSection('headerBar'); ?>
 <li>
