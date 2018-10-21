@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,10 +34,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="56" />
-          <entry key="Blade" value="119" />
+          <entry key="Blade" value="129" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="10339" />
+          <entry key="PHP" value="10342" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -48,11 +45,11 @@
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="env" value="25" />
+          <entry key="env" value="26" />
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="6" />
-          <entry key="php" value="718" />
+          <entry key="php" value="719" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -63,7 +60,7 @@
           <entry key="env" value="56" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="10458" />
+          <entry key="php" value="10471" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -74,11 +71,11 @@
       <usages-collector id="statistics.php.new.class" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="26" />
+          <entry key=".env file" value="27" />
           <entry key="Blade" value="28" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="690" />
+          <entry key="PHP" value="691" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -86,50 +83,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="308">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#39#74#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6699">
-              <caret line="319" column="75" selection-start-line="319" selection-start-column="75" selection-end-line="319" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -206,10 +167,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" />
       </list>
     </option>
   </component>
@@ -497,12 +458,12 @@
       <workItem from="1540068127225" duration="26234000" />
       <workItem from="1540096095769" duration="11018000" />
       <workItem from="1540107823218" duration="9651000" />
-      <workItem from="1540147899942" duration="12490000" />
+      <workItem from="1540147899942" duration="12763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127145000" />
+    <option name="totallyTimeSpent" value="127418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -771,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Resources/Dashboard/Admin/Languages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -882,34 +836,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="38" />
-          <folding>
-            <element signature="e#39#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6699">
-          <caret line="319" column="75" selection-start-line="319" selection-start-column="75" selection-end-line="319" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="270" column="13" selection-start-line="270" selection-start-column="13" selection-end-line="270" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -935,9 +865,36 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/adminlayout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-end-column="8" />
+        <state relative-caret-position="210">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/mainlayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1617">
+          <caret line="179" column="68" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#39#74#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
