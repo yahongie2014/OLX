@@ -9,8 +9,6 @@ use League\Fractal\Manager;
 use Illuminate\Support\Facades\Auth;
 
 use App\Language;
-define("LANGUAGE_INACTIVE",0);
-define("LANGUAGE_ACTIVE",1);
 class LanguageController extends Controller
 {
     private $fractal;
