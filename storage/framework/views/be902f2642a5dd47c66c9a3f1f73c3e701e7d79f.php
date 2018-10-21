@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-@php
+<?php
     App::setLocale('ar');
 $languages = \App\Language::all();
 $countries = \App\Models\Country::all();
-@endphp
+?>
 
-<html lang="{{ app()->getLocale() }}">
+<html lang="<?php echo e(app()->getLocale()); ?>">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
     <meta name="description" content="Philbert is a Dashboard & Admin Site Responsive Template by hencework."/>
     <meta name="keywords"
           content="admin, admin dashboard, admin template, cms, crm, Philbert Admin, Philbertadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application"/>
@@ -21,21 +21,21 @@ $countries = \App\Models\Country::all();
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- vector map CSS -->
-    <link href="{{asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')}}" rel="stylesheet"
+    <link href="<?php echo e(asset('vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css')); ?>" rel="stylesheet"
           type="text/css"/>
 
     <!-- select2 CSS -->
-    <link href="{{asset('vendors/bower_components/select2/dist/css/select2.min.css')}}" rel="stylesheet"
+    <link href="<?php echo e(asset('vendors/bower_components/select2/dist/css/select2.min.css')); ?>" rel="stylesheet"
           type="text/css"/>
 
     <!-- bootstrap-select CSS -->
-    <link href="{{asset('vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')}}"
+    <link href="<?php echo e(asset('vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')); ?>"
           rel="stylesheet" type="text/css"/>
     <!-- Custom CSS -->
-    <link href="{{asset('dist/css/style-rtl.css')}}" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('dist/css/style-rtl.css')); ?>" rel="stylesheet" type="text/css">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <style>
         #video_background {
             position: fixed;
@@ -90,15 +90,15 @@ $countries = \App\Models\Country::all();
 <div class="wrapper pa-0">
     <header class="sp-header" style="z-index: 4;">
         <div class="sp-logo-wrap pull-left">
-            <a href="{{url('/')}}">
-                <img class="brand-img mr-10" src="{{asset('dist/img/logo3.png')}}" alt="brand"/>
-                <span class="brand-text brand-text-white">{{ config('app.name', 'Laravel') }}</span>
+            <a href="<?php echo e(url('/')); ?>">
+                <img class="brand-img mr-10" src="<?php echo e(asset('dist/img/logo3.png')); ?>" alt="brand"/>
+                <span class="brand-text brand-text-white"><?php echo e(config('app.name', 'Laravel')); ?></span>
             </a>
         </div>
         <div class="form-group mb-0 pull-right">
-            <span class="inline-block pr-10 brand-text-white">{{__("general.Already have an account?")}}</span>
+            <span class="inline-block pr-10 brand-text-white"><?php echo e(__("general.Already have an account?")); ?></span>
             <a class="inline-block btn btn-info btn-success btn-rounded brand-text-white"
-               href="{{route('login')}}">{{__("general.Sign In")}}</a>
+               href="<?php echo e(route('login')); ?>"><?php echo e(__("general.Sign In")); ?></a>
         </div>
         <div class="clearfix"></div>
     </header>
@@ -112,8 +112,8 @@ $countries = \App\Models\Country::all();
                     <div class="auth-form  ml-auto mr-auto no-float">
                         <video id="video_background" class="video_bg" preload="auto" autoplay="true" loop="loop"
                                muted="muted" volume="0">
-                            <source src="{{asset('dist/img/jibli.mp4')}}" type="video/mp4">
-                            <source src="{{asset('dist/img/jibli.ogg')}}" type="video/ogg">
+                            <source src="<?php echo e(asset('dist/img/jibli.mp4')); ?>" type="video/mp4">
+                            <source src="<?php echo e(asset('dist/img/jibli.ogg')); ?>" type="video/ogg">
                         </video>
                         <div class="overlay">
                             <div class="gradient-overlay gradient-17 opacity-80"></div>
@@ -121,179 +121,180 @@ $countries = \App\Models\Country::all();
                         <div class="row">
                             <div class="col-sm-12 col-xs-12" style="z-index: 3;">
                                 <div class="mb-30">
-                                    <h3 class="text-center txt-dark mb-10 brand-text-white">{{__("general.Sign up")}}</h3>
+                                    <h3 class="text-center txt-dark mb-10 brand-text-white"><?php echo e(__("general.Sign up")); ?></h3>
 
                                 </div>
 
                                 <div class="form-wrap">
-                                    <form method="POST" action="{{ route('register') }}">
-                                        {{ csrf_field() }}
+                                    <form method="POST" action="<?php echo e(route('register')); ?>">
+                                        <?php echo e(csrf_field()); ?>
+
                                         <div class="form-group">
                                             <div class="checkbox checkbox-success" style="display: none">
                                                 <input id="provider_member" value="1" type="checkbox"
                                                        name="provider_member"
-                                                       @if(old('provider_member')) checked @endif>
+                                                       <?php if(old('provider_member')): ?> checked <?php endif; ?>>
                                                 <label for="provider_member "
-                                                       class="brand-text-white">{{__("general.Provider")}}</label>
+                                                       class="brand-text-white"><?php echo e(__("general.Provider")); ?></label>
                                             </div>
                                         </div>
 
-                                        <div class="form-group {{ $errors->has('provider_member') || $errors->has('driver_member') ? ' has-error' : '' }}">
+                                        <div class="form-group <?php echo e($errors->has('provider_member') || $errors->has('driver_member') ? ' has-error' : ''); ?>">
                                             <div class="">
                                                 <input id="provider_member" value="1" type="checkbox"
                                                        name="provider_member"
-                                                       @if(old('provider_member')) checked @endif>
+                                                       <?php if(old('provider_member')): ?> checked <?php endif; ?>>
                                                 <label for="provider_member"
-                                                       class="brand-text-white">{{__("general.Provider")}}</label>
-                                                @if ($errors->has('provider_member'))
+                                                       class="brand-text-white"><?php echo e(__("general.Provider")); ?></label>
+                                                <?php if($errors->has('provider_member')): ?>
                                                     <span class="help-block">
-                                                    <strong>{{ $errors->first('provider_member') }}</strong>
+                                                    <strong><?php echo e($errors->first('provider_member')); ?></strong>
                                                 </span>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                         </div>
-                                        <div class="form-group {{ $errors->has('provider_member') || $errors->has('driver_member') ? ' has-error' : '' }} ">
+                                        <div class="form-group <?php echo e($errors->has('provider_member') || $errors->has('driver_member') ? ' has-error' : ''); ?> ">
                                             <div class="">
                                                 <input id="driver_member" value="1" type="checkbox" name="driver_member"
-                                                       @if(old('driver_member')) checked @endif>
+                                                       <?php if(old('driver_member')): ?> checked <?php endif; ?>>
                                                 <label for="driver_member"
-                                                       class="brand-text-white">{{__("general.Driver")}}</label>
+                                                       class="brand-text-white"><?php echo e(__("general.Driver")); ?></label>
 
-                                                @if ($errors->has('driver_member'))
+                                                <?php if($errors->has('driver_member')): ?>
                                                     <span class="help-block">
-                                                    <strong>{{ $errors->first('driver_member') }}</strong>
+                                                    <strong><?php echo e($errors->first('driver_member')); ?></strong>
                                                 </span>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
 
                                         </div>
 
-                                        <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} ">
+                                        <div class="form-group <?php echo e($errors->has('name') ? ' has-error' : ''); ?> ">
                                             <label class="control-label mb-10 brand-text-white"
-                                                   for="exampleInputName_1">{{__("general.Full Name")}}</label>
+                                                   for="exampleInputName_1"><?php echo e(__("general.Full Name")); ?></label>
                                             <input type="text" name="name" class="form-control" id="exampleInputName_1"
-                                                   placeholder="{{__('general.Full Name Ex')}}"
-                                                   value="{{ old('name') }}" required>
-                                            @if ($errors->has('name'))
+                                                   placeholder="<?php echo e(__('general.Full Name Ex')); ?>"
+                                                   value="<?php echo e(old('name')); ?>" required>
+                                            <?php if($errors->has('name')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                    <strong><?php echo e($errors->first('name')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <div class="form-group <?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
                                             <label class="control-label mb-10 brand-text-white"
-                                                   for="exampleInputEmail_2">{{__("general.Email")}}</label>
-                                            <input type="email" name="email" value="{{ old('email') }}"
+                                                   for="exampleInputEmail_2"><?php echo e(__("general.Email")); ?></label>
+                                            <input type="email" name="email" value="<?php echo e(old('email')); ?>"
                                                    class="form-control" id="exampleInputEmail_2"
-                                                   placeholder="{{__('general.Email Ex')}}" required>
-                                            @if ($errors->has('email'))
+                                                   placeholder="<?php echo e(__('general.Email Ex')); ?>" required>
+                                            <?php if($errors->has('email')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                    <strong><?php echo e($errors->first('email')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <div class="form-group <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                                             <label class="pull-left control-label mb-10 brand-text-white"
-                                                   for="exampleInputpwd_2">{{__("general.Password")}}</label>
+                                                   for="exampleInputpwd_2"><?php echo e(__("general.Password")); ?></label>
                                             <input type="password" name="password" class="form-control"
                                                    id="exampleInputpwd_2" required>
-                                            @if ($errors->has('password'))
+                                            <?php if($errors->has('password')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                    <strong><?php echo e($errors->first('password')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                        <div class="form-group <?php echo e($errors->has('password_confirmation') ? ' has-error' : ''); ?>">
                                             <label class="pull-left control-label mb-10 brand-text-white"
-                                                   for="exampleInputpwd_3">{{__("general.Confirm Password")}}</label>
+                                                   for="exampleInputpwd_3"><?php echo e(__("general.Confirm Password")); ?></label>
                                             <input type="password" name="password_confirmation" class="form-control"
                                                    id="exampleInputpwd_3" required>
-                                            @if ($errors->has('password_confirmation'))
+                                            <?php if($errors->has('password_confirmation')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                                    <strong><?php echo e($errors->first('password_confirmation')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
+                                        <div class="form-group <?php echo e($errors->has('phone') ? ' has-error' : ''); ?>">
                                             <label class="control-label mb-10 brand-text-white"
-                                                   for="exampleInputName_1">{{__("general.Phone")}}</label>
+                                                   for="exampleInputName_1"><?php echo e(__("general.Phone")); ?></label>
                                             <input type="text" name="phone" maxlength="15"
                                                    class="form-control allownumericwithoutdecimal"
-                                                   id="exampleInputName_1" placeholder="{{__('general.Phone Ex')}}"
-                                                   value="{{ old('phone') }}" required>
-                                            @if ($errors->has('phone'))
+                                                   id="exampleInputName_1" placeholder="<?php echo e(__('general.Phone Ex')); ?>"
+                                                   value="<?php echo e(old('phone')); ?>" required>
+                                            <?php if($errors->has('phone')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                    <strong><?php echo e($errors->first('phone')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
 
-                                        <div class="form-group {{ $errors->has('language_id') ? ' has-error' : '' }}">
-                                            <label class="control-label mb-10 brand-text-white">{{__("general.Language")}}</label>
+                                        <div class="form-group <?php echo e($errors->has('language_id') ? ' has-error' : ''); ?>">
+                                            <label class="control-label mb-10 brand-text-white"><?php echo e(__("general.Language")); ?></label>
                                             <select class="form-control select2" name="language_id">
-                                                <option>{{__("general.Select")}}</option>
-                                                @foreach($languages as $language)
-                                                    <option value="{{$language->id}}"
-                                                            @if( old("language_id") == $language->id ) selected @endif>{{$language->name}}</option>
-                                                @endforeach
+                                                <option><?php echo e(__("general.Select")); ?></option>
+                                                <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($language->id); ?>"
+                                                            <?php if( old("language_id") == $language->id ): ?> selected <?php endif; ?>><?php echo e($language->name); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
-                                            @if ($errors->has('language_id'))
+                                            <?php if($errors->has('language_id')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('language_id') }}</strong>
+                                                    <strong><?php echo e($errors->first('language_id')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('country_id') ? ' has-error' : '' }}">
-                                            <label class="control-label mb-10 brand-text-white">{{__("general.Country")}}</label>
+                                        <div class="form-group <?php echo e($errors->has('country_id') ? ' has-error' : ''); ?>">
+                                            <label class="control-label mb-10 brand-text-white"><?php echo e(__("general.Country")); ?></label>
                                             <select class="form-control select2" name="country_id" id="country_id"
                                                     required>
-                                                <option>{{__("general.Select")}}</option>
-                                                @foreach($countries as $country)
-                                                    <option value="{{$country->id}}"
-                                                            @if( old("country_id") == $country->id ) selected @endif>{{$country->name}}</option>
-                                                @endforeach
+                                                <option><?php echo e(__("general.Select")); ?></option>
+                                                <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($country->id); ?>"
+                                                            <?php if( old("country_id") == $country->id ): ?> selected <?php endif; ?>><?php echo e($country->name); ?></option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
-                                            @if ($errors->has('country_id'))
+                                            <?php if($errors->has('country_id')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('country_id') }}</strong>
+                                                    <strong><?php echo e($errors->first('country_id')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('city_id') ? ' has-error' : '' }}">
-                                            <label class="control-label mb-10 brand-text-white">{{__("general.City")}}</label>
+                                        <div class="form-group <?php echo e($errors->has('city_id') ? ' has-error' : ''); ?>">
+                                            <label class="control-label mb-10 brand-text-white"><?php echo e(__("general.City")); ?></label>
                                             <select class="form-control select2" name="city_id" id="city_id" required>
-                                                <option>{{__("general.Select")}}</option>
+                                                <option><?php echo e(__("general.Select")); ?></option>
 
                                             </select>
-                                            @if ($errors->has('city_id'))
+                                            <?php if($errors->has('city_id')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('city_id') }}</strong>
+                                                    <strong><?php echo e($errors->first('city_id')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }}">
-                                            <label class="control-label mb-10 text-left brand-text-white">{{__("general.Address")}}</label>
+                                        <div class="form-group <?php echo e($errors->has('address') ? ' has-error' : ''); ?>">
+                                            <label class="control-label mb-10 text-left brand-text-white"><?php echo e(__("general.Address")); ?></label>
                                             <textarea class="form-control" required name="address"
-                                                      rows="5">{{ old('address') }}</textarea>
-                                            @if ($errors->has('address'))
+                                                      rows="5"><?php echo e(old('address')); ?></textarea>
+                                            <?php if($errors->has('address')): ?>
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('address') }}</strong>
+                                                    <strong><?php echo e($errors->first('address')); ?></strong>
                                                 </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <div class=" checkbox-primary pr-10 pull-left">
                                                 <input id="checkbox_2" required="" type="checkbox">
                                                 <label for="checkbox_2 "
-                                                       class="brand-text-white"> {{__("general.I agree to all")}} <span
+                                                       class="brand-text-white"> <?php echo e(__("general.I agree to all")); ?> <span
                                                             class="txt-primary"
-                                                            style="color:#00cbbd !important;">{{__("general.Terms")}}</span></label>
+                                                            style="color:#00cbbd !important;"><?php echo e(__("general.Terms")); ?></span></label>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="form-group text-center">
                                             <button type="submit"
-                                                    class="btn btn-info btn-success btn-rounded">{{__("general.Sign Up")}}</button>
+                                                    class="btn btn-info btn-success btn-rounded"><?php echo e(__("general.Sign Up")); ?></button>
                                         </div>
                                     </form>
                                 </div>
@@ -315,20 +316,20 @@ $countries = \App\Models\Country::all();
 
 <!-- jQuery -->
 
-<script src="{{asset('vendors/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="<?php echo e(asset('vendors/bower_components/jquery/dist/jquery.min.js')); ?>"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')}}"></script>
+<script src="<?php echo e(asset('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js')); ?>"></script>
 
 <!-- Slimscroll JavaScript -->
-<script src="{{asset('dist/js/jquery.slimscroll.js')}}"></script>
+<script src="<?php echo e(asset('dist/js/jquery.slimscroll.js')); ?>"></script>
 
 <!-- Select2 JavaScript -->
-<script src="{{asset('vendors/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<script src="<?php echo e(asset('vendors/bower_components/select2/dist/js/select2.full.min.js')); ?>"></script>
 
 <!-- Init JavaScript -->
-<script src="{{asset('dist/js/init.js')}}"></script>
+<script src="<?php echo e(asset('dist/js/init.js')); ?>"></script>
 <script>
     $(document).ready(function () {
         /* Select2 Init*/
@@ -343,9 +344,9 @@ $countries = \App\Models\Country::all();
         });
 
         $("#country_id").change(function () {
-            var postData = {_token: "{{ csrf_token() }}", country_id: $(this).val()}
+            var postData = {_token: "<?php echo e(csrf_token()); ?>", country_id: $(this).val()}
             $.ajax({
-                url: '{{url("/user/country/cities")}}',
+                url: '<?php echo e(url("/user/country/cities")); ?>',
                 type: 'GET',
                 data: postData,
                 dataType: 'JSON',

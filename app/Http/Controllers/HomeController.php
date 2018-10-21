@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cities;
 use App\Language;
 use App\User;
 use Session;
@@ -81,5 +82,43 @@ class HomeController extends Controller
     {
         return response()->json(['success' => true, 'id' => Auth::user()->id]);
     }
+
+    public function cities(Request $request)
+    {
+        //
+        $loginType = session()->get('login_type');
+
+        if(Auth::user())
+            $language_id = Auth::user()->language_id;
+        else
+            $language_id = Language::where('default' , DEFAULT_LANGUAGE)->first(['id'])->id;
+
+        $cities = Cities::with("country")->get();
+
+        if($request->has('country_id'))
+            $cities = $cities->where('country_id',$request->country_id);
+
+        if(!($loginType == ADMIN) ){
+            if(!$request->has('country_id'))
+                $cities = $cities->where('country_id',Auth::user()->country_id);
+
+            $cities = $cities->where('status',CITY_ACTIVE);
+        }
+
+        $cities = $cities->get();
+
+        if(Request()->expectsJson()){
+            $cities = new Collection($cities, $this->cityTransformer);
+            $cities = $this->fractal->createData($cities); // Transform data
+
+            return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
+        }
+
+        return view('admin.city.index')
+            ->with([
+                'cities' => $cities,
+            ]);
+    }
+
 
 }
