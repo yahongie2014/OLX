@@ -24,7 +24,16 @@ class OrdersForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            'order_lat' => 'required',
+            'order_long' => 'required',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'order_long.required' => 'Order Latitude Wanted!',
+            'order_lat.required' => 'Order Longitude Wanted!',
+
         ];
     }
 }
