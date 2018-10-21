@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Resources\OrdersItemsApi;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -47,10 +46,18 @@ class Orders extends Model
     protected $dates = ['deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'deleted_at', 'expires_at', 'expires_at', 'expires_at', 'deleted_at', 'deleted_at'];
 
     public function user(){
+
         return $this->belongsTo(User::class,"user_id");
     }
     public function Items(){
+
         return $this->hasMany(OrderItmes::class,"user_id");
+
+    }
+    public function orders_product_company(){
+
+        return $this->morphMany(AdsProducts::class,Products::class,"product_id","id","product_id");
+
     }
 
 

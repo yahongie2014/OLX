@@ -67,9 +67,11 @@ class Advertising extends Model
         return $this->belongsTo(User::class,"user_id");
     }
     public function images(){
+
         return $this->hasMany(AdsImages::class);
     }
     public function cities(){
+
         return $this->hasMany(AdsCities::class);
     }
 

@@ -1,26 +1,24 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class OrderItmes extends Model
-{
+class Payment extends Model  {
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'order_items';
+    protected $table = 'payments';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['product_id', 'order_id', 'order_long', 'order_lat', 'qty', 'price', 'deleted_at'];
+    protected $fillable = ['payment_type', 'delivery_fees', 'total', 'user_id', 'order_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -41,18 +39,6 @@ class OrderItmes extends Model
      *
      * @var array
      */
-    protected $dates = ['expires_at', 'deleted_at'];
-
-    public function Items()
-    {
-
-        return $this->hasMany(Orders::class);
-    }
-
-    public function Products()
-    {
-
-        return $this->belongsTo(Products::class, "product_id");
-    }
+    protected $dates = [];
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrdersApi;
+use App\Models\OrderItmes;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class OrdersController extends Controller
      */
     public function index(Request $request)
     {
-     return OrdersApi::collection($this->orders->where("user_id",$request->user()->id)->paginate());
+
+     return OrdersApi::collection($this->orders->paginate());
     }
 
     /**
@@ -51,9 +53,29 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function show(Orders $orders)
+    public function show(Request $request, $id)
     {
-        //
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:orders,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $only = $this->orders->findOrFail($id);
+
+            if ($request->user()->id !== $only->user_id) {
+                return response()->json(['error' => 'You can only show your Orders.'], 403);
+            }
+
+            return new OrdersApi($only);
+        }
+
     }
 
     /**
