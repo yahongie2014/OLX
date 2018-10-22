@@ -14,6 +14,7 @@ class Cities extends Model  {
 
     public $translationModel = CitiessTranslation::class;
     public $translatedAttributes = ['name','cities_id'];
+    public $useTranslationFallback = true;
 
     const CREATED_AT = 'created_at';
     public $timestamps = true;

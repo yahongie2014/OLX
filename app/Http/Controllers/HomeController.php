@@ -160,14 +160,12 @@ class HomeController extends Controller
         if($request->has('country_id'))
             $cities = $cities->where('country_id',$request->country_id);
 
-        $cities = $cities->where('status',1);
 
         $cities = $cities->get();
 
         if(Request()->expectsJson()){
             $cities = new Collection($cities, $this->cityTransformer);
             $cities = $this->fractal->createData($cities); // Transform data
-
             return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
         }
 
