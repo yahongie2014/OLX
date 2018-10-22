@@ -71,7 +71,7 @@ class Kernel extends HttpKernel
         'cors' => \App\Http\Middleware\CORS::class,
         'setlanguage' => \App\Http\Middleware\setLanguage::class,
         'Admin' => \App\Http\Middleware\IsUserAdmin::class,
-        'Vendor' => \App\Http\Middleware\Vendor::class,
+        'Providers' => \App\Http\Middleware\Vendor::class,
 
     ];
 }

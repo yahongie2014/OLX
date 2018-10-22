@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
             if( Auth::user()->is_admin  == 1 && Auth::user()->is_vendor == 0 ){
                 return redirect('/admin');
             }elseif(Auth::user()->is_vendor  == 1 && Auth::user()->is_admin == 0){
-                return redirect('/vendor');
+                return redirect('/provider');
             }
         }
 

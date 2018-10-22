@@ -6,14 +6,14 @@
 
 <?php $__env->startSection('headerBar'); ?>
 <li>
-    <a href="<?php echo e(url('/vendor/profile/' . Auth::user()->id)); ?>"><i class="zmdi zmdi-account"></i><span><?php echo e(__("general.Profile")); ?></span></a>
+    <a href="<?php echo e(url('/Providers/profile/' . Auth::user()->id)); ?>"><i class="zmdi zmdi-account"></i><span><?php echo e(__("general.Profile")); ?></span></a>
 </li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('PageLocation'); ?>
 
 <li>
-    <a href="<?php echo e(url('/vendor')); ?>"><?php echo e(__("general.Home")); ?></a>
+    <a href="<?php echo e(url('/Providers')); ?>"><?php echo e(__("general.Home")); ?></a>
 </li>
 
 <li>
@@ -30,7 +30,7 @@
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="<?php echo e(url('/vendors')); ?>">
+            <a href="<?php echo e(url('/provider')); ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-home mr-20"></i>
                     <span class="right-nav-text"><?php echo e(__("general.Home")); ?></span>
@@ -41,7 +41,7 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo e(url('/vendors/profile/' . Auth::user()->id)); ?>">
+            <a href="<?php echo e(url('/provider/profile/' . Auth::user()->id)); ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-account mr-20"></i>
                     <span class="right-nav-text"><?php echo e(__("general.Profile")); ?></span>
@@ -52,7 +52,7 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo e(url('/vendors/orders')); ?>">
+            <a href="<?php echo e(url('/provider/orders')); ?>">
                 <div class="pull-left">
                     <i class="zmdi zmdi-labels mr-20"></i>
                     <span class="right-nav-text"><?php echo e(__("general.Orders")); ?></span>
@@ -63,7 +63,7 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo e(url('/vendors/orders/create')); ?>">
+            <a href="<?php echo e(url('/provider/orders/create')); ?>">
                 <div class="pull-left">
                     <i class="glyphicon glyphicon-plus-sign mr-20"></i>
                     <span class="right-nav-text"><?php echo e(__("general.New Order")); ?></span>

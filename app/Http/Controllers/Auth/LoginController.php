@@ -51,7 +51,7 @@ class LoginController extends Controller
                 $this->redirectTo = '/admin';
                 break;
             case 2:
-                $this->redirectTo = '/vendors';
+                $this->redirectTo = '/provider';
                 break;
             default:
                 $this->redirectTo = '/admin';
