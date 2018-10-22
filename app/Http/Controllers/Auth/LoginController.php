@@ -49,7 +49,7 @@ class LoginController extends Controller
 
 
         // Get System active Languages
-        $languages = Language::where('status',LANGUAGE_ACTIVE)->get();
+        $languages = Language::where('status',1)->get();
 
         // Save system languages in session for farther select
         Session::put('systemLanguages',$languages);
@@ -66,8 +66,6 @@ class LoginController extends Controller
         // Save system languages in session for farther select
         Session::put('systemLanguages',$languages);
 
-        //dd(Session::get('systemLanguages'));
-        //dd("redirect()->intended(" . $this->redirectPath() .")");
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect($this->redirectPath());//->intended($this->redirectPath());
     }

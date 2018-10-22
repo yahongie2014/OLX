@@ -45,7 +45,7 @@ Route::get('provider/activation/{providerId}', 'ProviderController@adminProvider
 Route::resource('delivery', 'DeliveryController', ['only' => ['index', 'show']]);
 Route::get('delivery/activation/{providerId}', 'DeliveryController@adminDeliveryActivation');
 
-Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
+Route::resource('profile', '\App\Http\Controllers\Admin\UserController', ['only' => ['show', 'update']]);
 
 Route::resource('orders', 'OrderController', ['only' => ['index', 'show']]);
 Route::post('orders/refuse', 'OrderController@adminRefuseOrder');
@@ -64,7 +64,7 @@ Route::resource('paytypes', 'PaymentTypeController', ['except' => ['destroy', 's
 
 Route::group(['prefix' => '/provider', 'middleware' => 'isprovider'], function () {
 Route::get('/', 'HomeController@provider')->name('providerHome');
-Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
+Route::resource('profile', 'Admin/UserController', ['only' => ['show', 'update']]);
 Route::resource('orders', 'OrderController', ['only' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
 Route::resource('loading', 'ProviderLoadingController', ['only' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
 Route::post('orders/cancel', 'OrderController@providerCancelOrder');
@@ -73,7 +73,7 @@ Route::post('client', 'OrderController@getClientLastOrderInformation');
 
 Route::group(['prefix' => '/delivery', 'middleware' => 'isdelivery'], function () {
 Route::get('/', 'HomeController@delivery')->name('deliveryHome');
-Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
+Route::resource('profile', 'Admin/UserController', ['only' => ['show', 'update']]);
 
 Route::get('orders/action/{orderId}/{actionId}', 'OrderController@deliveryNextStep');
 Route::resource('info', 'DeliveryController', ['only' => ['update']]);

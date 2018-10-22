@@ -27,7 +27,7 @@ class setLanguage
             $userLanguage = Language::find(Auth::user()->language_id)->symbol;
         }
 
-        App::setLocale("$userLanguage");
+      //  App::setLocale("$userLanguage");
         return $next($request);
     }
 }
