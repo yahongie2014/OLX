@@ -47,8 +47,9 @@ Route::group(['middleware' => ['cors']], function () {
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
 Route::post('auth/socket','HomeController@authSocket');
 
+Route::group(['middleware' => ['setlanguage']], function () {
 Route::resource('languages', 'LanguageController', ['only' => ['index']]);
-
+});
 });
 });
 
