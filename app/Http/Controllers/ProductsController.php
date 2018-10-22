@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator)
+    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator,AdsProducts $ads)
     {
         // App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
         $this->products = $products;
         $this->images = $image;
         $this->trnslator = $trnslator;
+        $this->ads = $ads;
     }
 
     /**
@@ -239,7 +240,7 @@ class ProductsController extends Controller
             if ($request->has('Images')) {
                 $file = $request->has('Images');
                 foreach ($file as $files) {
-                    $idPRo = $this->images->find("product_id",$update->id);
+                    $idPRo = $this->images->find("product_id", $update->id);
                     foreach ($idPRo as $id => $value) {
                         $productImage = $request->path;
                         if ($productImage) {
@@ -283,7 +284,6 @@ class ProductsController extends Controller
             ]
         );
 
-
         if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
         } else {
@@ -292,20 +292,21 @@ class ProductsController extends Controller
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Product.'], 403);
             }
-            $mage_path = $this->images->with("ImgPro")->where("products_id",$id)->get();
-
-            foreach ($mage_path as $item){
-                $path_image = $this->images->find($item);
-                if($request->image == $path_image){
-                    $path_image->delete();
-                }
+            $mage_path = $this->images->where("products_id",$id)->get();
+            foreach ($mage_path as $items){
+                $single = $this->images->findOrFail($items->id);
+                $single->delete();
             }
-            if($soft->delete()){
-
+            $ads = $this->ads->where("product_id",$id)->get();
+            foreach ($ads as $ad){
+                $items = $this->ads->findOrFail($ad->id);
+                $items->delete();
             }
-
+            $soft->delete();
+            DB::commit();
             return response()->json(["message" => "Product $soft->name was Deleted"]);
         }
 
     }
+
 }
