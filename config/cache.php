@@ -1,5 +1,5 @@
 <?php
-
+use Swiggles\Memcache\MemcacheConnector as Memcached ;
 return [
 
     /*
