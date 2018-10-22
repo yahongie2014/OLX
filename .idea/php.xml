@@ -99,11 +99,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
-      <path value="$PROJECT_DIR$/vendor/swiggles/memcache" />
       <path value="$PROJECT_DIR$/vendor/memcached/libmemcached-1.0.18" />
       <path value="$PROJECT_DIR$/vendor/memcached/fastlz" />
       <path value="$PROJECT_DIR$/vendor/memcached/tests" />
-      <path value="$PROJECT_DIR$/vendor/cache/memcache-adapter" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>

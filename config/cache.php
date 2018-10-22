@@ -1,6 +1,5 @@
 <?php
 
-use Cache\Adapter\Memcache\MemcacheCachePool;
 
 return [
 
@@ -73,9 +72,11 @@ return [
         'redis' => [
             'client' => 'predis',
             'default' => [
-                'host' => env('REDIS_HOST', 'localhost'),
-                'password' => env('REDIS_PASSWORD', null),
-                'port' => env('REDIS_PORT', 6379),
+                "user" => env('REDIS_USER','h'),
+                'host' => env('REDIS_HOST', 'ec2-18-205-186-65.compute-1.amazonaws.com'),
+                'password' => env('REDIS_PASSWORD',"p863e3df0d808ce70f6735a730a8e8c67af7f333fda363c8e4227e78613ac4265"),
+                'port' => env('REDIS_PORT', 30649),
+                'URI' => env('REDIS_URI', "redis://h:p863e3df0d808ce70f6735a730a8e8c67af7f333fda363c8e4227e78613ac4265@ec2-18-205-186-65.compute-1.amazonaws.com:30649"),
                 'database' => 0,
             ],
 
