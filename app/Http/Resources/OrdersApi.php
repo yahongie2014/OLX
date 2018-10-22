@@ -18,29 +18,19 @@ class OrdersApi extends JsonResource
      */
     public function toArray($request)
     {
-//        $product = Products::withTrashed()->restore();
-//        $ads = Advertising::withTrashed()->restore();
-//        //dd($product);
 //
-//        $lol = OrderItmes::select("*")
-//            ->leftjoin("products", "products.id", "=", "order_items.product_id")
-//            ->leftjoin("users", "users.id", "=", "products.user_id")
-//            ->leftjoin("advertisings","advertisings.user_id","=","users.id")
-//            ->where("advertisings.user_id", Auth::user()->id)
-//            ->select("users.name")
-//            ->get();
-
         return [
             "Identifier" => $this->id,
             "OrderStatus" => $this->status,
             "UserName" => $this->user->name,
             "OrderNumber" => "#" . $this->order_number,
             "PromoCode" => (boolean)$this->promo_code_id,
-            "OrderItems" => OrdersItemsApi::collection(OrderItmes::select("*")
-                ->leftJoin("products","products.id","=","order_items.product_id")
+            "OrderItems" => OrdersItemsApi::collection(OrderItmes::with(["Products" => function ($q) {
+                $q->where("products.id", Auth::user()->id);
+            }])
                 ->where("order_id", $this->id)
-                ->where("products.user_id", Auth::user()->id)
                 ->get()),
+
             "ProductsPrice" => $this->total,
             "PercentageWebsite" => env("PERCENTAGE") . "%",
             "TotalPrice" => $this->total + $this->total * env("PERCENTAGE") / 100,
