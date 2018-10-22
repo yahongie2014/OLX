@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/user/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/Oxdw6NAwILFtp5KvQVddksp3smlhn13qH6oovziH" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/7baddda89d2eaf1a4491c874f9bf4e708949ed7f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/7baddda89d2eaf1a4491c874f9bf4e708949ed7f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/fjf72GJTd8Nm2jRkB8mMAxkATdQjQRrDhlaENWOQ" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/fjf72GJTd8Nm2jRkB8mMAxkATdQjQRrDhlaENWOQ" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +17,7 @@
     <session id="1998660889">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -62,7 +49,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="6" />
-          <entry key="php" value="776" />
+          <entry key="php" value="777" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -88,7 +75,7 @@
           <entry key="Blade" value="43" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="733" />
+          <entry key="PHP" value="734" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -100,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
@@ -129,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="334" column="64" lean-forward="true" selection-start-line="334" selection-start-column="64" selection-end-line="334" selection-end-column="64" />
+            <state relative-caret-position="5292">
+              <caret line="334" column="64" selection-start-line="334" selection-start-column="64" selection-end-line="334" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -492,13 +479,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136920000" />
+    <option name="totallyTimeSpent" value="138199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22768533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22768533" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -895,16 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#2471#3010#1#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -936,17 +913,24 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#40#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="60" column="84" selection-start-line="60" selection-start-column="84" selection-end-line="60" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="334" column="64" lean-forward="true" selection-start-line="334" selection-start-column="64" selection-end-line="334" selection-end-column="64" />
+        <state relative-caret-position="5292">
+          <caret line="334" column="64" selection-start-line="334" selection-start-column="64" selection-end-line="334" selection-end-column="64" />
         </state>
       </provider>
     </entry>
