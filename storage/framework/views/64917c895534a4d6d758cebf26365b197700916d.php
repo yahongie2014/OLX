@@ -1,5 +1,5 @@
-@section('content')
-@parent
+<?php $__env->startSection('content'); ?>
+##parent-placeholder-040f06fd774092478d450774f5ba30c5da78acc8##
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="panel card-view">
@@ -10,19 +10,19 @@
                         <div class="container-fluid">
                             <div class="row" >
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-success">{{__("general.totalOrdersCount")}}</h5></span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-success"><?php echo e(__("general.totalOrdersCount")); ?></h5></span>
                                     <span class="txt-dark block counter"><span class="counter-anim" id="totalOrders">0</span></span>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-success">{{__("general.totalDayOrdersCount")}}</h5></span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-success"><?php echo e(__("general.totalDayOrdersCount")); ?></h5></span>
                                     <span class="txt-dark block counter"><span class="counter-anim" id="totalDayOrders">0</span></span>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-success">{{__("general.totalMonthOrdersCount")}}</h5></span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-success"><?php echo e(__("general.totalMonthOrdersCount")); ?></h5></span>
                                     <span class="txt-dark block counter"><span class="counter-anim" id="totalMonthOrders">0</span></span>
                                 </div>
                                 <div class="col-lg-3  col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-success">{{__("general.totalYearOrdersCount")}}</h5></span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-success"><?php echo e(__("general.totalYearOrdersCount")); ?></h5></span>
                                     <span class="txt-dark block counter"><span class="counter-anim" id="totalYearOrders">0</span></span>
                                 </div>
                             </div>
@@ -43,20 +43,20 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary">{{__("general.totalAchievementRate")}}</h5></span>
-                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalAchievementRate">0</span> {{__('general.minute')}}</span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary"><?php echo e(__("general.totalAchievementRate")); ?></h5></span>
+                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalAchievementRate">0</span> <?php echo e(__('general.minute')); ?></span>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary">{{__("general.totalDayAchievementRate")}}</h5></span>
-                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalDayAchievementRate">0</span> {{__('general.minute')}}</span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary"><?php echo e(__("general.totalDayAchievementRate")); ?></h5></span>
+                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalDayAchievementRate">0</span> <?php echo e(__('general.minute')); ?></span>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary">{{__("general.totalMonthAchievementRate")}}</h5></span>
-                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalMonthAchievementRate">0</span> {{__('general.minute')}}</span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary"><?php echo e(__("general.totalMonthAchievementRate")); ?></h5></span>
+                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalMonthAchievementRate">0</span> <?php echo e(__('general.minute')); ?></span>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary">{{__("general.totalYearAchievementRate")}}</h5></span>
-                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalYearAchievementRate">0</span> {{__('general.minute')}}</span>
+                                    <span class="weight-500 uppercase-font block"><h5 class="text-primary"><?php echo e(__("general.totalYearAchievementRate")); ?></h5></span>
+                                    <span class="txt-dark block counter"><span class="counter-anim" id="totalYearAchievementRate">0</span> <?php echo e(__('general.minute')); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -74,10 +74,10 @@
                     <div class="sm-data-box">
                         <div class="container-fluid">
                             <div class="row" style="background-color: green;">
-                                <a href="{{url($userRoute . '/orders?order_location=' . 1)}}">
+                                <a href="<?php echo e(url($userRoute . '/orders?order_location=' . 1)); ?>">
                                     <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                         <span class="txt-dark block counter"><span class="counter-anim" id="orderWithLocation-1" >0</span></span>
-                                        <span class="weight-500 uppercase-font block">{{__("general.ordersWithLocation")}}</span>
+                                        <span class="weight-500 uppercase-font block"><?php echo e(__("general.ordersWithLocation")); ?></span>
                                     </div>
                                     <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
                                         <i class="icon-layers data-right-rep-icon txt-light-grey"></i>
@@ -97,10 +97,10 @@
                     <div class="sm-data-box">
                         <div class="container-fluid">
                             <div class="row" style="background-color: red;">
-                                <a href="{{url($userRoute . '/orders?order_location=' . 0)}}">
+                                <a href="<?php echo e(url($userRoute . '/orders?order_location=' . 0)); ?>">
                                     <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                         <span class="txt-dark block counter"><span class="counter-anim" id="orderWithLocation-0">0</span></span>
-                                        <span class="weight-500 uppercase-font block">{{__("general.ordersWithOutLocation")}}</span>
+                                        <span class="weight-500 uppercase-font block"><?php echo e(__("general.ordersWithOutLocation")); ?></span>
                                     </div>
                                     <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
                                         <i class="icon-layers data-right-rep-icon txt-light-grey"></i>
@@ -142,9 +142,9 @@
         </div>
     </div>
 </div>
-@endsection
-@section('footer')
-@parent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footer'); ?>
+##parent-placeholder-d7eb6b340a11a367a1bec55e4a421d949214759f##
 <script>
     function createOrderStatusPieChart(ordersCountByStatus){
         if ($('#chart_7').length > 0) {
@@ -318,9 +318,9 @@ console.log(orderLocationCount);
     }
     $(document).ready(function() {
 
-        var postData = {_token: "{{ csrf_token() }}"}
+        var postData = {_token: "<?php echo e(csrf_token()); ?>"}
         $.ajax({
-            url: '{{url("/user/orders/statistics")}}',
+            url: '<?php echo e(url("/user/orders/statistics")); ?>',
             type: 'GET',
             data: postData,
             dataType: 'JSON',
@@ -343,4 +343,4 @@ console.log(orderLocationCount);
     });
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>

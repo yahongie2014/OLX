@@ -121,4 +121,15 @@ class HomeController extends Controller
     }
 
 
+    public function admin()
+    {
+        return view('admin.index')
+            ->with([
+                'orderStatuses' => $this->orderStatuses,
+                'userRoute' => '/admin',
+            ]);
+    }
+
+
+
 }
