@@ -128,15 +128,6 @@ $countries = \App\Models\Country::all();
                                 <div class="form-wrap">
                                     <form method="POST" action="{{ route('register') }}">
                                         {{ csrf_field() }}
-                                        <div class="form-group">
-                                            <div class="checkbox checkbox-success" style="display: none">
-                                                <input id="provider_member" value="1" type="checkbox"
-                                                       name="provider_member"
-                                                       @if(old('provider_member')) checked @endif>
-                                                <label for="provider_member "
-                                                       class="brand-text-white">{{__("general.Provider")}}</label>
-                                            </div>
-                                        </div>
                                         <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }} ">
                                             <label class="control-label mb-10 brand-text-white"
                                                    for="exampleInputName_1">{{__("general.Full Name")}}</label>
@@ -212,6 +203,22 @@ $countries = \App\Models\Country::all();
                                                 </span>
                                             @endif
                                         </div>
+                                        <div class="form-group {{ $errors->has('country_id') ? ' has-error' : '' }}">
+                                            <label class="control-label mb-10 brand-text-white">{{__("general.Country")}}</label>
+                                            <select class="form-control select2" name="country_id" id="country_id"
+                                                    required>
+                                                <option>{{__("general.Select")}}</option>
+                                                @foreach($countries as $country)
+                                                    <option value="{{$country->id}}"
+                                                            @if( old("country_id") == $country->id ) selected @endif>{{$country->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('country_id'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('country_id') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
                                         <div class="form-group {{ $errors->has('city_id') ? ' has-error' : '' }}">
                                             <label class="control-label mb-10 brand-text-white">{{__("general.City")}}</label>
                                             <select class="form-control select2" name="city_id" id="city_id" required>
@@ -221,6 +228,16 @@ $countries = \App\Models\Country::all();
                                             @if ($errors->has('city_id'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('city_id') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }}">
+                                            <label class="control-label mb-10 text-left brand-text-white">{{__("general.Address")}}</label>
+                                            <textarea class="form-control" required name="address"
+                                                      rows="5">{{ old('address') }}</textarea>
+                                            @if ($errors->has('address'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('address') }}</strong>
                                                 </span>
                                             @endif
                                         </div>

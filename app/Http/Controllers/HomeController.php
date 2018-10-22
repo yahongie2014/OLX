@@ -9,6 +9,11 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Transformers\CityTransformer;
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
+
+
 class HomeController extends Controller
 {
     /**
@@ -16,10 +21,19 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $fractal;
+
+    /**
+     * @var UserTransformer
+     */
+    private $cityTransformer;
+
+    public function __construct(Manager $fractal, CityTransformer $cityTransformer)
     {
-        $this->middleware('auth');
+        $this->fractal = $fractal;
+        $this->cityTransformer = $cityTransformer;
     }
+
 
     /**
      * Show the application dashboard.
@@ -58,7 +72,8 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function passwordReset(Request $request){
+    public function passwordReset(Request $request)
+    {
         \Validator::make(
             $request->all(),
             [
@@ -66,14 +81,14 @@ class HomeController extends Controller
             ]
         )->validate();
 
-        $newPassword = rand(100000,999999);
+        $newPassword = rand(100000, 999999);
 
-        $user = User::where('email',$request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
         $user->password = bcrypt($newPassword);
 
-        if($user->save())
-            dispatch( $this->SendSms($user->phone , "New Password : " . "\n" . $newPassword));
+        if ($user->save())
+            dispatch($this->SendSms($user->phone, "New Password : " . "\n" . $newPassword));
 
         return redirect('login');
     }
@@ -88,30 +103,30 @@ class HomeController extends Controller
         //
         $loginType = session()->get('login_type');
 
-        if(Auth::user())
+        if (Auth::user())
             $language_id = Auth::user()->language_id;
         else
-            $language_id = Language::where('default' , DEFAULT_LANGUAGE)->first(['id'])->id;
+            $language_id = Language::where('default', DEFAULT_LANGUAGE)->first(['id'])->id;
 
         $cities = Cities::with("country")->get();
 
-        if($request->has('country_id'))
-            $cities = $cities->where('country_id',$request->country_id);
+        if ($request->has('country_id'))
+            $cities = $cities->where('country_id', $request->country_id);
 
-        if(!($loginType == ADMIN) ){
-            if(!$request->has('country_id'))
-                $cities = $cities->where('country_id',Auth::user()->country_id);
+        if (!($loginType == ADMIN)) {
+            if (!$request->has('country_id'))
+                $cities = $cities->where('country_id', Auth::user()->country_id);
 
-            $cities = $cities->where('status',CITY_ACTIVE);
+            $cities = $cities->where('status', CITY_ACTIVE);
         }
 
         $cities = $cities->get();
 
-        if(Request()->expectsJson()){
+        if (Request()->expectsJson()) {
             $cities = new Collection($cities, $this->cityTransformer);
             $cities = $this->fractal->createData($cities); // Transform data
 
-            return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
+            return response()->json(['status' => true, 'result' => $cities->toArray()]);
         }
 
         return view('admin.city.index')
@@ -129,7 +144,8 @@ class HomeController extends Controller
             ]);
     }
 
-    public function provider(){
+    public function provider()
+    {
         return view('provider.index')->with([
             'orderStatuses' => $this->orderStatuses,
             'userRoute' => '/provider',
@@ -137,6 +153,30 @@ class HomeController extends Controller
     }
 
 
+    public function city(Request $request)
+    {
+        $cities = Cities::with('country');
+
+        if($request->has('country_id'))
+            $cities = $cities->where('country_id',$request->country_id);
+
+        $cities = $cities->where('status',1);
+
+        $cities = $cities->get();
+
+        if(Request()->expectsJson()){
+            $cities = new Collection($cities, $this->cityTransformer);
+            $cities = $this->fractal->createData($cities); // Transform data
+
+            return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
+        }
+
+        return view('admin.city.index')
+            ->with([
+                'cities' => $cities,
+            ]);
+
+    }
 
 
 }
