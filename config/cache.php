@@ -56,19 +56,6 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
-                Coder79::OPT_TCP_NODELAY => TRUE,
-                Coder79::OPT_NO_BLOCK => FALSE,
-                // - timeouts
-                Coder79::OPT_CONNECT_TIMEOUT => 2000,    // ms
-                Coder79::OPT_POLL_TIMEOUT => 2000,       // ms
-                Coder79::OPT_RECV_TIMEOUT => 750 * 1000, // us
-                Coder79::OPT_SEND_TIMEOUT => 750 * 1000, // us
-                // - better failover
-                Coder79::OPT_DISTRIBUTION => Coder79::DISTRIBUTION_CONSISTENT,
-                Coder79::OPT_LIBKETAMA_COMPATIBLE => TRUE,
-                Coder79::OPT_RETRY_TIMEOUT => 2,
-                Coder79::OPT_SERVER_FAILURE_LIMIT => 1,
-                Coder79::OPT_AUTO_EJECT_HOSTS => TRUE,
             ],
             'servers' => array_map(function($s) {
                 $parts = explode(":", $s);
