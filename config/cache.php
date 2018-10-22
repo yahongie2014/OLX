@@ -1,4 +1,7 @@
 <?php
+
+use Cache\Adapter\Memcache\MemcacheCachePool;
+
 return [
 
     /*
@@ -56,6 +59,20 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
+                Memcache::OPT_TCP_NODELAY => TRUE,
+                Memcache::OPT_NO_BLOCK => FALSE,
+                // - timeouts
+                Memcache::OPT_CONNECT_TIMEOUT => 2000,    // ms
+                Memcache::OPT_POLL_TIMEOUT => 2000,       // ms
+                Memcache::OPT_RECV_TIMEOUT => 750 * 1000, // us
+                Memcache::OPT_SEND_TIMEOUT => 750 * 1000, // us
+                // - better failover
+                Memcache::OPT_DISTRIBUTION => Memcache::DISTRIBUTION_CONSISTENT,
+                Memcache::OPT_LIBKETAMA_COMPATIBLE => TRUE,
+                Memcache::OPT_RETRY_TIMEOUT => 2,
+                Memcache::OPT_SERVER_FAILURE_LIMIT => 1,
+                Memcache::OPT_AUTO_EJECT_HOSTS => TRUE,
+
             ],
             'servers' => array_map(function($s) {
                 $parts = explode(":", $s);
@@ -64,7 +81,12 @@ return [
                     'port' => $parts[1],
                     'weight' => 100,
                 ];
-            }, explode(",", env('MEMCACHIER_SERVERS', 'localhost:11211')))
+            },
+                $client = new Memcache(),
+                $client->connect(env('MEMCACHIER_SERVERS'), 11211),
+                $pool = new MemcacheCachePool($client)
+
+            )
         ],
 
         'redis' => [
