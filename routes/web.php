@@ -13,12 +13,11 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Auth::routes();
 Route::get('/', 'ChatsController@index');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 Route::get('home', 'HomeController@index')->name("home");
-Route::get('/user/country/cities','HomeController@cities');
+Route::get('/user/country/cities','CityController@index');
 
 
 Route::group(['middleware' => ['auth']], function () {
