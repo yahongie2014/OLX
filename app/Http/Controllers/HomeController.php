@@ -120,7 +120,6 @@ class HomeController extends Controller
             ]);
     }
 
-
     public function admin()
     {
         return view('admin.index')
@@ -129,6 +128,14 @@ class HomeController extends Controller
                 'userRoute' => '/admin',
             ]);
     }
+
+    public function provider(){
+        return view('provider.index')->with([
+            'orderStatuses' => $this->orderStatuses,
+            'userRoute' => '/provider',
+        ]);
+    }
+
 
 
 

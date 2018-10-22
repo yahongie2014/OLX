@@ -8,7 +8,7 @@
 @parent
 
 <li>
-    <a href="{{url('/provider/profile/' . Auth::user()->id)}}">
+    <a href="{{url('/vendors/profile/' . Auth::user()->id)}}">
         {{__("general.Profile")}}
     </a>
 </li>
@@ -16,5 +16,5 @@
 
 @section('content')
 @parent
-@include('partials.user.show', ['user' => $user , 'loginType' => PROVIDER])
+@include('partials.user.show', ['user' => $user , 'loginType' => 2])
 @endsection

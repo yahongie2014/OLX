@@ -66,6 +66,7 @@ class UserController extends Controller
 
         $user = User::with('city')->find($id);
 
+       // var_dump($user);
 
         // if he is the same user so he can update if not he only can show this user
         $canUpdate = Auth::user()->id == $id ? true : false ;

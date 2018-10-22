@@ -7,14 +7,14 @@
 
 @section('headerBar')
 <li>
-    <a href="{{url('/provider/profile/' . Auth::user()->id)}}"><i class="zmdi zmdi-account"></i><span>{{__("general.Profile")}}</span></a>
+    <a href="{{url('/vendor/profile/' . Auth::user()->id)}}"><i class="zmdi zmdi-account"></i><span>{{__("general.Profile")}}</span></a>
 </li>
 @endsection
 
 @section('PageLocation')
 
 <li>
-    <a href="{{url('/provider')}}">{{__("general.Home")}}</a>
+    <a href="{{url('/vendor')}}">{{__("general.Home")}}</a>
 </li>
 
 <li>
@@ -31,7 +31,7 @@
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="{{url('/provider')}}">
+            <a href="{{url('/vendors')}}">
                 <div class="pull-left">
                     <i class="zmdi zmdi-home mr-20"></i>
                     <span class="right-nav-text">{{__("general.Home")}}</span>
@@ -42,7 +42,7 @@
             </a>
         </li>
         <li>
-            <a href="{{url('/provider/profile/' . Auth::user()->id)}}">
+            <a href="{{url('/vendors/profile/' . Auth::user()->id)}}">
                 <div class="pull-left">
                     <i class="zmdi zmdi-account mr-20"></i>
                     <span class="right-nav-text">{{__("general.Profile")}}</span>
@@ -53,18 +53,7 @@
             </a>
         </li>
         <li>
-            <a href="{{url('/provider/loading/')}}">
-                <div class="pull-left">
-                    <i class="ti ti-location-pin mr-20"></i>
-                    <span class="right-nav-text">{{__("general.providerLoading")}}</span>
-                </div>
-                <div class="clearfix">
-
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="{{url('/provider/orders')}}">
+            <a href="{{url('/vendors/orders')}}">
                 <div class="pull-left">
                     <i class="zmdi zmdi-labels mr-20"></i>
                     <span class="right-nav-text">{{__("general.Orders")}}</span>
@@ -75,7 +64,7 @@
             </a>
         </li>
         <li>
-            <a href="{{url('/provider/orders/create')}}">
+            <a href="{{url('/vendors/orders/create')}}">
                 <div class="pull-left">
                     <i class="glyphicon glyphicon-plus-sign mr-20"></i>
                     <span class="right-nav-text">{{__("general.New Order")}}</span>

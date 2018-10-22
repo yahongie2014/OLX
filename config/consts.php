@@ -1,7 +1,6 @@
 <?php
 
 define('PROVIDER', 2);
-define('DRIVER', 3);
 define('USER', 4);
 define('ADMIN', 1);
 

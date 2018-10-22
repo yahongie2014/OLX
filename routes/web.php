@@ -24,50 +24,30 @@ Route::get('/user/country/cities','HomeController@cities');
 Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['setlanguage']], function () {
 Route::post('/user/password', 'UserController@changePassword');
-
 Route::get('/location', 'HomeController@locations');
+Route::get('language/{language_id}', 'HomeController@setLanguage');
+Route::post('user/token', 'UserController@updateUserFireBaseToken');
+Route::get('user/orders/statistics', 'OrderController@userStatistics');
+
 
 Route::group(['prefix' => '/admin', 'middleware' => 'Admin'], function () {
 
 Route::get('/', 'HomeController@admin')->name('adminHome');
-
-Route::resource('provider', 'ProviderController', ['only' => ['index', 'update']]);
-Route::get('provider/activation/{providerId}', 'ProviderController@adminProviderActivation');
-
-
-Route::resource('delivery', 'DeliveryController', ['only' => ['index', 'show']]);
-Route::get('delivery/activation/{providerId}', 'DeliveryController@adminDeliveryActivation');
-
 Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
-
-Route::resource('orders', 'OrderController', ['only' => ['index', 'show']]);
-Route::post('orders/refuse', 'OrderController@adminRefuseOrder');
-Route::post('orders/assign', 'OrderController@adminAssignDeliveryToOrder');
-
 Route::resource('languages', 'LanguageController', ['except' => ['destroy', 'show']]);
 Route::resource('countries', 'CountryController', ['except' => ['destroy', 'show']]);
 Route::resource('cities', 'CityController', ['except' => ['destroy', 'show']]);
-Route::resource('cartypes', 'CarTypesController', ['except' => ['destroy', 'show']]);
 Route::resource('categories', 'CategoryController', ['except' => ['destroy', 'show']]);
 Route::resource('services', 'ServiceTypeController', ['except' => ['destroy', 'show']]);
-Route::resource('paytypes', 'PaymentTypeController', ['except' => ['destroy', 'show']]);
-
 
 });
 
-Route::group(['prefix' => '/vendor', 'middleware' => 'Vendor'], function () {
+Route::group(['prefix' => '/vendors', 'middleware' => 'Vendor'], function () {
 Route::get('/', 'HomeController@provider')->name('providerHome');
 Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
-Route::resource('orders', 'OrderController', ['only' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
-Route::resource('loading', 'ProviderLoadingController', ['only' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
-Route::post('orders/cancel', 'OrderController@providerCancelOrder');
-Route::post('client', 'OrderController@getClientLastOrderInformation');
 });
 });
-Route::get('language/{language_id}', 'HomeController@setLanguage');
-Route::post('user/token', 'UserController@updateUserFireBaseToken');
 
-Route::get('user/orders/statistics', 'OrderController@userStatistics');
 
 });
 

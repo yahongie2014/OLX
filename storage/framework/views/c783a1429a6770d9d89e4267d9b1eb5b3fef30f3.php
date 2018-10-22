@@ -23,107 +23,6 @@
 
                                 </div>
                                 <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-danger"><?php echo e($user->name); ?></h5>
-                                <h6 class="block capitalize-font pb-20">
-                                    <div calss="row">
-                                        <?php if($user->provider): ?>
-                                            <div class="col-lg-12 col-xs-12">
-                                                <div class="col-lg-12 col-xs-12">
-
-                                                    <button class="btn btn-primary btn-icon-anim btn-circle">
-                                                        <i class="fa fa-shopping-cart"></i>
-
-                                                    </button>
-                                                    <span><?php echo e(__("general.Provider")); ?></span>
-
-                                                </div>
-
-                                                <div class="col-sm-12" style="margin-top: 2%">
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <input id="provider_active" type="checkbox"
-                                                                   data-off-text="<?php echo e(__('general.inactive')); ?>"
-                                                                   data-on-text="<?php echo e(__('general.active')); ?>"
-                                                                   class="bs-switch"
-                                                                   data-user-state="<?php echo e($user->provider->status); ?>">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="social-info">
-                                                <div class="row">
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->provider->dayOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalDayOrdersCount")); ?></span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->provider->monthOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalMonthOrdersCount")); ?></span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->provider->allOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalOrdersCount")); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                        <div class="clearfix"></div>
-                                        <?php if($user->delivery): ?>
-                                            <div class="col-lg-12 col-xs-12">
-                                                <div class="col-lg-12 col-xs-12">
-
-                                                    <button class="btn btn-info btn-icon-anim btn-circle">
-                                                        <i class="fa fa-car"></i>
-
-                                                    </button>
-                                                    <?php echo e(__("general.Delivery")); ?>
-
-
-                                                </div>
-
-                                                <div class="col-sm-12" style="margin-top: 2%">
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <input id="delivery_active" type="checkbox"
-                                                                   data-off-text="<?php echo e(__('general.inactive')); ?>"
-                                                                   data-on-text="<?php echo e(__('general.active')); ?>"
-                                                                   class="bs-switch"
-                                                                   data-user-state="<?php echo e($user->delivery->status); ?>">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="social-info">
-                                                <div class="row">
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->delivery->dayOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalDayOrdersCount")); ?></span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->delivery->monthOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalMonthOrdersCount")); ?></span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim"><?php echo e($user->delivery->allOrders); ?></span></span>
-                                                        <span class="counts-text block"><?php echo e(__("general.totalOrdersCount")); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </h6>
                             </div>
 
                         </div>
@@ -143,22 +42,6 @@
                                         <span><?php echo e(__("general.Profile")); ?></span>
                                     </a>
                                 </li>
-                                <?php if($user->provider): ?>
-                                    <li role="presentation" class="next">
-                                        <a aria-expanded="true" data-toggle="tab" role="tab" id="provider_tab_8"
-                                           href="#provider_info">
-                                            <span><?php echo e(__("general.Provider Info")); ?></span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                                <?php if($user->delivery): ?>
-                                    <li role="presentation" class="next">
-                                        <a aria-expanded="true" data-toggle="tab" role="tab" id="dekivery_tab_8"
-                                           href="#delivery">
-                                            <span><?php echo e(__("general.Delivery Info")); ?></span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
                                 <?php if($canUpdate): ?>
                                     <li role="presentation" class="next">
                                         <a aria-expanded="true" data-toggle="tab" role="tab" id="password_tab_8"
@@ -305,8 +188,8 @@
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
                                                                                     
-                                                                                        
-                                                                                                
+                                                                                    
+                                                                                    
                                                                                     
                                                                                 </select>
                                                                                 <?php if($errors->has('country_id')): ?>
@@ -322,8 +205,8 @@
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
                                                                                     
-                                                                                        
-                                                                                                
+                                                                                    
+                                                                                    
                                                                                     
                                                                                 </select>
                                                                                 <?php if($errors->has('city_id')): ?>
@@ -339,8 +222,8 @@
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
                                                                                     
-                                                                                        
-                                                                                                
+                                                                                    
+                                                                                    
                                                                                     
                                                                                 </select>
                                                                                 <?php if($errors->has('language_id')): ?>
@@ -378,160 +261,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php if($user->provider): ?>
-                                    <div id="provider_info" class="tab-pane fade active in" role="tabpanel">
-                                        <!-- Row -->
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="">
-                                                    <div class="panel-wrapper collapse in">
-                                                        <div class="panel-body pa-0">
-
-                                                            <div class="col-sm-12 col-xs-12">
-                                                                <?php if($user->provider->loadings->count() > 0): ?>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="<?php echo e(asset('/dist/img/loading-active.png')); ?>"
-                                                                             style="width:30px;height:30px"/>
-                                                                        <?php echo e(__("general.active")); ?>
-
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="<?php echo e(asset('/dist/img/loading-inactive.png')); ?>"
-                                                                             style="width:30px;height:30px"/>
-                                                                        <?php echo e(__("general.inactive")); ?>
-
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="<?php echo e(asset('/dist/img/loading-default.png')); ?>"
-                                                                             style="width:30px;height:30px"/>
-                                                                        <?php echo e(__("general.default")); ?>
-
-                                                                    </div>
-
-                                                                    <div class="clearfix"></div>
-
-                                                                    <div id="googleMap"
-                                                                         style="width:100%;height:400px;"></div>
-                                                                <?php else: ?>
-                                                                    <p class="text-warning mb-10">
-                                                                        <code><?php echo e(__("general.providerDoseNotHaveLoadingPoints")); ?></code>
-                                                                    </p>
-                                                                <?php endif; ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if($user->delivery): ?>
-                                    <div id="delivery" class="tab-pane fade" role="tabpanel">
-                                        <!-- Row -->
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="">
-                                                    <div class="panel-wrapper collapse in">
-                                                        <div class="panel-body pa-0">
-                                                            <div class="col-sm-12 col-xs-12">
-                                                                <div class="form-wrap">
-                                                                    <form action="<?php echo e(url('/delivery/info/' . $user->delivery->id)); ?>"
-                                                                          enctype="multipart/form-data" method="POST">
-                                                                        <?php echo e(method_field('PATCH')); ?>
-
-                                                                        <?php echo e(csrf_field()); ?>
-
-                                                                        <input name="delivery_id"
-                                                                               value="<?php echo e($user->delivery->id); ?>"
-                                                                               type="hidden"/>
-                                                                        <div class="form-body overflow-hide">
-                                                                            <div class="form-group">
-                                                                                <div class="checkbox checkbox-primary pr-10 pull-left">
-                                                                                    <input id="checkbox_2" value="1"
-                                                                                           name="deliveryAvailability"
-                                                                                           type="checkbox"
-                                                                                           <?php if(!$canUpdate): ?> disabled
-                                                                                           <?php endif; ?> <?php if($user->delivery->available == DELIVERY_AVAILABLE): ?> checked <?php endif; ?>>
-                                                                                    <label for="checkbox_2"> <?php echo e(__("general.available")); ?> </label>
-                                                                                </div>
-                                                                                <div class="clearfix"></div>
-                                                                            </div>
-                                                                            <div class="form-group <?php echo e($errors->has('vehicle_id') ? ' has-error' : ''); ?>">
-                                                                                <label class="control-label mb-10"
-                                                                                       for="exampleInputuname_01"><?php echo e(__("general.vehicle_id")); ?></label>
-                                                                                <div class="input-group">
-                                                                                    <div class="input-group-addon">
-                                                                                        <i class="icon-user"></i>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                           class="form-control allownumericwithoutdecimal"
-                                                                                           id="exampleInputuname_01"
-                                                                                           name="vehicle_id"
-                                                                                           value="<?php echo e($user->delivery->vehicle_id); ?>"
-                                                                                           required
-                                                                                           <?php if(!$canUpdate): ?> disabled <?php endif; ?> />
-                                                                                </div>
-                                                                                <?php if($errors->has('vehicle_id')): ?>
-                                                                                    <span class="help-block">
-                                                                                <strong><?php echo e($errors->first('vehicle_id')); ?></strong>
-                                                                            </span>
-                                                                                <?php endif; ?>
-                                                                            </div>
-                                                                            <div class="form-group <?php echo e($errors->has('license_id') ? ' has-error' : ''); ?>">
-                                                                                <label class="control-label mb-10"
-                                                                                       for="exampleInputuname_01"><?php echo e(__("general.license_id")); ?></label>
-                                                                                <div class="input-group">
-                                                                                    <div class="input-group-addon">
-                                                                                        <i class="icon-user"></i>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                           class="form-control allownumericwithoutdecimal"
-                                                                                           id="exampleInputuname_01"
-                                                                                           name="license_id"
-                                                                                           value="<?php echo e($user->delivery->license_id); ?>"
-                                                                                           required
-                                                                                           <?php if(!$canUpdate): ?> disabled <?php endif; ?> />
-                                                                                </div>
-                                                                                <?php if($errors->has('license_id')): ?>
-                                                                                    <span class="help-block">
-                                                                                <strong><?php echo e($errors->first('license_id')); ?></strong>
-                                                                            </span>
-                                                                                <?php endif; ?>
-                                                                            </div>
-                                                                            <div class="form-group <?php echo e($errors->has('car_type_id') ? ' has-error' : ''); ?>">
-                                                                                <label class="control-label mb-10"><?php echo e(__("general.CarType")); ?></label>
-                                                                                <select class="form-control select2"
-                                                                                        name="car_type_id"
-                                                                                        <?php if(!$canUpdate): ?> disabled
-                                                                                        <?php endif; ?> required>
-                                                                                    <?php $__currentLoopData = $carTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                                        <option value="<?php echo e($carType->id); ?>"
-                                                                                                <?php if( $user->delivery->car_type_id == $carType->id ): ?> selected <?php endif; ?>><?php echo e($carType->name); ?></option>
-                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                                </select>
-                                                                                <?php if($errors->has('car_type_id')): ?>
-                                                                                    <span class="help-block">
-                                                                                    <strong><?php echo e($errors->first('car_type_id')); ?></strong>
-                                                                                </span>
-                                                                                <?php endif; ?>
-                                                                            </div>
-                                                                        </div>
-                                                                        <?php if($canUpdate && $loginType == DRIVER): ?>
-                                                                            <div class="form-actions mt-10">
-                                                                                <button type="submit"
-                                                                                        class="btn btn-success mr-10 mb-30"><?php echo e(__('general.Save')); ?></button>
-                                                                            </div>
-                                                                        <?php endif; ?>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
                                 <?php if($canUpdate): ?>
                                     <div id="changePassword" class="tab-pane fade active in" role="tabpanel">
                                         <!-- Row -->
@@ -615,81 +344,6 @@
 
 <?php $__env->startSection('footer'); ?>
     ##parent-placeholder-d7eb6b340a11a367a1bec55e4a421d949214759f##
-    <?php if($user->provider && $user->provider->loadings->count() > 0): ?>
-        <script>
-            var map;
-
-            function initMap() {
-                var infoWindow = new google.maps.InfoWindow;
-                map = new google.maps.Map(document.getElementById('googleMap'), {
-                    zoom: 10,
-                    center: new google.maps.LatLng(24.782765, 46.782498),
-                    mapTypeId: 'roadmap'
-                });
-
-                var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-                var icons = {
-                    active: {
-                        icon: "<?php echo e(asset('/dist/img/loading-active.png')); ?>"
-                    },
-                    inactive: {
-                        icon: "<?php echo e(asset('/dist/img/loading-inactive.png')); ?>"
-                    },
-                    default: {
-                        icon: "<?php echo e(asset('/dist/img/loading-default.png')); ?>"
-                    }
-                };
-
-                var features = [
-                        <?php $__currentLoopData = $user->provider->loadings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $loading): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    {
-                        position: new google.maps.LatLng("<?php echo e($loading->lat); ?>", "<?php echo e($loading->long); ?>"),
-                        type: <?php if($loading->default == PROVIDER_LOADING_DEFAULT): ?>
-                            'default'
-                        <?php elseif($loading->status == PROVIDER_LOADING_ACTIVE): ?>
-                        'active'
-                                <?php else: ?>
-                                    'inactive'
-                        <?php endif; ?>,
-                        name: "<?php echo e($loading->name); ?>",
-                        address: "<?php echo e($loading->address); ?>"
-
-                    },
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                ];
-
-                var bounds = new google.maps.LatLngBounds();
-
-                // Create markers.
-                features.forEach(function (feature) {
-                    var marker = new google.maps.Marker({
-                        position: feature.position,
-                        icon: icons[feature.type].icon,
-                        map: map
-                    });
-
-                    var html = "<span style='margin-right: 20px;font-weight: bold'><br><b>" + feature.name + "</b><br><b>" + feature.address + "</b></span>";
-
-                    bindInfoWindow(marker, map, infoWindow, html);
-
-                    bounds.extend(marker.position);
-                });
-                map.fitBounds(bounds);
-
-            }
-
-            function bindInfoWindow(marker, map, infoWindow, html) {
-                google.maps.event.addListener(marker, 'click', function () {
-                    infoWindow.setContent(html);
-                    infoWindow.open(map, marker);
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgIKx-8qqL3I3a-cVETwnf2UbgVzm1zus&callback=initMap">
-        </script>
-    <?php endif; ?>
     <script>
         $(document).ready(function () {
             /* Select2 Init*/

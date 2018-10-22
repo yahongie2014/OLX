@@ -22,106 +22,6 @@
 
                                 </div>
                                 <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-danger">{{$user->name}}</h5>
-                                <h6 class="block capitalize-font pb-20">
-                                    <div calss="row">
-                                        @if($user->provider)
-                                            <div class="col-lg-12 col-xs-12">
-                                                <div class="col-lg-12 col-xs-12">
-
-                                                    <button class="btn btn-primary btn-icon-anim btn-circle">
-                                                        <i class="fa fa-shopping-cart"></i>
-
-                                                    </button>
-                                                    <span>{{__("general.Provider")}}</span>
-
-                                                </div>
-
-                                                <div class="col-sm-12" style="margin-top: 2%">
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <input id="provider_active" type="checkbox"
-                                                                   data-off-text="{{__('general.inactive')}}"
-                                                                   data-on-text="{{__('general.active')}}"
-                                                                   class="bs-switch"
-                                                                   data-user-state="{{$user->provider->status}}">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="social-info">
-                                                <div class="row">
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->provider->dayOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalDayOrdersCount")}}</span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->provider->monthOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalMonthOrdersCount")}}</span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->provider->allOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalOrdersCount")}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        <div class="clearfix"></div>
-                                        @if($user->delivery)
-                                            <div class="col-lg-12 col-xs-12">
-                                                <div class="col-lg-12 col-xs-12">
-
-                                                    <button class="btn btn-info btn-icon-anim btn-circle">
-                                                        <i class="fa fa-car"></i>
-
-                                                    </button>
-                                                    {{__("general.Delivery")}}
-
-                                                </div>
-
-                                                <div class="col-sm-12" style="margin-top: 2%">
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <input id="delivery_active" type="checkbox"
-                                                                   data-off-text="{{__('general.inactive')}}"
-                                                                   data-on-text="{{__('general.active')}}"
-                                                                   class="bs-switch"
-                                                                   data-user-state="{{$user->delivery->status}}">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="social-info">
-                                                <div class="row">
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->delivery->dayOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalDayOrdersCount")}}</span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->delivery->monthOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalMonthOrdersCount")}}</span>
-                                                    </div>
-
-                                                    <div class="col-xs-4 text-center">
-                                                        <span class="counts block head-font"><span
-                                                                    class="counter-anim">{{$user->delivery->allOrders}}</span></span>
-                                                        <span class="counts-text block">{{__("general.totalOrdersCount")}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </h6>
                             </div>
 
                         </div>
@@ -141,22 +41,6 @@
                                         <span>{{__("general.Profile")}}</span>
                                     </a>
                                 </li>
-                                @if($user->provider)
-                                    <li role="presentation" class="next">
-                                        <a aria-expanded="true" data-toggle="tab" role="tab" id="provider_tab_8"
-                                           href="#provider_info">
-                                            <span>{{__("general.Provider Info")}}</span>
-                                        </a>
-                                    </li>
-                                @endif
-                                @if($user->delivery)
-                                    <li role="presentation" class="next">
-                                        <a aria-expanded="true" data-toggle="tab" role="tab" id="dekivery_tab_8"
-                                           href="#delivery">
-                                            <span>{{__("general.Delivery Info")}}</span>
-                                        </a>
-                                    </li>
-                                @endif
                                 @if($canUpdate)
                                     <li role="presentation" class="next">
                                         <a aria-expanded="true" data-toggle="tab" role="tab" id="password_tab_8"
@@ -301,8 +185,8 @@
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
                                                                                     {{--@foreach($countries as $country)--}}
-                                                                                        {{--<option value="{{$country->id}}"--}}
-                                                                                                {{--@if( $user->country_id == $country->id ) selected @endif>{{$country->name}}</option>--}}
+                                                                                    {{--<option value="{{$country->id}}"--}}
+                                                                                    {{--@if( $user->country_id == $country->id ) selected @endif>{{$country->name}}</option>--}}
                                                                                     {{--@endforeach--}}
                                                                                 </select>
                                                                                 @if ($errors->has('country_id'))
@@ -318,8 +202,8 @@
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
                                                                                     {{--@foreach($cities as $city)--}}
-                                                                                        {{--<option value="{{$city->id}}"--}}
-                                                                                                {{--@if( $user->city_id == $city->id ) selected @endif>{{$city->name}}</option>--}}
+                                                                                    {{--<option value="{{$city->id}}"--}}
+                                                                                    {{--@if( $user->city_id == $city->id ) selected @endif>{{$city->name}}</option>--}}
                                                                                     {{--@endforeach--}}
                                                                                 </select>
                                                                                 @if ($errors->has('city_id'))
@@ -335,8 +219,8 @@
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
                                                                                     {{--@foreach($languages as $language)--}}
-                                                                                        {{--<option value="{{$language->id}}"--}}
-                                                                                                {{--@if( $user->language_id == $language->id ) selected @endif>{{$language->name}}</option>--}}
+                                                                                    {{--<option value="{{$language->id}}"--}}
+                                                                                    {{--@if( $user->language_id == $language->id ) selected @endif>{{$language->name}}</option>--}}
                                                                                     {{--@endforeach--}}
                                                                                 </select>
                                                                                 @if ($errors->has('language_id'))
@@ -374,155 +258,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if($user->provider)
-                                    <div id="provider_info" class="tab-pane fade active in" role="tabpanel">
-                                        <!-- Row -->
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="">
-                                                    <div class="panel-wrapper collapse in">
-                                                        <div class="panel-body pa-0">
-
-                                                            <div class="col-sm-12 col-xs-12">
-                                                                @if($user->provider->loadings->count() > 0)
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="{{asset('/dist/img/loading-active.png')}}"
-                                                                             style="width:30px;height:30px"/>
-                                                                        {{__("general.active")}}
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="{{asset('/dist/img/loading-inactive.png')}}"
-                                                                             style="width:30px;height:30px"/>
-                                                                        {{__("general.inactive")}}
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                                                        <img src="{{asset('/dist/img/loading-default.png')}}"
-                                                                             style="width:30px;height:30px"/>
-                                                                        {{__("general.default")}}
-                                                                    </div>
-
-                                                                    <div class="clearfix"></div>
-
-                                                                    <div id="googleMap"
-                                                                         style="width:100%;height:400px;"></div>
-                                                                @else
-                                                                    <p class="text-warning mb-10">
-                                                                        <code>{{__("general.providerDoseNotHaveLoadingPoints")}}</code>
-                                                                    </p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                                @if($user->delivery)
-                                    <div id="delivery" class="tab-pane fade" role="tabpanel">
-                                        <!-- Row -->
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="">
-                                                    <div class="panel-wrapper collapse in">
-                                                        <div class="panel-body pa-0">
-                                                            <div class="col-sm-12 col-xs-12">
-                                                                <div class="form-wrap">
-                                                                    <form action="{{url('/delivery/info/' . $user->delivery->id)}}"
-                                                                          enctype="multipart/form-data" method="POST">
-                                                                        {{ method_field('PATCH') }}
-                                                                        {{ csrf_field() }}
-                                                                        <input name="delivery_id"
-                                                                               value="{{$user->delivery->id}}"
-                                                                               type="hidden"/>
-                                                                        <div class="form-body overflow-hide">
-                                                                            <div class="form-group">
-                                                                                <div class="checkbox checkbox-primary pr-10 pull-left">
-                                                                                    <input id="checkbox_2" value="1"
-                                                                                           name="deliveryAvailability"
-                                                                                           type="checkbox"
-                                                                                           @if(!$canUpdate) disabled
-                                                                                           @endif @if($user->delivery->available == DELIVERY_AVAILABLE) checked @endif>
-                                                                                    <label for="checkbox_2"> {{__("general.available")}} </label>
-                                                                                </div>
-                                                                                <div class="clearfix"></div>
-                                                                            </div>
-                                                                            <div class="form-group {{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
-                                                                                <label class="control-label mb-10"
-                                                                                       for="exampleInputuname_01">{{__("general.vehicle_id")}}</label>
-                                                                                <div class="input-group">
-                                                                                    <div class="input-group-addon">
-                                                                                        <i class="icon-user"></i>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                           class="form-control allownumericwithoutdecimal"
-                                                                                           id="exampleInputuname_01"
-                                                                                           name="vehicle_id"
-                                                                                           value="{{$user->delivery->vehicle_id}}"
-                                                                                           required
-                                                                                           @if(!$canUpdate) disabled @endif />
-                                                                                </div>
-                                                                                @if ($errors->has('vehicle_id'))
-                                                                                    <span class="help-block">
-                                                                                <strong>{{ $errors->first('vehicle_id') }}</strong>
-                                                                            </span>
-                                                                                @endif
-                                                                            </div>
-                                                                            <div class="form-group {{ $errors->has('license_id') ? ' has-error' : '' }}">
-                                                                                <label class="control-label mb-10"
-                                                                                       for="exampleInputuname_01">{{__("general.license_id")}}</label>
-                                                                                <div class="input-group">
-                                                                                    <div class="input-group-addon">
-                                                                                        <i class="icon-user"></i>
-                                                                                    </div>
-                                                                                    <input type="text"
-                                                                                           class="form-control allownumericwithoutdecimal"
-                                                                                           id="exampleInputuname_01"
-                                                                                           name="license_id"
-                                                                                           value="{{$user->delivery->license_id}}"
-                                                                                           required
-                                                                                           @if(!$canUpdate) disabled @endif />
-                                                                                </div>
-                                                                                @if ($errors->has('license_id'))
-                                                                                    <span class="help-block">
-                                                                                <strong>{{ $errors->first('license_id') }}</strong>
-                                                                            </span>
-                                                                                @endif
-                                                                            </div>
-                                                                            <div class="form-group {{ $errors->has('car_type_id') ? ' has-error' : '' }}">
-                                                                                <label class="control-label mb-10">{{__("general.CarType")}}</label>
-                                                                                <select class="form-control select2"
-                                                                                        name="car_type_id"
-                                                                                        @if(!$canUpdate) disabled
-                                                                                        @endif required>
-                                                                                    @foreach($carTypes as $carType)
-                                                                                        <option value="{{$carType->id}}"
-                                                                                                @if( $user->delivery->car_type_id == $carType->id ) selected @endif>{{$carType->name}}</option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                                @if ($errors->has('car_type_id'))
-                                                                                    <span class="help-block">
-                                                                                    <strong>{{ $errors->first('car_type_id') }}</strong>
-                                                                                </span>
-                                                                                @endif
-                                                                            </div>
-                                                                        </div>
-                                                                        @if($canUpdate && $loginType == DRIVER)
-                                                                            <div class="form-actions mt-10">
-                                                                                <button type="submit"
-                                                                                        class="btn btn-success mr-10 mb-30">{{__('general.Save')}}</button>
-                                                                            </div>
-                                                                        @endif
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
                                 @if($canUpdate)
                                     <div id="changePassword" class="tab-pane fade active in" role="tabpanel">
                                         <!-- Row -->
@@ -605,81 +340,6 @@
 
 @section('footer')
     @parent
-    @if($user->provider && $user->provider->loadings->count() > 0)
-        <script>
-            var map;
-
-            function initMap() {
-                var infoWindow = new google.maps.InfoWindow;
-                map = new google.maps.Map(document.getElementById('googleMap'), {
-                    zoom: 10,
-                    center: new google.maps.LatLng(24.782765, 46.782498),
-                    mapTypeId: 'roadmap'
-                });
-
-                var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-                var icons = {
-                    active: {
-                        icon: "{{asset('/dist/img/loading-active.png')}}"
-                    },
-                    inactive: {
-                        icon: "{{asset('/dist/img/loading-inactive.png')}}"
-                    },
-                    default: {
-                        icon: "{{asset('/dist/img/loading-default.png')}}"
-                    }
-                };
-
-                var features = [
-                        @foreach($user->provider->loadings as $loading)
-                    {
-                        position: new google.maps.LatLng("{{$loading->lat}}", "{{$loading->long}}"),
-                        type: @if($loading->default == PROVIDER_LOADING_DEFAULT)
-                            'default'
-                        @elseif($loading->status == PROVIDER_LOADING_ACTIVE)
-                        'active'
-                                @else
-                                    'inactive'
-                        @endif,
-                        name: "{{$loading->name}}",
-                        address: "{{$loading->address}}"
-
-                    },
-                    @endforeach
-
-                ];
-
-                var bounds = new google.maps.LatLngBounds();
-
-                // Create markers.
-                features.forEach(function (feature) {
-                    var marker = new google.maps.Marker({
-                        position: feature.position,
-                        icon: icons[feature.type].icon,
-                        map: map
-                    });
-
-                    var html = "<span style='margin-right: 20px;font-weight: bold'><br><b>" + feature.name + "</b><br><b>" + feature.address + "</b></span>";
-
-                    bindInfoWindow(marker, map, infoWindow, html);
-
-                    bounds.extend(marker.position);
-                });
-                map.fitBounds(bounds);
-
-            }
-
-            function bindInfoWindow(marker, map, infoWindow, html) {
-                google.maps.event.addListener(marker, 'click', function () {
-                    infoWindow.setContent(html);
-                    infoWindow.open(map, marker);
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgIKx-8qqL3I3a-cVETwnf2UbgVzm1zus&callback=initMap">
-        </script>
-    @endif
     <script>
         $(document).ready(function () {
             /* Select2 Init*/
