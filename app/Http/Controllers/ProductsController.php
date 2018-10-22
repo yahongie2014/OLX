@@ -31,7 +31,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        return ProductsApi::collection($this->products->with("users")->where("user_id", $request->user()->id)->paginate());
+        return ProductsApi::collection($this->products->with("users")->where("user_id", $request->user()->id)->whereNull('deleted_at')->paginate());
     }
 
     /**

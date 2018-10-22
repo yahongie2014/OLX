@@ -28,9 +28,9 @@ class AdsUerApi extends JsonResource
             "Delivery Available" => (boolean)$this->is_delivery,
             "Percentage" => $this->percentage,
             "RateAverage" => Rates::where('ads_id', $this->id)->groupBy('ads_id')->avg('average'),
-            "AdsImages" => AdsImagesApi::collection(AdsImages::with("Adsimage")->where("ads_id",$this->id)->get()),
+            "AdsImages" => AdsImagesApi::collection(AdsImages::with("Adsimage")->where("ads_id",$this->id)->whereNull('deleted_at')->get()),
             "CitiesAvailable" => AdsCitiesApi::collection(AdsCities::with("Adscity")->where("ads_id",$this->id)->get()),
-            "Products" => AdsProductApi::collection(AdsProducts::with("Adsproducts")->where("ads_id",$this->id)->get()),
+            "Products" => AdsProductApi::collection(AdsProducts::with("Products")->where("ads_id",$this->id)->whereNull('deleted_at')->get()),
         ];
     }
 }

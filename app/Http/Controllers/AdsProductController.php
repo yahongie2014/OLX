@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductUserApi;
+use App\Http\Resources\AdsProductApi;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
-class ProductUserController extends Controller
+class AdsProductController extends Controller
 {
     public function __construct(Products $products)
     {
         $this->products = $products;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -21,9 +20,8 @@ class ProductUserController extends Controller
      */
     public function index(Request $request)
     {
-        return ProductUserApi::collection($this->products->with("users")->whereNull('deleted_at')->paginate());
+        return AdsProductApi::collection($this->products->with("users")->whereNull('deleted_at')->paginate());
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,25 +49,9 @@ class ProductUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        $validator = \Validator::make(
-            ['id' => $id],
-            array(
-                'id' => 'required|exists:products,id|integer',
-            ),
-            [
-                'id' => __("validation.required"),
-            ]
-        );
-        if ($validator->fails()) {
-            return response()->json($validator)->setStatusCode(400);
-        } else {
-            $only = $this->products->findOrfail($id);
-
-            return new ProductUserApi($only);
-        }
-
+        //
     }
 
     /**

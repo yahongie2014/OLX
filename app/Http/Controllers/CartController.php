@@ -24,7 +24,7 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        return CartApi::collection($this->cart->where("user_id", $request->user()->id)->paginate());
+      return CartApi::collection($this->cart->where("user_id", $request->user()->id)->paginate());
     }
 
     /**

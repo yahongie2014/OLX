@@ -25,7 +25,7 @@ class ProductUserApi extends JsonResource
             "Price" => $this->price,
             "Status" => $this->is_active,
             "Cover" =>  url(Storage::url('Products/'. $this->cover_image)),
-            "FeatureImages" =>  ProductImageApi::collection(ProductsImages::with("ImgPro")->where("products_id",$this->id)->get()),
+            "FeatureImages" =>  ProductImageApi::collection(ProductsImages::with("ImgPro")->whereNull('deleted_at')->where("products_id",$this->id)->get()),
             "Time" => $this->created_at,
         ];
     }

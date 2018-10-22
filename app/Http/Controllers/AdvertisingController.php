@@ -37,7 +37,7 @@ class AdvertisingController extends Controller
      */
     public function index(Request $request)
     {
-        return AdsApi::collection($this->ads->with("users")->where("user_id", $request->user()->id)->paginate());
+        return AdsApi::collection($this->ads->with("users")->whereNull('deleted_at')->where("user_id", $request->user()->id)->paginate());
     }
 
     /**
@@ -146,7 +146,7 @@ class AdvertisingController extends Controller
                 return response()->json(['error' => 'You can only show your Advertising.'], 403);
             }
 
-            return new AdsApi($only);
+            return new AdsApi($only->whereNull('deleted_at'));
         }
 
     }
