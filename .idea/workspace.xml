@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-    </list>
+    <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/cache.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-322">
-              <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+            <state relative-caret-position="98">
+              <caret line="73" column="30" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -346,9 +344,10 @@
       <path value="$PROJECT_DIR$/vendor/memcached/fastlz" />
       <path value="$PROJECT_DIR$/vendor/memcached/tests" />
       <path value="$PROJECT_DIR$/vendor/cache/memcache-adapter" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="6" />
     <option name="y" value="125" />
     <option name="width" value="1346" />
@@ -460,15 +459,15 @@
       <workItem from="1540107823218" duration="9651000" />
       <workItem from="1540147899942" duration="12763000" />
       <workItem from="1540180758974" duration="2698000" />
-      <workItem from="1540184787393" duration="3462000" />
+      <workItem from="1540184787393" duration="3764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144359000" />
+    <option name="totallyTimeSpent" value="144661000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
@@ -860,8 +859,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/cache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+        <state relative-caret-position="98">
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="30" />
         </state>
       </provider>
     </entry>

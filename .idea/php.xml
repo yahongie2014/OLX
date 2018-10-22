@@ -104,6 +104,7 @@
       <path value="$PROJECT_DIR$/vendor/memcached/fastlz" />
       <path value="$PROJECT_DIR$/vendor/memcached/tests" />
       <path value="$PROJECT_DIR$/vendor/cache/memcache-adapter" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
