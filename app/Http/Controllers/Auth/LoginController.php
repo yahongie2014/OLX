@@ -28,6 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -45,19 +46,6 @@ class LoginController extends Controller
         $this->clearLoginAttempts($request);
 
         Session::put('login_type',$request->login_type);
-
-        switch ($request->login_type){
-            case 1:
-                $this->redirectTo = '/admin';
-                break;
-            case 2:
-                $this->redirectTo = '/vendor';
-                break;
-            default:
-                $this->redirectTo = '/admin';
-                break;
-        }
-
 
 
         // Get System active Languages

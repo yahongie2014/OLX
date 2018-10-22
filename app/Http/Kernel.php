@@ -41,16 +41,6 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
-        'admin' => [
-            \Illuminate\Auth\Middleware\Authenticate::class,
-            \App\Http\Middleware\IsUserAdmin::class,
-        ],
-        'vendor' => [
-            \Illuminate\Auth\Middleware\Authenticate::class,
-            \App\Http\Middleware\Vendor::class,
-
-        ],
-
     ];
 
     /**
@@ -70,8 +60,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'cors' => \App\Http\Middleware\CORS::class,
         'setlanguage' => \App\Http\Middleware\setLanguage::class,
-        'Admin' => \App\Http\Middleware\IsUserAdmin::class,
-        'Vendor' => \App\Http\Middleware\Vendor::class,
 
     ];
 }

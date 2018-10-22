@@ -12,7 +12,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $orderStatuses;
+    public function __construct($phone,$message)
+    {
+        //
+        $this->phone = $phone;
+        $this->message = $message;
+    }
+
 
     public function SendSms($phone ,$message)
     {

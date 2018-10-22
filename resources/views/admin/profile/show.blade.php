@@ -104,5 +104,5 @@
     </div>
 </div>
 @endif
-@include('partials.user.show', ['user' => $user , 'loginType' => 1 ])
+@include('partials.user.show', ['user' => $user , 'loginType' => ADMIN ])
 @endsection
