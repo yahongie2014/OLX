@@ -100,8 +100,9 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/swiggles/memcache" />
-      <path value="$PROJECT_DIR$/vendor/memcached-3.0.4/tests" />
-      <path value="$PROJECT_DIR$/vendor/memcached-3.0.4/fastlz" />
+      <path value="$PROJECT_DIR$/vendor/memcached/libmemcached-1.0.18" />
+      <path value="$PROJECT_DIR$/vendor/memcached/fastlz" />
+      <path value="$PROJECT_DIR$/vendor/memcached/tests" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

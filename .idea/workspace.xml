@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/myservice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myservice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/e3f5be06fc8d7186df84e391ae311a4e05d54b38.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/e3f5be06fc8d7186df84e391ae311a4e05d54b38.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +43,7 @@
           <entry key="Blade" value="165" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="10806" />
+          <entry key="PHP" value="10856" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -46,11 +51,11 @@
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="env" value="28" />
+          <entry key="env" value="29" />
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="7" />
-          <entry key="php" value="811" />
+          <entry key="php" value="817" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -61,7 +66,7 @@
           <entry key="env" value="67" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="10971" />
+          <entry key="php" value="11021" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -72,11 +77,11 @@
       <usages-collector id="statistics.php.new.class" />
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="29" />
+          <entry key=".env file" value="30" />
           <entry key="Blade" value="54" />
           <entry key="JSON" value="7" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="757" />
+          <entry key="PHP" value="763" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
@@ -87,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/cache.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="1407">
+              <caret line="67" column="4" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -172,7 +177,6 @@
         <option value="$PROJECT_DIR$/resources/views/vendors/profile/show.blade.php" />
         <option value="$PROJECT_DIR$/config/consts.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/user/show.blade.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
@@ -180,6 +184,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/cache.php" />
       </list>
     </option>
@@ -331,8 +336,9 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/swiggles/memcache" />
-      <path value="$PROJECT_DIR$/vendor/memcached-3.0.4/tests" />
-      <path value="$PROJECT_DIR$/vendor/memcached-3.0.4/fastlz" />
+      <path value="$PROJECT_DIR$/vendor/memcached/libmemcached-1.0.18" />
+      <path value="$PROJECT_DIR$/vendor/memcached/fastlz" />
+      <path value="$PROJECT_DIR$/vendor/memcached/tests" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -447,12 +453,12 @@
       <workItem from="1540107823218" duration="9651000" />
       <workItem from="1540147899942" duration="12763000" />
       <workItem from="1540180758974" duration="2698000" />
-      <workItem from="1540184787393" duration="1772000" />
+      <workItem from="1540184787393" duration="2401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142669000" />
+    <option name="totallyTimeSpent" value="143298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -509,13 +515,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Session/Session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CORS.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
@@ -731,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="47" column="18" selection-start-line="47" selection-end-line="47" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6258">
@@ -821,31 +813,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/memcache/memcache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7014">
+          <caret line="334" column="6" selection-start-line="334" selection-start-column="6" selection-end-line="334" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/memcached/memcached.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2058">
+        <state relative-caret-position="-7497">
           <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="154" column="13" lean-forward="true" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
+        <state relative-caret-position="308">
+          <caret line="214" column="37" selection-start-line="214" selection-start-column="37" selection-end-line="214" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/memcache/memcache.php">
+    <entry file="file://$PROJECT_DIR$/vendor/memcached/memcached-api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="334" column="6" selection-start-line="334" selection-start-column="6" selection-end-line="334" selection-end-column="6" />
+        <state relative-caret-position="84">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/cache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="1407">
+          <caret line="67" column="4" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
         </state>
       </provider>
     </entry>

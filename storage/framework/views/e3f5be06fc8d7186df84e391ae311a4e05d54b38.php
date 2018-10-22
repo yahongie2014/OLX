@@ -6,14 +6,14 @@
 
 <?php $__env->startSection('headerBar'); ?>
 <li>
-    <a href="<?php echo e(url('/Providers/profile/' . Auth::user()->id)); ?>"><i class="zmdi zmdi-account"></i><span><?php echo e(__("general.Profile")); ?></span></a>
+    <a href="<?php echo e(url('/provider/profile/' . Auth::user()->id)); ?>"><i class="zmdi zmdi-account"></i><span><?php echo e(__("general.Profile")); ?></span></a>
 </li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('PageLocation'); ?>
 
 <li>
-    <a href="<?php echo e(url('/Providers')); ?>"><?php echo e(__("general.Home")); ?></a>
+    <a href="<?php echo e(url('/provider')); ?>"><?php echo e(__("general.Home")); ?></a>
 </li>
 
 <li>

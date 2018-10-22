@@ -35,8 +35,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/event" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-server" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/memcached-3.0.4/fastlz" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/memcached-3.0.4/tests" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/memcached/fastlz" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/memcached/libmemcached-1.0.18" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/memcached/tests" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
