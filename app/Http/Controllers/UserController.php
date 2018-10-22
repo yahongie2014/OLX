@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -63,88 +64,15 @@ class UserController extends Controller
 
         $outputData = [];
 
-        $user = User::with('provider','provider.services_discounts','delivery')->find($id);
+        $user = User::with('city')->find($id);
 
-        // get user country code
-        $userCountryCode = Country::where('id' ,$user->country_id)->first(['code']);
-
-        // parse user phone without country code
-        $user->phone = substr($user->phone,intval(strlen($userCountryCode->code)));
 
         // if he is the same user so he can update if not he only can show this user
         $canUpdate = Auth::user()->id == $id ? true : false ;
 
-        // Get all Countries available in the system - required for update
-        $countries = $canUpdate ? $this->localizeSystemActiveCountries(Country::all()) : $this->localizeSystemActiveCountries(Country::where('id' , $user->country_id)->get());
-
-        // Get user country cities
-        $cities = $canUpdate ? $this->localizeSystemActiveCities(City::where('country_id',$user->country_id)->get()) : $this->localizeSystemActiveCities(City::where('id' , $user->city_id)->get());
-
-
         // Get total orders by day year Month
-        $now = Carbon::now($user->country->time_zone);
+        $now = Carbon::now($user->city->time_zone);
 
-        if($user->provider){
-            // Get all Services
-            $services = $this->localizeServiceTypes(ServiceType::all());
-
-            // Get services discounts for that user
-            $serviceDiscount = $user->provider->services_discounts->mapWithKeys(function ($item) {
-                return [$item['id'] => $item['pivot']['discount']];
-            });
-
-            // Get all Payment Types
-            $paymentTypes = $this->localizePaymentTypes(PaymentType::all());
-
-            // Get payment types discounts for that user
-            $paymentTypesDiscount = $user->provider->payment_type_discounts->mapWithKeys(function ($item) {
-                return [$item['id'] => $item['pivot']['discount']];
-            });
-
-
-            // Get provider orders statistics
-
-            // Provider total orders
-            $user->provider->allOrders = Order::where('provider_id',$user->provider->id)->count();
-
-            // Provider Month orders
-            $user->provider->monthOrders = Order::where('provider_id',$user->provider->id)->where(DB::raw("MONTH(created_at)") , $now->month)->count();
-
-            // Provider Day orders
-            $user->provider->dayOrders = Order::where('provider_id',$user->provider->id)->where(DB::raw("DATE(created_at)") , $now->format("Y-m-d"))->count();
-
-            // Get providers loading points
-            $user->provider->loadings = ProviderLoading::where('provider_id',$user->provider->id)->get();
-
-
-            //dd($user->provider->loadings->toArray());
-            //-------------------------
-            $outputData['services'] = $services;
-            $outputData['paymentTypes'] = $paymentTypes;
-            $outputData['serviceDiscount'] = $serviceDiscount;
-            $outputData['paymentTypesDiscount'] = $paymentTypesDiscount;
-
-        }
-
-        if($user->delivery){
-            // Delivery total orders
-            $user->delivery->allOrders = Order::where('delivery_id',$user->delivery->id)->count();
-
-            // Delivery Month orders
-            $user->delivery->monthOrders = Order::where('delivery_id',$user->delivery->id)->where(DB::raw("MONTH(created_at)") , $now->month)->count();
-
-            // Delivery Day orders
-            $user->delivery->dayOrders = Order::where('delivery_id',$user->delivery->id)->where(DB::raw("DATE(created_at)") , $now->format("Y-m-d"))->count();
-
-            // Get user system car types
-            $carTypes = $canUpdate ? $this->localizeSystemActiveCarTypes(CarType::where('status',CAR_TYPE_ACTIVE)->get()) : $this->localizeSystemActiveCarTypes(CarType::where('id' , $user->delivery->car_type_id)->get());
-
-            $outputData['carTypes'] = $carTypes;
-            //-------------------------
-        }
-        //dd($user->toArray());
-        // Get all Languages available in the system - required for update
-        $languages = $canUpdate ? Language::all() : Language::where('id' , $user->language_id)->get();
 
         // If the profile owner generate an update link
         $updateLink = $canUpdate ? Route::current()->action['prefix'] . "/profile/" . Auth::user()->id : '';
@@ -153,11 +81,8 @@ class UserController extends Controller
         $outputView = ltrim(Route::current()->action['prefix'],'/') . ".profile.show";
 
         $outputData['user'] = $user;
-        $outputData['countries'] = $countries;
-        $outputData['languages'] = $languages;
         $outputData['canUpdate'] = $canUpdate;
         $outputData['updateLink'] = $updateLink;
-        $outputData['cities'] = $cities;
 
         //dd($outputData);
 
