@@ -153,7 +153,6 @@ return [
          */
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Laracademy\ModelGenerator\ModelGeneratorServiceProvider::class,
-        Swiggles\Memcache\MemcacheServiceProvider::class,
         /*
          * Application Service Providers...
          */
