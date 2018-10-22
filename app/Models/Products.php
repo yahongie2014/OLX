@@ -67,7 +67,8 @@ class Products extends Model
         return $this->hasMany(AdsProducts::class,"product_id");
     }
     public function Products(){
-        return $this->hasMany(OrderItmes::class,"product_id");
+
+        return $this->hasMany(OrderItmes::class);
     }
 
 }

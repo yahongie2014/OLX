@@ -18,19 +18,17 @@ class OrdersApi extends JsonResource
      */
     public function toArray($request)
     {
-//
         return [
             "Identifier" => $this->id,
             "OrderStatus" => $this->status,
-            "UserName" => $this->user->name,
             "OrderNumber" => "#" . $this->order_number,
             "PromoCode" => (boolean)$this->promo_code_id,
             "OrderItems" => OrdersItemsApi::collection(OrderItmes::with(["Products" => function ($q) {
+                $q->select("products.id");
                 $q->where("products.id", Auth::user()->id);
             }])
                 ->where("order_id", $this->id)
                 ->get()),
-
             "ProductsPrice" => $this->total,
             "PercentageWebsite" => env("PERCENTAGE") . "%",
             "TotalPrice" => $this->total + $this->total * env("PERCENTAGE") / 100,
