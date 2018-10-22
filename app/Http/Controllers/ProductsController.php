@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductsForm;
+use App\Http\Resources\AdsProductApi;
 use App\Http\Resources\ProductsApi;
+use App\Models\AdsProducts;
 use App\Models\Products;
 use App\Models\ProductsImages;
 use App\Models\ProductsTranslation;
@@ -281,14 +283,26 @@ class ProductsController extends Controller
             ]
         );
 
+
         if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
         } else {
             $soft = $this->products->findOrFail($id);
+
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Product.'], 403);
             }
-            $soft->delete();
+            $mage_path = $this->images->with("ImgPro")->where("products_id",$id)->get();
+
+            foreach ($mage_path as $item){
+                $path_image = $this->images->find($item);
+                if($request->image == $path_image){
+                    $path_image->delete();
+                }
+            }
+            if($soft->delete()){
+
+            }
 
             return response()->json(["message" => "Product $soft->name was Deleted"]);
         }
