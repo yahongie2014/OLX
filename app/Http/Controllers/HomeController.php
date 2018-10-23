@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cities;
+use App\Http\Resources\CityTransformer;
 use App\Language;
 use App\User;
 use Session;
@@ -12,7 +13,12 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-  
+
+    public function __construct(Cities $cites)
+    {
+        $this->cities = $cites;
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -133,16 +139,11 @@ class HomeController extends Controller
 
     public function city(Request $request)
     {
-        $cities = Cities::with('country');
 
-        if($request->has('country_id'))
-            $cities = $cities->where('country_id',$request->country_id);
+        $cities = CityTransformer::collection($this->cities->with("country")->where('country_id', $request->country_id)->get());
 
 
-        $cities = $cities->get();
-
-
-        return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
+        return response()->json(['status' => true, 'result' => $cities]);
 
     }
 
