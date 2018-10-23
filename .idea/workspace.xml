@@ -2,8 +2,114 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/MessagePushed.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/MessagePushed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/MessageSent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/MessageSent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdsProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdsProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdsUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdsUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChatsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompainesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompainesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompaniesImagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompaniesImagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CountryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderItmesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderItmesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PercentageControllerAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PercentageControllerAPI.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RatesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CORS.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CORS.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/IsUserAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/IsUserAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Vendor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Vendor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AdsForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AdsForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BankForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BankForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/BookmarkForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/BookmarkForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CartForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CartForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/OrdersForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductsForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductsForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RatesForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/RatesForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsCitiesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsCitiesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsImagesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsImagesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AdsUerApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BankApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BankApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CartApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CartApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CityApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CityApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CityTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CityTransformer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CountryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CountryApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Dashboard/Admin/Languages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Dashboard/Admin/Languages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/FavouriteApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/FavouriteApi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrdersItemsApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OrdersItemsApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/OrdersUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/OrdersUserApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductImageApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductImageApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductUserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductUserApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductsApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/RatesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/RatesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ServicesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ServicesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/SubServicesApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/SubServicesApi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Language.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AdsCities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AdsCities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AdsImages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AdsImages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AdsProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AdsProducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Advertising.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Advertising.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AdvertisingTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AdvertisingTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BankAccounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BankAccounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bookmark.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bookmark.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CitiessTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CitiessTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Compaines.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Compaines.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CompainesTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CompainesTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CompaniesImages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CompaniesImages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CountriesTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CountriesTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OrderItmes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrderItmes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ProductsImages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProductsImages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ProductsTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProductsTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Rates.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Rates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Services.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ServicesTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ServicesTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SubServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/SubServicesTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/SubServicesTranslation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/be902f2642a5dd47c66c9a3f1f73c3e701e7d79f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/be902f2642a5dd47c66c9a3f1f73c3e701e7d79f.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,18 +135,19 @@
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.51" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="78" />
-          <entry key="Blade" value="207" />
+          <entry key="Blade" value="208" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="15617" />
+          <entry key="PHP" value="15805" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Vue.js" value="120" />
         </counts>
@@ -52,7 +159,7 @@
           <entry key="example" value="1" />
           <entry key="js" value="16" />
           <entry key="json" value="8" />
-          <entry key="php" value="1088" />
+          <entry key="php" value="1106" />
           <entry key="vue" value="16" />
         </counts>
       </usages-collector>
@@ -63,7 +170,7 @@
           <entry key="env" value="78" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="15824" />
+          <entry key="php" value="16013" />
           <entry key="vue" value="120" />
         </counts>
       </usages-collector>
@@ -75,37 +182,35 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="37" />
-          <entry key="Blade" value="60" />
+          <entry key="Blade" value="62" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="16" />
-          <entry key="PHP" value="1028" />
+          <entry key="PHP" value="1044" />
           <entry key="Vue.js" value="16" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PercentageControllerAPI.php">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="38" column="21" selection-start-line="38" selection-end-line="39" />
+            <state relative-caret-position="357">
+              <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
               <folding>
-                <element signature="e#40#66#0#PHP" expanded="true" />
+                <element signature="e#40#62#0#PHP" expanded="true" />
+                <element signature="e#4443#9494#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Resources/OrdersApi.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/consts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-              <folding>
-                <element signature="e#38#65#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -140,7 +245,16 @@
       <find>Vendor/Ads</find>
       <find>select</find>
       <find>examp</find>
+      <find>Order</find>
+      <find>Order::</find>
+      <find>delivered_at</find>
+      <find>user_updated</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Orders</replace>
+      <replace>Orders::</replace>
+      <replace>updated_at</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Coder79\Desktop\myservice</dir>
       <dir>C:\Users\Coder79\Desktop\myservice\resources\views\vendors</dir>
@@ -152,11 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/partials/user/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/providerlayout.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
         <option value="$PROJECT_DIR$/vendor/memcached/memcached-api.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/database.php" />
@@ -184,7 +293,6 @@
         <option value="$PROJECT_DIR$/app/Models/Products.php" />
         <option value="$PROJECT_DIR$/app/Transformers/CityTransformer.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/Cities.php" />
         <option value="$PROJECT_DIR$/app/Models/Country.php" />
         <option value="$PROJECT_DIR$/config/cache.php" />
@@ -195,7 +303,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdvertisingController.php" />
         <option value="$PROJECT_DIR$/app/Models/OrderItmes.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/OrdersItemsApi.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
         <option value="$PROJECT_DIR$/app/Models/Orders.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/OrdersUserApi.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
@@ -203,6 +310,13 @@
         <option value="$PROJECT_DIR$/resources/lang/en/general.php" />
         <option value="$PROJECT_DIR$/resources/lang/ar/general.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/OrdersApi.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/setLanguage.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/config/helper.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/index.blade.php" />
+        <option value="$PROJECT_DIR$/config/consts.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" />
       </list>
     </option>
   </component>
@@ -372,7 +486,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -401,40 +514,12 @@
             <path>
               <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="myservice" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="ar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myservice" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
@@ -442,10 +527,23 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myservice" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myservice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myservice" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,18 +603,19 @@
       <workItem from="1540180758974" duration="2698000" />
       <workItem from="1540184787393" duration="19172000" />
       <workItem from="1540224118638" duration="19644000" />
-      <workItem from="1540303719071" duration="25460000" />
+      <workItem from="1540303719071" duration="25724000" />
+      <workItem from="1540332488433" duration="3982000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205173000" />
+    <option name="totallyTimeSpent" value="209419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23524962" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23903178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -567,37 +666,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BookmarkController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BankAccountsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/CartApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1449">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/AdsProductApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/ProductsImages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -619,9 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -641,20 +706,8 @@
         <state relative-caret-position="-1218" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-fractal/src/Fractal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/league/fractal/src/Manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-fractal/src/Fractal.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/league/fractal/src/Manager.php" />
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -662,20 +715,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/fractal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/league/fractal/src/Resource/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/config/fractal.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/league/fractal/src/Resource/Collection.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/Country.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -731,13 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="16" column="27" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -766,13 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-546">
           <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdsProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -821,13 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -900,12 +920,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdsProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="67" column="7" lean-forward="true" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Resources/OrdersApi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state relative-caret-position="520">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#38#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/setLanguage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#43#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-763">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#6993#7023#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/consts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+          <folding>
+            <element signature="e#40#62#0#PHP" expanded="true" />
+            <element signature="e#4443#9494#0#PHP" />
           </folding>
         </state>
       </provider>

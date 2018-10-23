@@ -33,6 +33,7 @@ Route::get('user/orders/statistics', 'OrderController@userStatistics');
 Route::group(['prefix' => '/admin', 'middleware' => 'Admin'], function () {
 
 Route::get('/', 'HomeController@admin')->name('adminHome');
+Route::get('user/orders/statistics','OrderController@userStatistics');
 Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
 Route::resource('languages', 'LanguageController', ['except' => ['destroy', 'show']]);
 Route::resource('countries', 'CountryController', ['except' => ['destroy', 'show']]);

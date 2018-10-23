@@ -318,8 +318,6 @@ $countries = \App\Models\Country::all();
                                 .append($("<option></option>")
                                     .attr("value", value.id)
                                     .text(value.name));
-                            console.log(value.name);
-
                         });
 
 
