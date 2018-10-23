@@ -24,7 +24,7 @@ class BankAccountsController extends Controller
      */
     public function index(Request $request)
     {
-        return BankApi::collection($this->bank->where("user_id", $request->user()->id)->paginate());
+        return BankApi::collection($this->bank->where("user_id", $request->user()->id)->whereNull('deleted_at')->paginate());
     }
 
     /**

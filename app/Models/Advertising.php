@@ -75,6 +75,13 @@ class Advertising extends Model
         return $this->hasMany(AdsCities::class);
     }
 
+    public function Adsproducts(){
+
+        return $this->hasMany(Advertising::class);
+
+    }
+
+
 
 
 

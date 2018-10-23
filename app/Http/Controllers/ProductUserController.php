@@ -21,7 +21,7 @@ class ProductUserController extends Controller
      */
     public function index(Request $request)
     {
-        return ProductUserApi::collection($this->products->with("users")->paginate());
+        return ProductUserApi::collection($this->products->with("users")->whereNull('deleted_at')->paginate());
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductUserController extends Controller
         if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
         } else {
-            $only = $this->products->findOrFail($id);
+            $only = $this->products->findOrfail($id);
 
             return new ProductUserApi($only);
         }

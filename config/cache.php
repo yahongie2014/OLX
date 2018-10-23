@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -57,22 +58,27 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
-                // Memcached::OPT_CONNECT_TIMEOUT  => 2000,
             ],
-            'servers' => [
-                [
-                    'host' => env('MEMCACHED_HOST', '127.0.0.1'),
-                    'port' => env('MEMCACHED_PORT', 11211),
+            'servers' => array_map(function ($s) {
+                $parts = explode(":", $s);
+                return [
+                    'host' => $parts[0],
+                    'port' => $parts[1],
                     'weight' => 100,
-                ],
-            ],
+                ];
+            })
         ],
 
         'redis' => [
-            'driver' => 'redis',
-            'connection' => 'default',
-        ],
+            'cluster' => false,
 
+            'default' => [
+                'host' => env('REDIS_HOST'),
+                'port' => env('REDIS_PORT'),
+                'password' => env('REDIS_PASSWORD'),
+                'database' => 0,
+            ],
+        ],
     ],
 
     /*
@@ -88,7 +94,7 @@ return [
 
     'prefix' => env(
         'CACHE_PREFIX',
-        str_slug(env('APP_NAME', 'laravel'), '_').'_cache'
+        str_slug(env('APP_NAME', 'laravel'), '_') . '_cache'
     ),
 
 ];

@@ -37,7 +37,7 @@ class AdvertisingController extends Controller
      */
     public function index(Request $request)
     {
-        return AdsApi::collection($this->ads->with("users")->where("user_id", $request->user()->id)->paginate());
+        return AdsApi::collection($this->ads->with("users")->whereNull('deleted_at')->where("user_id", $request->user()->id)->paginate());
     }
 
     /**
@@ -146,7 +146,7 @@ class AdvertisingController extends Controller
                 return response()->json(['error' => 'You can only show your Advertising.'], 403);
             }
 
-            return new AdsApi($only);
+            return new AdsApi($only->whereNull('deleted_at'));
         }
 
     }
@@ -199,8 +199,24 @@ class AdvertisingController extends Controller
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Ads.'], 403);
             }
-            $soft->delete();
+            $mage_path = $this->images->where("ads_id",$id)->get();
+            foreach ($mage_path as $items){
+                $single = $this->images->findOrFail($items->id);
+                $single->delete();
+            }
+            $mage_pro = $this->adproducts->where("ads_id",$id)->get();
+            foreach ($mage_pro as $items){
+                $single = $this->adproducts->findOrFail($items->id);
+                $single->delete();
+            }
+            $mage_pro = $this->city_id->where("ads_id",$id)->get();
+            foreach ($mage_pro as $items){
+                $single = $this->city_id->findOrFail($items->id);
+                $single->delete();
+            }
 
+            $soft->delete();
+            DB::commit();
             return response()->json(["message" => "Ads $soft->desc IS Deleted"]);
         }
 

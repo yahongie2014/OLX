@@ -51,5 +51,10 @@ class User extends Authenticatable  {
     public function city(){
         return $this->belongsTo(Cities::class,"city_id");
     }
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
 
 }

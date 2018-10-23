@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductsForm;
+use App\Http\Resources\AdsProductApi;
 use App\Http\Resources\ProductsApi;
+use App\Models\AdsProducts;
 use App\Models\Products;
 use App\Models\ProductsImages;
 use App\Models\ProductsTranslation;
@@ -15,13 +17,14 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator)
+    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator,AdsProducts $ads)
     {
         // App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
         $this->products = $products;
         $this->images = $image;
         $this->trnslator = $trnslator;
+        $this->ads = $ads;
     }
 
     /**
@@ -31,7 +34,7 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        return ProductsApi::collection($this->products->with("users")->where("user_id", $request->user()->id)->paginate());
+        return ProductsApi::collection($this->products->with("users")->where("user_id", $request->user()->id)->whereNull('deleted_at')->paginate());
     }
 
     /**
@@ -102,9 +105,8 @@ class ProductsController extends Controller
                 $pro_trnslator->save();
             }
 
-            DB::commit();
-
         }
+        DB::commit();
 
         return new ProductsApi($product);
     }
@@ -160,107 +162,6 @@ class ProductsController extends Controller
      */
     protected function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        if ($request->global_locale_ar) {
-            $rules = array(
-                'name_ar' => 'required|string|max:50',
-                'desc_ar' => 'required|string|max:255',
-                'locale_ar' => 'required',
-            );
-            $messages = array(
-                'name_ar.required' => 'Arabic Name Must be Required',
-                'desc_ar.required' => 'Arabic Descereption Must be Required',
-            );
-            $validator = \Validator::make(Input::all(), $rules, $messages);
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()->all()])->setStatusCode(422);
-            }
-        }
-        if ($request->global_locale) {
-            $rules = array(
-                'name' => 'required|string|max:50',
-                'desc' => 'required|string|max:255',
-                'price' => 'required',
-                'is_active' => 'required|integer',
-            );
-            $messages = array(
-                'name.required' => 'Name Must be Required',
-                'desc.required' => 'Descereption Must be Required',
-                'price.required' => 'Descereption Must be Required',
-                'is_active.required' => 'Status Must be Required',
-            );
-            $validator = \Validator::make(Input::all(), $rules, $messages);
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()->all()])->setStatusCode(422);
-            }
-        }
-
-
-        DB::beginTransaction();
-        $update = $this->products->find($id);
-        if ($request->has('name')) {
-            $update->name = $request->name;
-        }
-        if ($request->has('desc')) {
-            $update->desc = $request->desc;
-        }
-        if ($request->has('price')) {
-            $update->price = $request->price;
-        }
-        if ($request->has('locale')) {
-            $update->locale = $request->global_locale;
-        }
-        if ($request->has('name_ar')) {
-            $update->name = $request->name_ar;
-        }
-        if ($request->has('desc_ar')) {
-            $update->desc = $request->desc_ar;
-        }
-        if ($request->has('price_ar')) {
-            $update->price = $request->price_ar;
-        }
-        if ($request->has('locale')) {
-            $update->locale = $request->global_locale_ar;
-        }
-        if ($request->has('is_active')) {
-            $update->is_active = $request->is_active;
-        }
-        if ($request->has('cover_image')) {
-            $file_cover = $request->file('cover_image');
-            $name_cover = $file_cover->getClientOriginalName();
-            $ext_cover = $file_cover->getClientOriginalExtension();
-            $cover = Storage::putFileAs('/public/Products', $file_cover, $name_cover);
-            $update->cover_image = $name_cover;
-        }
-        if ($update->update()) {
-            if ($request->has('Images')) {
-                $file = $request->has('Images');
-                foreach ($file as $files) {
-                    $idPRo = $this->images->find("product_id",$update->id);
-                    foreach ($idPRo as $id => $value) {
-                        $productImage = $request->path;
-                        if ($productImage) {
-                            $delete_old = Storage::delete('/public/FeaturesProduct' . $productImage);
-                            $update->destroy($id);
-                        }
-                    }
-                    $name_image = $files->getClientOriginalName();
-                    $ext = $files->getClientOriginalExtension();
-                    $name = Storage::putFileAs('/public/FeaturesProduct', $files, $name_image);
-                    $img = new $this->images($request->all());
-                    $img->products_id = $update->id;
-                    $img->path = $name_image;
-                    $img->update();
-                }
-            }
-
-        }
-        DB::commit();
-
-
-        return new ProductsApi($update);
-
     }
 
     /**
@@ -285,13 +186,25 @@ class ProductsController extends Controller
             return response()->json($validator)->setStatusCode(400);
         } else {
             $soft = $this->products->findOrFail($id);
+
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Product.'], 403);
             }
+            $mage_path = $this->images->where("products_id",$id)->get();
+            foreach ($mage_path as $items){
+                $single = $this->images->findOrFail($items->id);
+                $single->delete();
+            }
+            $ads = $this->ads->where("product_id",$id)->get();
+            foreach ($ads as $ad){
+                $items = $this->ads->findOrFail($ad->id);
+                $items->delete();
+            }
             $soft->delete();
-
+            DB::commit();
             return response()->json(["message" => "Product $soft->name was Deleted"]);
         }
 
     }
+
 }

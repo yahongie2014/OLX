@@ -53,7 +53,7 @@
                                         <td class="txt-dark centerCol">{{$city->country->name}}</td>
 
                                         <td class="centerCol">
-                                            @if($city->status == CITY_ACTIVE)
+                                            @if($city->status == 1)
                                                 <span class="label label-success font-weight-100">{{__("general.active")}}</span>
                                             @else
                                                 <span class="label label-danger font-weight-100">{{__("general.inactive")}}</span>

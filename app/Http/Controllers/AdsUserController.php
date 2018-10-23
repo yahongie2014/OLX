@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdsForm;
 use App\Http\Resources\AdsUerApi;
 use App\Models\AdsCities;
 use App\Models\AdsProducts;
@@ -23,7 +24,7 @@ class AdsUserController extends Controller
      */
     public function index(Request $request)
     {
-        return AdsUerApi::collection($this->ads->with("users")->paginate());
+        return AdsUerApi::collection($this->ads->with("users")->whereNull('deleted_at')->paginate());
     }
 
     /**

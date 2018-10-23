@@ -19,7 +19,7 @@ class CountryApi extends JsonResource
         return [
             "Name" => $this->name,
             "Flag" =>  url(Storage::url('Flag/'. $this->flag)),
-            "Cities" => CityApi::collection(Cities::where("country_id",$this->id)->get()),
+            "Cities" => CityApi::collection(Cities::where("country_id",$this->id)->whereNull('deleted_at')->get()),
             "Available" => $this->is_active,
             "KeyCode" => $this->code,
         ];

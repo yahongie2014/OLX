@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'At Time'),
 
     /*
     |--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ return [
          */
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Laracademy\ModelGenerator\ModelGeneratorServiceProvider::class,
-
+        Spatie\Fractal\Fractal::class,
         /*
          * Application Service Providers...
          */

@@ -24,7 +24,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return CountryApi::collection($this->country->paginate());
+        return CountryApi::collection($this->country->whereNull('deleted_at')->paginate());
     }
 
     /**

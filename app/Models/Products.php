@@ -62,5 +62,13 @@ class Products extends Model
     public function users(){
         return $this->belongsTo(User::class,"user_id");
     }
+    public function AdsImage(){
+
+        return $this->hasMany(AdsProducts::class,"product_id");
+    }
+    public function Products(){
+
+        return $this->hasMany(OrderItmes::class);
+    }
 
 }

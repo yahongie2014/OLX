@@ -74,7 +74,7 @@
                     <div class="sm-data-box">
                         <div class="container-fluid">
                             <div class="row" style="background-color: green;">
-                                <a href="{{url($userRoute . '/orders?order_location=' . USER_UPDATED_ORDER)}}">
+                                <a href="{{url($userRoute . '/orders?order_location=' . 1)}}">
                                     <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                         <span class="txt-dark block counter"><span class="counter-anim" id="orderWithLocation-1" >0</span></span>
                                         <span class="weight-500 uppercase-font block">{{__("general.ordersWithLocation")}}</span>
@@ -97,7 +97,7 @@
                     <div class="sm-data-box">
                         <div class="container-fluid">
                             <div class="row" style="background-color: red;">
-                                <a href="{{url($userRoute . '/orders?order_location=' . USER_NOT_UPDATED_ORDER)}}">
+                                <a href="{{url($userRoute . '/orders?order_location=' . 0)}}">
                                     <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                                         <span class="txt-dark block counter"><span class="counter-anim" id="orderWithLocation-0">0</span></span>
                                         <span class="weight-500 uppercase-font block">{{__("general.ordersWithOutLocation")}}</span>
@@ -129,31 +129,6 @@
         </div>
     </div>
 
-    @foreach($orderStatuses as $k => $orderStatus)
-    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="panel panel-default card-view pa-0">
-            <div class="panel-wrapper collapse in">
-                <div class="panel-body pa-0">
-                    <div class="sm-data-box">
-                        <div class="container-fluid">
-                            <div class="row" style="background-color: #F4F4F4;">
-                                <a href="{{url($userRoute . '/orders?order_status[]=' . $k)}}">
-                                    <div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
-                                        <span class="txt-dark block counter"><span class="counter-anim" id="orderStatus-{{$k}}">0</span></span>
-                                        <span class="weight-500 uppercase-font block">{{__("general." . $orderStatus)}}</span>
-                                    </div>
-                                    <div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
-                                        <i class="icon-layers data-right-rep-icon txt-light-grey"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
 </div>
 
 <div class="row">

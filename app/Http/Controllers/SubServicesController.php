@@ -24,7 +24,7 @@ class SubServicesController extends Controller
      */
     public function index()
     {
-        return SubServicesApi::collection($this->sub->paginate());
+        return SubServicesApi::collection($this->sub->whereNull('deleted_at')->paginate());
 
     }
 

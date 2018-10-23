@@ -53,17 +53,6 @@
             </a>
         </li>
         <li>
-            <a href="{{url('/provider/loading/')}}">
-                <div class="pull-left">
-                    <i class="ti ti-location-pin mr-20"></i>
-                    <span class="right-nav-text">{{__("general.providerLoading")}}</span>
-                </div>
-                <div class="clearfix">
-
-                </div>
-            </a>
-        </li>
-        <li>
             <a href="{{url('/provider/orders')}}">
                 <div class="pull-left">
                     <i class="zmdi zmdi-labels mr-20"></i>

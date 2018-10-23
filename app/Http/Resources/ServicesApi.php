@@ -24,7 +24,7 @@ class ServicesApi extends JsonResource
             "Status" => $this->is_active,
             "longitude" => $this->longitude,
             "latitudes" => $this->latitudes,
-            "child" => SubServicesApi::collection(SubServices::where("services_id",$this->id)->get()),
+            "child" => SubServicesApi::collection(SubServices::where("services_id",$this->id)->whereNull('deleted_at')->get()),
         ];
     }
 }

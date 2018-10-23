@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/provider';
 
     /**
      * Create a new controller instance.
@@ -72,12 +72,13 @@ class RegisterController extends Controller
         $genrator = rand(200,6000);
         $longitude= 33.6;
         $latitude= 31.2;
-        $city = 1 ;
+        $vendor = 1 ;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'city_id' => $city,
+            'city_id' => $data['city_id'],
+            'is_vendor' => $vendor,
             'longitude' => $longitude,
             'latitudes' => $latitude,
             'language_id' => $data['language_id'],

@@ -12,6 +12,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    protected $orderStatuses;
+
     public function SendSms($phone ,$message)
     {
         $data = array(
