@@ -63,9 +63,10 @@ class AdvertisingController extends Controller
         $product_id = $request->products;
 
         $pros = Products::where('id', $product_id)->get();
-        foreach ($pros as $key)
-        if ($request->user()->id !== $key->user_id) {
-            return response()->json(['error' => 'You can only add your Products.'], 403);
+        foreach ($pros as $key) {
+            if ($request->user()->id !== $key->user_id) {
+                return response()->json(['error' => 'You can only add your Products.'], 403);
+            }
         }
 
         if ($request->locale_ar) {
@@ -221,6 +222,11 @@ class AdvertisingController extends Controller
             $mage_pro = $this->city_id->where("ads_id", $id)->get();
             foreach ($mage_pro as $items) {
                 $single = $this->city_id->findOrFail($items->id);
+                $single->delete();
+            }
+            $mage_trnslate = $this->trnslator->where("advertising_id", $id)->get();
+            foreach ($mage_trnslate as $items) {
+                $single = $this->trnslator->findOrFail($items->id);
                 $single->delete();
             }
 
