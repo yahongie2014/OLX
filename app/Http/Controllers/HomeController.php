@@ -141,8 +141,7 @@ class HomeController extends Controller
     {
 
         $cities = CityTransformer::collection($this->cities->with("country")->where('country_id', $request->country_id)->get());
-
-
+        
         return response()->json(['status' => true, 'result' => $cities]);
 
     }
