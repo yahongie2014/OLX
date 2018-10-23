@@ -39,6 +39,7 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('Vendor/Products', 'ProductsController');
     Route::apiResource('Vendor/Ads', 'AdvertisingController');
     Route::apiResource('Vendor/Orders', 'OrdersController');
+    Route::apiResource('Vendor/Percentage', 'PercentageControllerAPI');
     Route::apiResource('Bank', 'BankAccountsController');
     Route::apiResource('Favourites', 'BookmarkController');
     Route::apiResource('Vendor/Orders', 'OrdersController');

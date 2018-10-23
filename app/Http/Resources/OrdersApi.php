@@ -36,7 +36,6 @@ class OrdersApi extends JsonResource
                 ->whereNotNull("price")
                 ->get()),
             "PercentageWebsite" => env("PERCENTAGE") . "%",
-            "WebsitePricePercentage" =>  $this->total * env("PERCENTAGE") / 100,
         ];
 
 

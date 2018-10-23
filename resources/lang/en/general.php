@@ -13,6 +13,7 @@ return [
 
     'Don\'t have an account?' => 'Don\'t have an account?',
     'Sign Up' => "Sign Up",
+    'percentage' => "The Total Web Cite Must Purchased",
     'Sign in' => "Sign in",
     'Email' => "Email",
     'Password' => "Password",
