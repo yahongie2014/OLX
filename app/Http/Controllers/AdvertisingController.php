@@ -10,6 +10,7 @@ use App\Models\AdsImages;
 use App\Models\AdsProducts;
 use App\Models\Advertising;
 use App\Models\AdvertisingTranslation;
+use App\Models\Products;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdvertisingController extends Controller
 {
-    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images,AdvertisingTranslation $trnsalator)
+    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images, AdvertisingTranslation $trnsalator)
     {
         //   App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
@@ -77,6 +78,10 @@ class AdvertisingController extends Controller
         $ads->user_id = $request->user()->id;
         if ($ads->save()) {
             $product_id = $request->products;
+            $validate = Products::where("user_id", $request->user()->id);
+            if (!$validate) {
+                return response()->json(['error' => 'You can only add your Product.'], 403);
+            }
             for ($i = 0; $i < count($product_id); $i++) {
                 $adpro = new $this->adproducts($request->all());
                 $adpro->ads_id = $ads->id;
@@ -139,7 +144,7 @@ class AdvertisingController extends Controller
             return response()->json($validator)->setStatusCode(400);
         } else {
             $only = $this->ads->findOrFail($id);
-            $only->viewer = $only->viewer +1 ;
+            $only->viewer = $only->viewer + 1;
             $only->update();
 
             if ($request->user()->id !== $only->user_id) {
@@ -199,18 +204,18 @@ class AdvertisingController extends Controller
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Ads.'], 403);
             }
-            $mage_path = $this->images->where("ads_id",$id)->get();
-            foreach ($mage_path as $items){
+            $mage_path = $this->images->where("ads_id", $id)->get();
+            foreach ($mage_path as $items) {
                 $single = $this->images->findOrFail($items->id);
                 $single->delete();
             }
-            $mage_pro = $this->adproducts->where("ads_id",$id)->get();
-            foreach ($mage_pro as $items){
+            $mage_pro = $this->adproducts->where("ads_id", $id)->get();
+            foreach ($mage_pro as $items) {
                 $single = $this->adproducts->findOrFail($items->id);
                 $single->delete();
             }
-            $mage_pro = $this->city_id->where("ads_id",$id)->get();
-            foreach ($mage_pro as $items){
+            $mage_pro = $this->city_id->where("ads_id", $id)->get();
+            foreach ($mage_pro as $items) {
                 $single = $this->city_id->findOrFail($items->id);
                 $single->delete();
             }

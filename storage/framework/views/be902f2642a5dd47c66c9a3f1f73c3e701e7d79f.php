@@ -232,16 +232,15 @@ $countries = \App\Models\Country::all();
                                                 </span>
                                             <?php endif; ?>
                                         </div>
-                                        <div class="form-group <?php echo e($errors->has('address') ? ' has-error' : ''); ?>">
-                                            <label class="control-label mb-10 text-left brand-text-white"><?php echo e(__("general.Address")); ?></label>
-                                            <textarea class="form-control" required name="address"
-                                                      rows="5"><?php echo e(old('address')); ?></textarea>
-                                            <?php if($errors->has('address')): ?>
+                                        <div class="form-group <?php echo e($errors->has('is_vendor') ? ' has-error' : ''); ?>">
+                                            <input hidden="hidden" name="is_vendor" value="1">
+                                            <?php if($errors->has('is_vendor')): ?>
                                                 <span class="help-block">
-                                                    <strong><?php echo e($errors->first('address')); ?></strong>
+                                                    <strong><?php echo e($errors->first('is_vendor')); ?></strong>
                                                 </span>
                                             <?php endif; ?>
                                         </div>
+
                                         <div class="form-group">
                                             <div class=" checkbox-primary pr-10 pull-left">
                                                 <input id="checkbox_2" required="" type="checkbox">
@@ -310,16 +309,19 @@ $countries = \App\Models\Country::all();
                 type: 'GET',
                 data: postData,
                 dataType: 'JSON',
-                success: function (data) {
+                success: function (result) {
                     //console.log(data);
-                    if (data.status) {
+                    if (result.status) {
                         $("#city_id option").remove();
-                        $.each(data.result.data, function (key, value) {
+                        $.each(result.result, function (key, value) {
                             $('#city_id')
                                 .append($("<option></option>")
                                     .attr("value", value.id)
                                     .text(value.name));
+                            console.log(value.name);
+
                         });
+
 
                     }
 

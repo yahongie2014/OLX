@@ -30,7 +30,7 @@ return [
     'Driver' => 'سائق',
     'Email Ex' => 'مثال : me@example.com',
     'Phone' => 'الهاتف',
-    'Phone Ex' => 'مثال : 01258964785',
+    'Phone Ex' => 'مثال : +9664548778912',
     'Language' => 'اللغة',
     'Select' => 'اختر',
     'Country' => 'الدولة',
