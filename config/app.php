@@ -153,7 +153,6 @@ return [
          */
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Laracademy\ModelGenerator\ModelGeneratorServiceProvider::class,
-        Spatie\Fractal\Fractal::class,
         /*
          * Application Service Providers...
          */
