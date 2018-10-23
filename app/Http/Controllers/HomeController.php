@@ -141,14 +141,8 @@ class HomeController extends Controller
 
         $cities = $cities->get();
 
-        if(Request()->expectsJson()){
-            return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
-        }
 
-        return view('admin.city.index')
-            ->with([
-                'cities' => $cities,
-            ]);
+        return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
 
     }
 
