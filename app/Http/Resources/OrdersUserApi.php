@@ -26,9 +26,7 @@ class OrdersUserApi extends JsonResource
             "OrderItems" => OrdersItemsApi::collection(OrderItmes::with("Products")
                 ->where("order_id", $this->id)
                 ->get()),
-            "ProductsPrice" => $this->total,
-            "PercentageWebsite" => env("PERCENTAGE") . "%",
-            "TotalPrice" => $this->total + $this->total * env("PERCENTAGE") / 100,
+            "TotalPrice" => $this->total,
         ];
 
 

@@ -22,6 +22,7 @@ class OrdersItemsApi extends JsonResource
             "ProductImage" => url(Storage::url('Products/'. $this->Products["cover_image"])),
             "ProductPrice" => $this->Products["price"],
             "Quantity" => $this->qty,
+            "TotalAmount" => $this->Products["price"] * $this->qty,
             "OrderLang" => $this->order_long,
             "OrderLat" => $this->order_lat,
         ];

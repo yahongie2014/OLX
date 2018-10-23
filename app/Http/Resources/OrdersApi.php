@@ -25,13 +25,12 @@ class OrdersApi extends JsonResource
             "PromoCode" => (boolean)$this->promo_code_id,
             "OrderItems" => OrdersItemsApi::collection(OrderItmes::with(["Products" => function ($q) {
                 $q->select("products.id");
-                $q->where("products.id", Auth::user()->id);
-            }])
+                $q->groupBy("products.id");
+                $q->where("products.user_id", Auth::user()->id);}])
                 ->where("order_id", $this->id)
                 ->get()),
-            "ProductsPrice" => $this->total,
             "PercentageWebsite" => env("PERCENTAGE") . "%",
-            "TotalPrice" => $this->total + $this->total * env("PERCENTAGE") / 100,
+            "WebsitePricePercentage" =>  $this->total * env("PERCENTAGE") / 100,
         ];
 
 
