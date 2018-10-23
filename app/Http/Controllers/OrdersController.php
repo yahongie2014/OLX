@@ -23,7 +23,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
 
-     return OrdersApi::collection($this->orders->paginate());
+     return OrdersApi::collection($this->orders->with("Items")->paginate());
     }
 
     /**

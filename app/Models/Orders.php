@@ -51,7 +51,7 @@ class Orders extends Model
     }
     public function Items(){
 
-        return $this->hasMany(OrderItmes::class,"user_id");
+        return $this->hasMany(OrderItmes::class,"order_id");
 
     }
     public function orders_product_company(){

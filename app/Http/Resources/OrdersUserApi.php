@@ -18,7 +18,7 @@ class OrdersUserApi extends JsonResource
     {
         return [
             "Identifier" => $this->id,
-            "companyName" => "Secret",
+            "WebSiteName" => env('APP_NAME', 'At Time'),
             "OrderStatus" => $this->status,
             "UserName" => $this->user->name,
             "OrderNumber" => "#" . $this->order_number,

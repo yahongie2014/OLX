@@ -20,7 +20,12 @@ class OrdersApi extends JsonResource
     {
         return [
             "Identifier" => $this->id,
+            "WebSiteName" => env('APP_NAME', 'At Time'),
             "OrderStatus" => $this->status,
+            "CompanyName" => Auth::user()->name,
+            "CompanyImage" => Auth::user()->image,
+            "CustomerName" => $this->user->name,
+            "CustomerImage" => $this->user->image,
             "OrderNumber" => "#" . $this->order_number,
             "PromoCode" => (boolean)$this->promo_code_id,
             "OrderItems" => OrdersItemsApi::collection(OrderItmes::with(["Products" => function ($q) {
@@ -28,6 +33,7 @@ class OrdersApi extends JsonResource
                 $q->groupBy("products.id");
                 $q->where("products.user_id", Auth::user()->id);}])
                 ->where("order_id", $this->id)
+                ->whereNotNull("price")
                 ->get()),
             "PercentageWebsite" => env("PERCENTAGE") . "%",
             "WebsitePricePercentage" =>  $this->total * env("PERCENTAGE") / 100,
