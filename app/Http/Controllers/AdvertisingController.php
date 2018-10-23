@@ -14,6 +14,7 @@ use App\Models\Products;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
@@ -59,6 +60,14 @@ class AdvertisingController extends Controller
      */
     public function store(AdsForm $request)
     {
+        $product_id = $request->products;
+
+        $pros = Products::where('id', $product_id)->get();
+        foreach ($pros as $key)
+        if ($request->user()->id !== $key->user_id) {
+            return response()->json(['error' => 'You can only add your Products.'], 403);
+        }
+
         if ($request->locale_ar) {
 
             $rules = array(
@@ -77,15 +86,10 @@ class AdvertisingController extends Controller
         $ads = new $this->ads($request->all());
         $ads->user_id = $request->user()->id;
         if ($ads->save()) {
-            $product_id = $request->products;
-            $validate = Products::where("user_id", $request->user()->id);
-            if (!$validate) {
-                return response()->json(['error' => 'You can only add your Product.'], 403);
-            }
-            for ($i = 0; $i < count($product_id); $i++) {
+            foreach ($product_id as $items) {
                 $adpro = new $this->adproducts($request->all());
                 $adpro->ads_id = $ads->id;
-                $adpro->product_id = $product_id[$i];
+                $adpro->product_id = $items;
                 $adpro->save();
             }
             $city_id = $request->cities;
