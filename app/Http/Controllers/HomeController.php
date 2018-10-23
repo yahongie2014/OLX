@@ -9,32 +9,10 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Transformers\CityTransformer;
-use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
-
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    private $fractal;
-
-    /**
-     * @var UserTransformer
-     */
-    private $cityTransformer;
-
-    public function __construct(Manager $fractal, CityTransformer $cityTransformer)
-    {
-        $this->fractal = $fractal;
-        $this->cityTransformer = $cityTransformer;
-    }
-
-
+  
     /**
      * Show the application dashboard.
      *
@@ -164,8 +142,6 @@ class HomeController extends Controller
         $cities = $cities->get();
 
         if(Request()->expectsJson()){
-            $cities = new Collection($cities, $this->cityTransformer);
-            $cities = $this->fractal->createData($cities); // Transform data
             return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
         }
 
