@@ -164,7 +164,6 @@ class OrderController extends Controller
         $loginType = Auth::user();
 
         // if logged as admin get all
-        $provider = $delivery = null;
 
         if($loginType->is_provider == 1){ // if logged as provider get only where the user is vendor
             $provider = User::where('is_vendor',Auth::user()->id)->get();

@@ -46,6 +46,9 @@ Route::resource('services', 'ServiceTypeController', ['except' => ['destroy', 's
 Route::group(['prefix' => '/provider', 'middleware' => 'Providers'], function () {
 Route::get('/', 'HomeController@provider')->name('providerHome');
 Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
+Route::resource('orders', 'UserController');
+Route::resource('ads', 'UserController');
+Route::resource('products', 'UserController');
 });
 });
 
