@@ -91,7 +91,7 @@ $countries = \App\Models\Country::all();
     <header class="sp-header" style="z-index: 4;">
         <div class="sp-logo-wrap pull-left">
             <a href="<?php echo e(url('/')); ?>">
-                <img class="brand-img mr-10" src="<?php echo e(asset('dist/img/logo3.png')); ?>" alt="brand"/>
+                <img class="brand-img mr-10" src="<?php echo e(asset('dist/img/logo3.png')); ?>" style="width: 70px" alt="brand"/>
                 <span class="brand-text brand-text-white"><?php echo e(config('app.name', 'Laravel')); ?></span>
             </a>
         </div>

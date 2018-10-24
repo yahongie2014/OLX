@@ -11,14 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
+//Route::get('/', 'ChatsController@index');
+//Route::get('messages', 'ChatsController@fetchMessages');
+//Route::post('messages', 'ChatsController@sendMessage');
 Route::get('home', 'HomeController@index')->name("home");
 Route::get('/user/country/cities','HomeController@city');
+Route::get('/clear', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    $exitCode = Artisan::call('view:clear');
+    return 'DONE'; //Return anything
+});
 
 
 Route::group(['middleware' => ['auth']], function () {
