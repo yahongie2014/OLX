@@ -55,6 +55,11 @@ class User extends Authenticatable  {
     {
         return $this->belongsTo(Language::class);
     }
+    public function firebase_tokens()
+    {
+        return $this->hasMany(UserFireBaseToken::class);
+    }
+
 
 
 }

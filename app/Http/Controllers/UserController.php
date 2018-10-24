@@ -229,25 +229,20 @@ class UserController extends Controller
         Validator::make(
             $request->all(),
             [
-
                 'firebase_token' => 'required|string',
-                'login_type' => 'required|integer|in:'. WEB .',' . ANDROID.','.IOS ,
-
             ]
         )->validate();
 
         // Get user previous token in the same type if existed
         $user = Auth::user();
-        $userToken = $user->firebase_tokens()->where('login_type',$request->login_type)->first();
+        $userToken = $user->firebase_tokens()->where('login_type',1)->first();
 
         if(!$userToken){
             $userToken = new UserFireBaseToken();
             $userToken->user_id = $user->id;
         }
-
         $userToken->firebase_token = $request->firebase_token;
-        $userToken->login_type = $request->login_type;
-
+        $userToken->login_type = 1;
 
         if($userToken->save()){
             return response()->json(['status' => true], 200);
