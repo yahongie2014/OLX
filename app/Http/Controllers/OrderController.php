@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrdersApi;
+use App\Http\Resources\OrdersItemsApi;
+use App\Models\OrderItmes;
 use App\Models\Orders;
 use App\Models\Products;
 use App\Models\Services;
@@ -27,57 +30,37 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
+        App::setLocale(Session::get('userLanguage.symbol'));
 
-
-        $Orders = Orders::with([
-            'user' => function($q)  {
-                $q->with('user');
-            } ,
-            'Items' => function($q){
-                $q->with("Items");
-            },]);
-
+        $Orders = Orders::with("Items","user");
 
         if($request->has('client_name')){
             $Orders = $Orders->where('user_id', 'LIKE' ,'%' . e(trim($request->client_name)) . '%');
         }
 
+        $outputView = ltrim(Route::current()->action['prefix'],'/') . ".orders.index";
+        $editRoute = Route::current()->action['prefix'] . "/orders/";
 
-        // Get orders depending on user login
-        $loginType = Session::get('login_type');
+        $Orders = $Orders->paginate(10);
 
-        // if logged as admin get all
-        if($loginType == ADMIN){ // if logged as provider get only where the user is vendor
-            $admin = Products::where('user_id',Auth::user()->id)->first(['id']);
-            $Orders = $Orders->where('provider_id',$admin->id);
-        }elseif ($loginType == PROVIDER){ // if logged as delivery show orders where the users is delivery
-            $vendor = Products::where('user_id',Auth::user()->id)->first(['id']);
-            $Orders = $Orders->where('delivery_id',$vendor->id);
+        if(Request()->expectsJson()){
+            $OrdersOutput = $Orders;
+            $OrdersOutput = new Collection($OrdersOutput->items(), $this->orderTransformer);
+
+            return response()->json(['status' => true , 'result' => $OrdersOutput->toArray() , 'recordsTotal' => $Orders->total() , 'recordsFiltered' => $Orders->total() , 'draw' => Request()->input('draw') , 'editRoute' => $editRoute]);
         }
-
-        //dd($Orders->get()->toArray());
 
         $outputView = ltrim(Route::current()->action['prefix'],'/') . ".orders.index";
         $editRoute = Route::current()->action['prefix'] . "/orders/";
 
-        $Orders = $Orders->orderBy('created_at','desc')->paginate(10);
-
-        if(Request()->expectsJson()){
-            $OrdersOutput = 55 ;
-            return response()->json(['status' => true , 'result' => $OrdersOutput->toArray() , 'recordsTotal' => $Orders->total() , 'recordsFiltered' => $Orders->total() , 'draw' => Request()->input('draw') , 'editRoute' => $editRoute]);
-        }
 
         // Get System active Categories
-        $categories = SubServices::where('status',CATEGORY_ACTIVE)->get();
-
-        // Get Categories Translated
-        $categories = $this->localizeSytemActiveCategories($categories);
-
+        $categories = SubServices::where('is_active',1)->get();
         // Get system active Main Services
-        $servicesTypes = Services::where('status',SERVICE_TYPE_ACTIVE)->get();
+        $servicesTypes = Services::where('is_active',1)->get();
 
         // Get System active payment Types
-        $paymentTypes = Payment::where('payment_type',PAYMENT_TYPE_ACTIVE)->get();
+        $paymentTypes = Payment::where('payment_type',1)->get();
 
         return view($outputView)
             ->with(

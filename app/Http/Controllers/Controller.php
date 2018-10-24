@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\UserFireBaseToken;
+use Session;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 define("GOOGLE_API_KEY", "AAAAbcImFjE:APA91bFdizGK_jsQfjDSxFPwOLHBUkMAsys-78YuZr7B2L1JRgzy2ICu0SRNsct478ohlrVDRuItfYtHUxpgtraJy1EYQGq2j0MdBSV43JOStfOjvnpYaGTqz20ZiUe5EyghN5aDr4vv");
 
@@ -16,6 +18,12 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $orderStatuses;
+
+    public function __construct()
+    {
+        App::setLocale(Session::get('userLanguage.symbol'));
+
+    }
 
     public function SendSms($phone ,$message)
     {

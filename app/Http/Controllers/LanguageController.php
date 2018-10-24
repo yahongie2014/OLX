@@ -35,14 +35,12 @@ class LanguageController extends Controller
 
         if($loginType->is_admin == 1)
             $languages = Language::all();
-        else{
-            $languages = Language::where('status' , 1)->get();
-            $languages =  Languages::collection($languages, $this->languageTransformer);
 
-            $languages = $this->fractal->createData($languages); // Transform data
+        else{
+            $languages = Language::where('status' , 1);
+
             return response() ->json(['status' => true , 'result' => $languages->toArray()]);
         }
-        //dd($languages->toArray());
         return view('admin.language.index')->with([
             'languages' => $languages,
         ]);
@@ -73,7 +71,7 @@ class LanguageController extends Controller
         if($data['language_symbol'])
             $data['language_symbol'] = strtolower(e($data['language_symbol']));
 
-        Validator::make(
+        \Validator::make(
             $data,
             [
                 'languageAvailability' => 'sometimes|required|integer|in:' . LANGUAGE_ACTIVE,
@@ -134,9 +132,6 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        //
-        //dd(Language::find($id)->toArray());
-
         $language = Language::find($id);
 
         if($language)
@@ -158,7 +153,7 @@ class LanguageController extends Controller
     {
         //
 
-        Validator::make(
+        \Validator::make(
             $request->all(),
             [
                 'language_id' => 'required|integer|exists:languages,id',

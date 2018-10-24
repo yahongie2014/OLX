@@ -36,7 +36,7 @@
                                 <input type="hidden" value="{{$country->id}}" name="country_id">
                                 <div class="form-body overflow-hide">
                                     <div class="checkbox checkbox-primary pr-10 pull-left">
-                                        <input id="languageAvailability" value="1" name="status" type="checkbox" @if(old('status')) checked @elseif($country->status == COUNTRY_ACTIVE) checked @endif>
+                                        <input id="languageAvailability" value="1" name="is_active" type="checkbox" @if(old('is_active')) checked @elseif($country->is_active == COUNTRY_ACTIVE) checked @endif>
                                         <label for="languageAvailability"> {{__("general.available")}} </label>
                                     </div>
                                     <div class="clearfix"></div>
@@ -52,28 +52,6 @@
                                         </span>
                                         @endif
                                     </div>
-                                    <div class="form-group {{ $errors->has('currency_name') ? ' has-error' : '' }}">
-                                        <label class="control-label mb-10" for="exampleInputuname_01">{{__("general.currency_name")}}</label>
-
-                                            <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="currency_name" value=@if(old('currency_name')) "{{old('currency_name')}}" @else "{{$country->currency_name}}" @endif required />
-
-                                        @if ($errors->has('currency_name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('currency_name') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group {{ $errors->has('currency_symbol') ? ' has-error' : '' }}">
-                                        <label class="control-label mb-10" for="exampleInputuname_01">{{__("general.currency_symbol")}}</label>
-
-                                            <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="currency_symbol" value=@if(old('currency_symbol')) "{{old('currency_symbol')}}" @else "{{$country->currency_symbol}}" @endif required />
-
-                                        @if ($errors->has('currency_symbol'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('currency_symbol') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
                                     <div class="form-group {{ $errors->has('code') ? ' has-error' : '' }}">
                                         <label class="control-label mb-10" for="exampleInputuname_01">{{__("general.code")}}</label>
 
@@ -83,22 +61,6 @@
                                         @if ($errors->has('code'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('code') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group {{ $errors->has('time_zone') ? ' has-error' : '' }}">
-                                        <label class="control-label mb-10" for="exampleInputuname_01">{{__("general.time_zone")}}</label>
-
-                                            <select class="form-control select2" name="time_zone" required>
-
-                                                @foreach(timezone_identifiers_list() as $time_zone)
-                                                <option value="{{$time_zone}}" @if(old('time_zone')) @if(old('time_zone') == $time_zone) selected @endif @elseif( $country->time_zone == $time_zone ) selected @endif >{{$time_zone}}</option>
-                                                @endforeach
-                                            </select>
-
-                                        @if ($errors->has('time_zone'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('time_zone') }}</strong>
                                         </span>
                                         @endif
                                     </div>

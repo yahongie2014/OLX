@@ -50,16 +50,6 @@
             </li>
 
             <li>
-                <a href="<?php echo e(url('/admin/delivery')); ?>">
-                    <div class="pull-left">
-                        <i class="zmdi zmdi-car mr-20"></i>
-                        <span class="right-nav-text"><?php echo e(__("general.Deliveries")); ?></span>
-                    </div>
-                    <div class="clearfix">
-
-                    </div>
-                </a>
-            </li>
             <li>
                 <a href="<?php echo e(url('/admin/orders')); ?>">
                     <div class="pull-left">
@@ -105,11 +95,8 @@
                         <a href="<?php echo e(url('/admin/paytypes')); ?>"><?php echo e(__("general.Payment Types")); ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo e(url('/admin/cartypes')); ?>"><?php echo e(__("general.Car Types")); ?></a>
-                    </li>
-                    <!--<li>
                         <a href="#"><?php echo e(__("general.Admins")); ?></a>
-                    </li>-->
+                    </li>
                 </ul>
             </li>
         </ul>

@@ -51,16 +51,6 @@
             </li>
 
             <li>
-                <a href="{{url('/admin/delivery')}}">
-                    <div class="pull-left">
-                        <i class="zmdi zmdi-car mr-20"></i>
-                        <span class="right-nav-text">{{__("general.Deliveries")}}</span>
-                    </div>
-                    <div class="clearfix">
-
-                    </div>
-                </a>
-            </li>
             <li>
                 <a href="{{url('/admin/orders')}}">
                     <div class="pull-left">
@@ -106,11 +96,8 @@
                         <a href="{{url('/admin/paytypes')}}">{{__("general.Payment Types")}}</a>
                     </li>
                     <li>
-                        <a href="{{url('/admin/cartypes')}}">{{__("general.Car Types")}}</a>
-                    </li>
-                    <!--<li>
                         <a href="#">{{__("general.Admins")}}</a>
-                    </li>-->
+                    </li>
                 </ul>
             </li>
         </ul>
