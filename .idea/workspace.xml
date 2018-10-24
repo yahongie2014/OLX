@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3122b498-a4da-443c-ae15-743b3f2d0f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/ZPzgxBxsQ7vxqJn6mbYaOfxZKJzPOIVdvLbi685v" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/ZPzgxBxsQ7vxqJn6mbYaOfxZKJzPOIVdvLbi685v" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/be902f2642a5dd47c66c9a3f1f73c3e701e7d79f.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/be902f2642a5dd47c66c9a3f1f73c3e701e7d79f.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,11 +90,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+            <state relative-caret-position="189">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
               <folding>
                 <element signature="e#391#430#0#PHP" expanded="true" />
-                <element signature="e#759#2258#1#PHP" />
+                <element signature="e#1224#1880#1#PHP" />
               </folding>
             </state>
           </provider>
@@ -470,15 +466,15 @@
       <workItem from="1540184787393" duration="19172000" />
       <workItem from="1540224118638" duration="19644000" />
       <workItem from="1540303719071" duration="25724000" />
-      <workItem from="1540332488433" duration="10899000" />
+      <workItem from="1540332488433" duration="11146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216336000" />
+    <option name="totallyTimeSpent" value="216583000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30030257" />
@@ -901,11 +897,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        <state relative-caret-position="189">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
           <folding>
             <element signature="e#391#430#0#PHP" expanded="true" />
-            <element signature="e#759#2258#1#PHP" />
+            <element signature="e#1224#1880#1#PHP" />
           </folding>
         </state>
       </provider>
