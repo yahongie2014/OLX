@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cities;
 use App\Http\Resources\CityTransformer;
+use App\Jobs\SendNotification;
 use App\Language;
 use App\User;
 use Session;
@@ -121,6 +122,7 @@ class HomeController extends Controller
 
     public function admin()
     {
+        $this->sendNotificationsToUser("Welcome To Admin System ",Auth::user()->id);
         return view('admin.index')
             ->with([
                 'orderStatuses' => $this->orderStatuses,
@@ -130,6 +132,8 @@ class HomeController extends Controller
 
     public function provider()
     {
+        $this->sendNotificationsToUser("Welcome To Vendor System ",Auth::user()->id);
+
         return view('provider.index')->with([
             'orderStatuses' => $this->orderStatuses,
             'userRoute' => '/provider',

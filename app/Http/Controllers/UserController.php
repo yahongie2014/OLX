@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\UserFireBaseToken;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;

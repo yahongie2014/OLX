@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Jobs\SendNotification;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -72,7 +74,7 @@ class RegisterController extends Controller
         $genrator = rand(200,6000);
         $longitude= 33.6;
         $latitude= 31.2;
-        return User::create([
+        $new = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
@@ -84,5 +86,11 @@ class RegisterController extends Controller
             'activation_code' => $genrator,
             'password' => bcrypt($data['password']),
         ]);
+        $adminNotification = __("general.newUserRegistration");
+
+        dispatch(new SendNotification($adminNotification ,0 , true));
+        DB::commit();
+
+        return $new ;
     }
 }

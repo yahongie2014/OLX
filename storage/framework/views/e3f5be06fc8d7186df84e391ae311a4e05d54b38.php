@@ -63,10 +63,22 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo e(url('/provider/orders/create')); ?>">
+            <a href="<?php echo e(url('/provider/ads')); ?>">
                 <div class="pull-left">
                     <i class="glyphicon glyphicon-plus-sign mr-20"></i>
                     <span class="right-nav-text"><?php echo e(__("general.New Order")); ?></span>
+                </div>
+                <div class="clearfix">
+
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php echo e(url('/provider/products')); ?>">
+                <div class="pull-left">
+                    <i class="glyphicon glyphicon-plus-sign mr-20"></i>
+                    <span class="right-nav-text"><?php echo e(__("general.New Product")); ?></span>
                 </div>
                 <div class="clearfix">
 

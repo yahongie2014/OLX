@@ -26,8 +26,8 @@ Route::group(['middleware' => ['setlanguage']], function () {
 Route::post('/user/password', 'UserController@changePassword');
 Route::get('/location', 'HomeController@locations');
 Route::get('language/{language_id}', 'HomeController@setLanguage');
-Route::post('user/token', 'UserController@updateUserFireBaseToken');
 Route::get('user/orders/statistics', 'OrderController@userStatistics');
+Route::post('user/token','UserController@updateUserFireBaseToken');
 
 
 Route::group(['prefix' => '/admin', 'middleware' => 'Admin'], function () {
@@ -50,6 +50,8 @@ Route::resource('orders', 'UserController');
 Route::resource('ads', 'UserController');
 Route::resource('products', 'UserController');
 });
+
+
 });
 
 
