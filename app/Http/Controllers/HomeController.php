@@ -17,6 +17,7 @@ class HomeController extends Controller
 
     public function __construct(Cities $cites)
     {
+        $this->middleware("auth");
         $this->cities = $cites;
     }
 
@@ -27,12 +28,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->is_admin == 1){
+            $homePage = "/admin";
+        }elseif(Auth::user()->is_vendor == 1){
+            $homePage = "/provider";
+        }
+
+        return redirect($homePage);
     }
 
     public function setLanguage($language_id)
     {
-
 
         $validator = \Validator::make(
             ['language_id' => $language_id],
@@ -52,8 +58,8 @@ class HomeController extends Controller
         // update the authenticated user language
         $user = Auth::user();
         $user->language_id = $language_id;
-
         $user->save();
+
         return redirect()->back();
     }
 
@@ -139,7 +145,6 @@ class HomeController extends Controller
             'userRoute' => '/provider',
         ]);
     }
-
 
     public function city(Request $request)
     {

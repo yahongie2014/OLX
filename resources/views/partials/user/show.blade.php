@@ -13,12 +13,16 @@
                     <div class="panel-body  pa-0">
                         <div class="profile-box">
                             <div class="profile-cover-pic">
-
+                                <img style="width: 100%; height: 100%" src="{{asset(\Storage::url('Avatar/'.$user->image))}}"/>
                             </div>
                             <div class="profile-info text-center">
                                 <div class="profile-img-wrap">
                                     <img class="inline-block mb-10" style="max-width: 100%;"
-                                         src=@if($user->image){{asset($user->image)}} @else {{asset("dist/img/mock1.jpg")}} @endif alt="user"/>
+                                         src=@if($user->image)
+                                         {{asset(\Storage::url('Avatar/'.$user->image))}}
+                                         @else
+                                         {{asset("dist/img/mock1.jpg")}}
+                                         @endif alt="user"/>
 
                                 </div>
                                 <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-danger">{{$user->name}}</h5>
@@ -68,7 +72,7 @@
                                                                            type="hidden"/>
                                                                     <div class="form-body overflow-hide">
                                                                         @if($canUpdate)
-                                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                            <div class="col-sm-12">
                                                                                 <div class="form-group">
 
                                                                                     @if ($errors->has('profileImage'))
@@ -83,7 +87,7 @@
                                                                                                name="profileImage"
                                                                                                id="profileImage"
                                                                                                class="dropify"
-                                                                                               data-default-file=@if($user->image)"{{asset($user->image)}}" @else
+                                                                                               data-default-file=@if(asset(\Storage::url('Avatar/'. $user->image)))"{{\Storage::url('Avatar/'. $user->image)}}" @else
                                                                                             "" @endif
                                                                                         accept=".jpg,.jpeg,.png" />
                                                                                     </div>
@@ -91,27 +95,27 @@
                                                                                            for="exampleInputuname_01">{{__("general.profileImage")}}</label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div class="form-group">
-                                                                                    @if ($errors->has('coverImage'))
-                                                                                        <span class="help-block"
-                                                                                              style="color : red">
-                                                                                    <strong>{{ $errors->first('coverImage') }}</strong>
-                                                                                </span>
-                                                                                    @endif
-                                                                                    <div class="mt-40">
-                                                                                        <input type="file"
-                                                                                               name="coverImage"
-                                                                                               id="coverImage"
-                                                                                               class="dropify"
-                                                                                               data-default-file=@if($user->cover_image)"{{asset($user->cover_image)}}" @else
-                                                                                            "" @endif
-                                                                                        accept=".jpg,.jpeg,.png" />
-                                                                                    </div>
-                                                                                    <label class="control-label mb-10"
-                                                                                           for="exampleInputuname_01">{{__("general.coverImage")}}</label>
-                                                                                </div>
-                                                                            </div>
+                                                                            {{--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">--}}
+                                                                                {{--<div class="form-group">--}}
+                                                                                    {{--@if ($errors->has('coverImage'))--}}
+                                                                                        {{--<span class="help-block"--}}
+                                                                                              {{--style="color : red">--}}
+                                                                                    {{--<strong>{{ $errors->first('coverImage') }}</strong>--}}
+                                                                                {{--</span>--}}
+                                                                                    {{--@endif--}}
+                                                                                    {{--<div class="mt-40">--}}
+                                                                                        {{--<input type="file"--}}
+                                                                                               {{--name="coverImage"--}}
+                                                                                               {{--id="coverImage"--}}
+                                                                                               {{--class="dropify"--}}
+                                                                                               {{--data-default-file=@if($user->cover_image)"{{asset($user->cover_image)}}" @else--}}
+                                                                                            {{--"" @endif--}}
+                                                                                        {{--accept=".jpg,.jpeg,.png" />--}}
+                                                                                    {{--</div>--}}
+                                                                                    {{--<label class="control-label mb-10"--}}
+                                                                                           {{--for="exampleInputuname_01">{{__("general.coverImage")}}</label>--}}
+                                                                                {{--</div>--}}
+                                                                            {{--</div>--}}
                                                                         @endif
 
                                                                         <div class="col-xs-12">
@@ -184,10 +188,10 @@
                                                                                         id="country_id"
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
-                                                                                    {{--@foreach($countries as $country)--}}
-                                                                                    {{--<option value="{{$country->id}}"--}}
-                                                                                    {{--@if( $user->country_id == $country->id ) selected @endif>{{$country->name}}</option>--}}
-                                                                                    {{--@endforeach--}}
+                                                                                    @foreach($countries as $country)
+                                                                                    <option value="{{$country->id}}"
+                                                                                    @if( $user->country_id == $country->id ) selected @endif>{{$country->name}}</option>
+                                                                                    @endforeach
                                                                                 </select>
                                                                                 @if ($errors->has('country_id'))
                                                                                     <span class="help-block">
@@ -201,10 +205,10 @@
                                                                                         name="city_id" id="city_id"
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
-                                                                                    {{--@foreach($cities as $city)--}}
-                                                                                    {{--<option value="{{$city->id}}"--}}
-                                                                                    {{--@if( $user->city_id == $city->id ) selected @endif>{{$city->name}}</option>--}}
-                                                                                    {{--@endforeach--}}
+                                                                                    @foreach($cities as $city)
+                                                                                    <option value="{{$city->id}}"
+                                                                                    @if( $user->city_id == $city->id ) selected @endif>{{$city->name}}</option>
+                                                                                    @endforeach
                                                                                 </select>
                                                                                 @if ($errors->has('city_id'))
                                                                                     <span class="help-block">
@@ -218,26 +222,14 @@
                                                                                         name="language_id"
                                                                                         @if(!$canUpdate) disabled
                                                                                         @endif required>
-                                                                                    {{--@foreach($languages as $language)--}}
-                                                                                    {{--<option value="{{$language->id}}"--}}
-                                                                                    {{--@if( $user->language_id == $language->id ) selected @endif>{{$language->name}}</option>--}}
-                                                                                    {{--@endforeach--}}
+                                                                                    @foreach($languages as $language)
+                                                                                    <option value="{{$language->id}}"
+                                                                                    @if( $user->language_id == $language->id ) selected @endif>{{$language->name}}</option>
+                                                                                    @endforeach
                                                                                 </select>
                                                                                 @if ($errors->has('language_id'))
                                                                                     <span class="help-block">
                                                                                     <strong>{{ $errors->first('language_id') }}</strong>
-                                                                                </span>
-                                                                                @endif
-                                                                            </div>
-                                                                            <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }}">
-                                                                                <label class="control-label mb-10 text-left">{{__("general.Address")}}</label>
-                                                                                <textarea class="form-control" required
-                                                                                          @if(!$canUpdate) disabled
-                                                                                          @endif name="address"
-                                                                                          rows="5">{{ $user->address }}</textarea>
-                                                                                @if ($errors->has('address'))
-                                                                                    <span class="help-block">
-                                                                                    <strong>{{ $errors->first('address') }}</strong>
                                                                                 </span>
                                                                                 @endif
                                                                             </div>
@@ -367,16 +359,17 @@
                     type: 'GET',
                     data: postData,
                     dataType: 'JSON',
-                    success: function (data) {
-                        //console.log(data);
-                        if (data.status) {
+                    success: function (result) {
+                        console.log(data);
+                        if (result.status) {
                             $("#city_id option").remove();
-                            $.each(data.result.data, function (key, value) {
+                            $.each(result.result, function (key, value) {
                                 $('#city_id')
                                     .append($("<option></option>")
                                         .attr("value", value.id)
                                         .text(value.name));
                             });
+
 
                         }
 

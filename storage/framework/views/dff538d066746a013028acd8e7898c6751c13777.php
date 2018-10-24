@@ -190,8 +190,11 @@
                 <li class="dropdown auth-drp">
                     <?php if(Auth::user()): ?>
                         <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown">
-                            <img src=<?php if(Auth::user()->image): ?> "<?php echo e(asset(Auth::user()->image)); ?>"
-                                 <?php else: ?> <?php echo e(asset("dist/img/user1.png")); ?> <?php endif; ?> alt="user_auth"
+                            <img src=<?php if(Auth::user()->image): ?>
+                                    "<?php echo e(asset(\Storage::url('Avatar/'.Auth::user()->image))); ?>"
+                                 <?php else: ?> <?php echo e(asset("dist/img/user1.png")); ?>
+
+                                 <?php endif; ?> alt="user_auth"
                                  class="user-auth-img img-circle"/>
                             <span class="user-online-status"></span>
                         </a>

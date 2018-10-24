@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
-Route::get('/', 'HomeController@admin');
+Route::get('/', 'HomeController@index');
 //Route::get('messages', 'ChatsController@fetchMessages');
 //Route::post('messages', 'ChatsController@sendMessage');
 Route::get('home', 'HomeController@index')->name("home");

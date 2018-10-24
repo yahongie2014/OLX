@@ -14,12 +14,18 @@
                     <div class="panel-body  pa-0">
                         <div class="profile-box">
                             <div class="profile-cover-pic">
-
+                                <img style="width: 100%; height: 100%" src="<?php echo e(asset(\Storage::url('Avatar/'.$user->image))); ?>"/>
                             </div>
                             <div class="profile-info text-center">
                                 <div class="profile-img-wrap">
                                     <img class="inline-block mb-10" style="max-width: 100%;"
-                                         src=<?php if($user->image): ?><?php echo e(asset($user->image)); ?> <?php else: ?> <?php echo e(asset("dist/img/mock1.jpg")); ?> <?php endif; ?> alt="user"/>
+                                         src=<?php if($user->image): ?>
+                                         <?php echo e(asset(\Storage::url('Avatar/'.$user->image))); ?>
+
+                                         <?php else: ?>
+                                         <?php echo e(asset("dist/img/mock1.jpg")); ?>
+
+                                         <?php endif; ?> alt="user"/>
 
                                 </div>
                                 <h5 class="block mt-10 mb-5 weight-500 capitalize-font txt-danger"><?php echo e($user->name); ?></h5>
@@ -71,7 +77,7 @@
                                                                            type="hidden"/>
                                                                     <div class="form-body overflow-hide">
                                                                         <?php if($canUpdate): ?>
-                                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                                            <div class="col-sm-12">
                                                                                 <div class="form-group">
 
                                                                                     <?php if($errors->has('profileImage')): ?>
@@ -86,7 +92,7 @@
                                                                                                name="profileImage"
                                                                                                id="profileImage"
                                                                                                class="dropify"
-                                                                                               data-default-file=<?php if($user->image): ?>"<?php echo e(asset($user->image)); ?>" <?php else: ?>
+                                                                                               data-default-file=<?php if(asset(\Storage::url('Avatar/'. $user->image))): ?>"<?php echo e(\Storage::url('Avatar/'. $user->image)); ?>" <?php else: ?>
                                                                                             "" <?php endif; ?>
                                                                                         accept=".jpg,.jpeg,.png" />
                                                                                     </div>
@@ -94,27 +100,27 @@
                                                                                            for="exampleInputuname_01"><?php echo e(__("general.profileImage")); ?></label>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                                                <div class="form-group">
-                                                                                    <?php if($errors->has('coverImage')): ?>
-                                                                                        <span class="help-block"
-                                                                                              style="color : red">
-                                                                                    <strong><?php echo e($errors->first('coverImage')); ?></strong>
-                                                                                </span>
-                                                                                    <?php endif; ?>
-                                                                                    <div class="mt-40">
-                                                                                        <input type="file"
-                                                                                               name="coverImage"
-                                                                                               id="coverImage"
-                                                                                               class="dropify"
-                                                                                               data-default-file=<?php if($user->cover_image): ?>"<?php echo e(asset($user->cover_image)); ?>" <?php else: ?>
-                                                                                            "" <?php endif; ?>
-                                                                                        accept=".jpg,.jpeg,.png" />
-                                                                                    </div>
-                                                                                    <label class="control-label mb-10"
-                                                                                           for="exampleInputuname_01"><?php echo e(__("general.coverImage")); ?></label>
-                                                                                </div>
-                                                                            </div>
+                                                                            
+                                                                                
+                                                                                    
+                                                                                        
+                                                                                              
+                                                                                    
+                                                                                
+                                                                                    
+                                                                                    
+                                                                                        
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                            
+                                                                                        
+                                                                                    
+                                                                                    
+                                                                                           
+                                                                                
+                                                                            
                                                                         <?php endif; ?>
 
                                                                         <div class="col-xs-12">
@@ -187,10 +193,10 @@
                                                                                         id="country_id"
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
-                                                                                    
-                                                                                    
-                                                                                    
-                                                                                    
+                                                                                    <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <option value="<?php echo e($country->id); ?>"
+                                                                                    <?php if( $user->country_id == $country->id ): ?> selected <?php endif; ?>><?php echo e($country->name); ?></option>
+                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                 </select>
                                                                                 <?php if($errors->has('country_id')): ?>
                                                                                     <span class="help-block">
@@ -204,10 +210,10 @@
                                                                                         name="city_id" id="city_id"
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
-                                                                                    
-                                                                                    
-                                                                                    
-                                                                                    
+                                                                                    <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <option value="<?php echo e($city->id); ?>"
+                                                                                    <?php if( $user->city_id == $city->id ): ?> selected <?php endif; ?>><?php echo e($city->name); ?></option>
+                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                 </select>
                                                                                 <?php if($errors->has('city_id')): ?>
                                                                                     <span class="help-block">
@@ -221,26 +227,14 @@
                                                                                         name="language_id"
                                                                                         <?php if(!$canUpdate): ?> disabled
                                                                                         <?php endif; ?> required>
-                                                                                    
-                                                                                    
-                                                                                    
-                                                                                    
+                                                                                    <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <option value="<?php echo e($language->id); ?>"
+                                                                                    <?php if( $user->language_id == $language->id ): ?> selected <?php endif; ?>><?php echo e($language->name); ?></option>
+                                                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                                 </select>
                                                                                 <?php if($errors->has('language_id')): ?>
                                                                                     <span class="help-block">
                                                                                     <strong><?php echo e($errors->first('language_id')); ?></strong>
-                                                                                </span>
-                                                                                <?php endif; ?>
-                                                                            </div>
-                                                                            <div class="form-group <?php echo e($errors->has('address') ? ' has-error' : ''); ?>">
-                                                                                <label class="control-label mb-10 text-left"><?php echo e(__("general.Address")); ?></label>
-                                                                                <textarea class="form-control" required
-                                                                                          <?php if(!$canUpdate): ?> disabled
-                                                                                          <?php endif; ?> name="address"
-                                                                                          rows="5"><?php echo e($user->address); ?></textarea>
-                                                                                <?php if($errors->has('address')): ?>
-                                                                                    <span class="help-block">
-                                                                                    <strong><?php echo e($errors->first('address')); ?></strong>
                                                                                 </span>
                                                                                 <?php endif; ?>
                                                                             </div>
@@ -371,16 +365,17 @@
                     type: 'GET',
                     data: postData,
                     dataType: 'JSON',
-                    success: function (data) {
-                        //console.log(data);
-                        if (data.status) {
+                    success: function (result) {
+                        console.log(data);
+                        if (result.status) {
                             $("#city_id option").remove();
-                            $.each(data.result.data, function (key, value) {
+                            $.each(result.result, function (key, value) {
                                 $('#city_id')
                                     .append($("<option></option>")
                                         .attr("value", value.id)
                                         .text(value.name));
                             });
+
 
                         }
 

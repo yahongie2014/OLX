@@ -190,8 +190,10 @@
                 <li class="dropdown auth-drp">
                     @if(Auth::user())
                         <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown">
-                            <img src=@if(Auth::user()->image) "{{asset(Auth::user()->image)}}"
-                                 @else {{asset("dist/img/user1.png")}} @endif alt="user_auth"
+                            <img src=@if(Auth::user()->image)
+                                    "{{asset(\Storage::url('Avatar/'.Auth::user()->image))}}"
+                                 @else {{asset("dist/img/user1.png")}}
+                                 @endif alt="user_auth"
                                  class="user-auth-img img-circle"/>
                             <span class="user-online-status"></span>
                         </a>

@@ -7,7 +7,7 @@
 ##parent-placeholder-beeb47ac6f60afc7d02ef05a32eb9384e933fbd3##
 
 <li>
-    <a href="<?php echo e(url('/vendors/profile/' . Auth::user()->id)); ?>">
+    <a href="<?php echo e(url('/provider/profile/' . Auth::user()->id)); ?>">
         <?php echo e(__("general.Profile")); ?>
 
     </a>

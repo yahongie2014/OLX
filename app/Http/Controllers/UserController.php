@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cities;
+use App\Language;
+use App\Models\Country;
 use App\UserFireBaseToken;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session ;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -53,9 +57,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
-        //
         $validator = Validator::make(
             ['user_id' => $id],
             [
@@ -65,16 +68,30 @@ class UserController extends Controller
 
         $outputData = [];
 
-        $user = User::with('city')->find($id);
+        $user = User::find($id);
 
-       // var_dump($user);
+        // get user country code
 
         // if he is the same user so he can update if not he only can show this user
         $canUpdate = Auth::user()->id == $id ? true : false ;
 
-        // Get total orders by day year Month
-        $now = Carbon::now($user->city->time_zone);
+        // Get all Countries available in the system - required for update
+        $list = Cities::where("id",Auth::user()->city_id)->get();
+      //  dd($list[0]["country_id"]);
 
+        $countries = $canUpdate ? Country::all() : Country::where('id' , $list[0]["country_id"])->get();
+
+        // Get user country cities
+        $cities = $canUpdate ? Cities::where('country_id', $countries[0]->id)->get() : Cities::where('id' , $user->city_id)->get();
+
+
+
+
+
+        // Get total orders by day year Month
+        $now = Carbon::now("Africa/Cairo");
+
+        $languages = $canUpdate ? Language::all() : Language::where('id' , $user->language_id)->get();
 
         // If the profile owner generate an update link
         $updateLink = $canUpdate ? Route::current()->action['prefix'] . "/profile/" . Auth::user()->id : '';
@@ -83,14 +100,16 @@ class UserController extends Controller
         $outputView = ltrim(Route::current()->action['prefix'],'/') . ".profile.show";
 
         $outputData['user'] = $user;
+        $outputData['countries'] = $countries;
+        $outputData['languages'] = $languages;
         $outputData['canUpdate'] = $canUpdate;
         $outputData['updateLink'] = $updateLink;
+        $outputData['cities'] = $cities;
 
         //dd($outputData);
 
         return view($outputView)
-            ->with( $outputData );
-    }
+            ->with( $outputData );    }
 
     /**
      * Show the form for editing the specified resource.
@@ -115,10 +134,6 @@ class UserController extends Controller
     {
         //
         $data = $request->all();
-        //dd($data);
-        if($data['country_id'] && $data['phone']) {
-            $data['phone'] = $this->getPhoneWithCode(ltrim($data['phone'],"0"),$data['country_id']);
-        }
 
         Validator::make(
             $data,
@@ -161,32 +176,19 @@ class UserController extends Controller
         }
 
 
-        if($request->has('country_id'))
-            $user->country_id = $request->country_id;
-
         if($request->has('city_id'))
             $user->city_id = $request->city_id;
-
-        if($request->has('address'))
-            $user->address = e($request->address);
 
         if($request->hasfile('profileImage')){
 
             $userImage = $request->file(['profileImage']);
-
+            $name_cover = $userImage->getClientOriginalName();
             // get the image extension
             $imgExtension = $userImage->getClientOriginalExtension();
-
             //profile Images uploading path
-            $path = 'uploads/profile/';
+            $path =  Storage::putFileAs('/public/Avatar', $userImage, $name_cover);
 
-            // assign name to the image
-            $fileName = uniqid() . '.' . $imgExtension ;
-
-            // move the image to profile folder
-            $userImage->move($path , $fileName);
-
-            $user->image = $path . $fileName;
+            $user->image =  $name_cover;
         }
 
         if($request->hasfile('coverImage')){
