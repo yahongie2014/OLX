@@ -23,6 +23,7 @@ Route::post('signup', 'AuthController@signup');
 Route::post('reset-password', 'AuthController@reset');
 //Resource For Unknown User
 Route::apiResource('Cities', 'CitiesController');
+Route::apiResource('Languages', 'LanguagesApiController');
 Route::apiResource('Countries', 'CountryController');
 Route::apiResource('Services', 'ServicesController');
 Route::apiResource('Child-Services', 'SubServicesController');

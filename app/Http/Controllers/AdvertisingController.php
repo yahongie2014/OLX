@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdvertisingController extends Controller
 {
-    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images, AdvertisingTranslation $trnsalator)
+    public function __construct(Advertising $ads, AdsProducts $adproducts, AdsCities $city_id, AdsImages $images, AdvertisingTranslation $trnsalator,Request $request)
     {
         //   App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');

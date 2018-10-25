@@ -16126,3 +16126,10 @@ namespac...')
 #66 {main}
 "} 
 [2018-10-24 06:59:23] local.INFO: {"multicast_id":5721976421760890128,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1540364365102214%e609af1cf9fd7ecd"}]}  
+[2018-10-24 18:09:58] local.INFO: {"multicast_id":6564978321508669791,"success":1,"failure":1,"canonical_ids":0,"results":[{"error":"NotRegistered"},{"message_id":"0:1540404599546373%e609af1cf9fd7ecd"}]}  
+[2018-10-24 18:10:41] local.INFO: {"multicast_id":6223196295918110620,"success":2,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1540404642401284%e609af1cf9fd7ecd"},{"message_id":"0:1540404642401880%e609af1cf9fd7ecd"}]}  
+[2018-10-24 18:10:51] local.INFO: {"multicast_id":8450406332961220498,"success":2,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1540404652943494%e609af1cf9fd7ecd"},{"message_id":"0:1540404652942771%e609af1cf9fd7ecd"}]}  
+[2018-10-24 18:11:24] local.INFO: {"multicast_id":7210460297235483845,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1540404685583809%e609af1cf9fd7ecd"}]}  
+[2018-10-24 18:12:09] local.INFO: {"multicast_id":5154016293259802638,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1540404731025118%e609af1cf9fd7ecd"}]}  
+[2018-10-24 20:32:31] local.INFO: {"InvalidMSISDN":null,"MessageID":"31a74c64-469b-416b-bcc8-c221fe2c8709","Status":1,"StatusDescription":"Success"}  
+[2018-10-24 20:32:37] local.INFO: {"InvalidMSISDN":null,"MessageID":"2d0c3726-1f3d-4275-b686-39f064a3519f","Status":1,"StatusDescription":"Success"}  
