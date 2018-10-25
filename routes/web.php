@@ -19,7 +19,7 @@ Route::get('/', 'HomeController@index');
 //Route::get('messages', 'ChatsController@fetchMessages');
 //Route::post('messages', 'ChatsController@sendMessage');
 Route::get('home', 'HomeController@index')->name("home");
-Route::get('/user/country/cities','HomeController@city');
+Route::get('/user/country/cities','SingleJsonController@city');
 Route::get('/clear', function() {
     $exitCode = Artisan::call('config:clear');
     $exitCode = Artisan::call('cache:clear');

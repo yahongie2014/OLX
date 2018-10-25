@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function __construct(Cities $cites)
     {
-     //   $this->middleware("auth");
+        $this->middleware("auth");
         $this->cities = $cites;
     }
 
@@ -146,14 +146,6 @@ class HomeController extends Controller
         ]);
     }
 
-    public function city(Request $request)
-    {
-
-        $cities = CityTransformer::collection($this->cities->with("country")->where('country_id', $request->country_id)->get());
-
-        return response()->json(['status' => true, 'result' => $cities]);
-
-    }
 
 
 }
