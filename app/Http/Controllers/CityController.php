@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Cities;
 use App\Http\Resources\CityTransformer;
+use App\Models\CitiessTranslation;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,25 +26,24 @@ class CityController extends Controller
     public function index(Request $request)
     {
 
-        if(Auth::user())
+        if (Auth::user())
             $language_id = Auth::user()->language_id;
         else
-            $language_id = Language::where('default' ,DEFAULT_LANGUAGE)->first(['id'])->id;
+            $language_id = Language::where('default', DEFAULT_LANGUAGE)->first(['id'])->id;
 
-        $cities = Cities::with('country')->whereHas('translations');
-
-
-
-        if($request->has('country_id'))
-            $cities = $cities->where('country_id',$request->country_id);
+        $cities = Cities::with('country');
 
 
-        $cities = $cities->get();
+        if ($request->has('country_id'))
+            $cities = $cities->where('country_id', $request->country_id);
 
-        if(Request()->expectsJson()){
-            $cities = CityTransformer::collection($this->cities->with("country")->whereHas('translations')->where('country_id', $request->country_id)->get());
 
-            return response() ->json(['status' => true , 'result' => $cities->toArray() ]);
+        $cities = $cities->withTranslation()->get();
+
+        if (Request()->expectsJson()) {
+            $cities = CityTransformer::collection($this->cities->with("country")->where('country_id', $request->country_id)->get());
+
+            return response()->json(['status' => true, 'result' => $cities->withTranslation()->toArray()]);
         }
 
         return view('admin.city.index')
@@ -61,7 +61,7 @@ class CityController extends Controller
     {
         //
         $languages = Language::all();
-        $countries = Country::all();
+        $countries = Country::withTranslation()->get();
 
         return view('admin.city.create')->with([
             'languages' => $languages,
@@ -72,75 +72,64 @@ class CityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
         $data = $request->all();
-//dd($request->all());
+
         Validator::make(
             $data,
             [
-                'status' => 'sometimes|required|integer|in:' . CITY_ACTIVE,
-
-                'city_name' => ['required','max:190' ,
-                    Rule::unique('cities','name')
-                        ->where(function ($query) use($data) {
-                            $query->where('country_id' , $data['country_id']);
-                        })
-                ],
-                'language' => 'required|array',
-                'country_id' => 'required|integer|exists:countries,id'
+                'is_active' => 'sometimes|required|integer|in:' . CITY_ACTIVE,
+                'country_id' => 'required|integer|exists:countries,id',
+                'en_name' => 'required',
+                'ar_name' => 'required',
+                'longitude' => 'required',
+                'latitudes' => 'required'
             ]
         )->validate();
 
-        //dd($request->all());
-
         DB::beginTransaction();
-            $city = new Cities();
+        $city = new Cities();
+        if ($request->has('is_active'))
+            $city->is_active = CITY_ACTIVE;
+        else
+            $city->is_active = CITY_INACTIVE;
 
-            $city->name = e(trim($request->city_name));
+        $city->country_id = $request->country_id;
+        $city->longitude = $request->longitude;
+        $city->latitudes = $request->latitudes;
+        if ($city->save()) {
+            $article_data = [
+                'en' => [
+                    'name' => $request->input('en_name'),
+                ],
+                'ar' => [
+                    'name' => $request->input('ar_name'),
+                ],
+            ];
+            $article = Cities::findOrFail($city->id);
+            $article->update($article_data);
 
-            if($request->has('status'))
-                $city->status = CITY_ACTIVE;
-            else
-                $city->status = CITY_INACTIVE;
-
-            $city->country_id = $request->country_id;
-
-            // get all languages
-            $languages = Language::pluck('id');
-
-            $typedLanguages = $request->language;
-
-            //dd($languages);
-            if($city->save()) {
-                $cityLanguages = [];
-                foreach ($languages as $language) {
-                    if (isset($typedLanguages[$language]))
-                        $cityLanguages[$language]['name'] = e(trim($typedLanguages[$language]));
-
-                }
-
-                $city->language()->attach($cityLanguages);
-                DB::commit();
-                return redirect('/admin/cities')->with([
-                    'messageSuccess' => __("general.cityAddedSuccessfully")
-                ]);
-            }else{
-                DB::rollBack();
-                return redirect()->back()->with([
-                    'messageDander' => __("general.errorAddingCity")
-                ]);
-            }
+            DB::commit();
+            return redirect('/admin/cities')->with([
+                'messageSuccess' => __("general.cityAddedSuccessfully")
+            ]);
+        } else {
+            DB::rollBack();
+            return redirect()->back()->with([
+                'messageDander' => __("general.errorAddingCity")
+            ]);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -151,17 +140,17 @@ class CityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
 
-        $city = Cities::whereHas('translations')->where('id',$id)->first();
+        $city = Cities::whereHas('translations')->where('id', $id)->first();
 
 
-        if($city) {
+        if ($city) {
             $cityLanguages = $city->toArray(function ($item) {
                 return [$item['id'] => $item];
             });
@@ -172,16 +161,15 @@ class CityController extends Controller
                 'languages' => Language::all(),
                 'countries' => Country::all()
             ]);
-        }
-        else
-            return redirect('/admin/countries')->with(['messageDanger' => __('general.cityNotFound') ]);
+        } else
+            return redirect('/admin/countries')->with(['messageDanger' => __('general.cityNotFound')]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -191,59 +179,42 @@ class CityController extends Controller
         Validator::make(
             $data,
             [
-                'city_id' => 'required|integer|exists:cities,id',
+                'is_active' => 'sometimes|required|integer|in:' . CITY_ACTIVE,
                 'country_id' => 'required|integer|exists:countries,id',
-                'status' => 'sometimes|required|integer|in:' . CITY_ACTIVE,
-                'city_name' => ['required','max:190' ,
-                    Rule::unique('cities','name')
-                        ->ignore($data['city_id'])
-
-                        ->where(function ($query) use($data) {
-                            $query->where('country_id' , $data['country_id']);
-                        })
-                ],
-                'language' => 'required|array',
+                'en_name' => 'required|max:190',
+                'ar_name' => 'required|max:190',
             ]
         )->validate();
 
         //dd($request->all());
 
         DB::beginTransaction();
-        $city = City::find($data['city_id']);
-
-        if($request->has('status'))
-            $city->status = CITY_ACTIVE;
+        $city = Cities::find($data['city_id']);
+        if ($request->has('is_active'))
+            $city->is_active = CITY_ACTIVE;
         else
-            $city->status = CITY_INACTIVE;
+            $city->is_active = CITY_INACTIVE;
+        $city->longitude = $request->longitude;
+        $city->is_active = $request->is_active;
+        $city->latitudes = $request->latitudes;
 
-        $city->name = e(trim($request->city_name));
-
-        // get all languages
-        $languages = Language::pluck('id');
-
-        $typedLanguages = $request->language;
-
-        //dd($languages);
-        if($city->save()) {
-            // Delete old relation
-
-
-            $cityLanguages = [];
-            foreach ($languages as $language) {
-                if (isset($typedLanguages[$language]))
-                    $cityLanguages[$language]['name'] = e(trim($typedLanguages[$language]));
-
-            }
-
-            $city->language()->detach();
-
-            $city->language()->attach($cityLanguages);
+        if ($city->save()) {
+            $article_data = [
+                'en' => [
+                    'name' => $request->input('en_name'),
+                ],
+                'ar' => [
+                    'name' => $request->input('ar_name'),
+                ],
+            ];
+            $article = Cities::findOrFail($city->id);
+            $article->update($article_data);
 
             DB::commit();
             return redirect('/admin/cities')->with([
                 'messageSuccess' => __("general.cityUpdatedSuccessfully")
             ]);
-        }else{
+        } else {
             DB::rollBack();
             return redirect()->back()->with([
                 'messageDander' => __("general.errorUpdateCity")
@@ -254,7 +225,7 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

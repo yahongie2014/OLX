@@ -7,6 +7,7 @@ use App\Models\CountriesTranslation;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 use App\Language;
@@ -22,8 +23,8 @@ class CountryAdminController extends Controller
      */
     public function index()
     {
-        //
-        $countries = Country::whereHas('translations')->get();
+
+        $countries = Country::withTranslation()->get();
 
         return view('admin.country.index')
             ->with([
@@ -61,7 +62,8 @@ class CountryAdminController extends Controller
             [
                 'is_active' => 'sometimes|required|integer|in:' . COUNTRY_ACTIVE,
                 'code' => 'required|numeric',
-                'language' => 'required|array',
+                'en_name' => 'required|string',
+                'ar_name' => 'required|string',
             ]
         )->validate();
 
@@ -69,21 +71,31 @@ class CountryAdminController extends Controller
 
         DB::beginTransaction();
         $country = new Country();
-        if ($request->has('is_active'))
+        if($request->has('is_active'))
             $country->is_active = COUNTRY_ACTIVE;
         else
             $country->is_active = COUNTRY_INACTIVE;
-        $country->flag = "";
         $country->code = e(trim($request->code));
-
+        if($request->hasfile('flag')){
+            $flag = $request->file(['flag']);
+            $name_cover = $flag->getClientOriginalName();
+            // get the image extension
+            $imgExtension = $flag->getClientOriginalExtension();
+            //profile Images uploading path
+            $path =  Storage::putFileAs('/public/Flag', $flag, $name_cover);
+            $country->flag =  $name_cover;
+        }
         if ($country->save()) {
-            $typedLanguages = $request->language;
-            foreach ($typedLanguages as $language) {
-                $lang = new CountriesTranslation();
-                $lang->translate('en')->name = $language->name ;
-                $lang->translate('ar')->name = $language->name;
-                $lang->save();
-            }
+            $article_data = [
+                'en' => [
+                    'name' => $request->input('en_name'),
+                ],
+                'ar' => [
+                    'name' => $request->input('ar_name'),
+                ],
+            ];
+            $article = Country::findOrFail($country->id);
+            $article->update($article_data);
             DB::commit();
             return redirect('/admin/countries')->with([
                 'messageSuccess' => __("general.countryAddedSuccessfully")
@@ -141,14 +153,9 @@ class CountryAdminController extends Controller
         Validator::make(
             $data,
             [
-                'country_id' => 'required|integer|exists:countries,id',
-                'status' => 'sometimes|required|integer|in:' . COUNTRY_ACTIVE,
-                'country_name' => ['required', 'max:190', Rule::unique('countries', 'name')->ignore($data['country_id'])],
-                'currency_name' => ['required', 'max:190', Rule::unique('countries', 'currency_name')->ignore($data['country_id'])],
-                'currency_symbol' => ['required', 'max:190', Rule::unique('countries', 'currency_symbol')->ignore($data['country_id'])],
+                'is_active' => 'sometimes|required|integer',
+                'flag' => 'sometimes|required',
                 'code' => ['required', 'numeric', Rule::unique('countries', 'code')->ignore($data['country_id'])],
-                'language' => 'required|array',
-                'time_zone' => 'required|timezone'
             ]
         )->validate();
 
@@ -156,43 +163,28 @@ class CountryAdminController extends Controller
 
         DB::beginTransaction();
         $country = Country::find($data['country_id']);
-
-        if ($request->has('status'))
-            $country->status = COUNTRY_ACTIVE;
-        else
-            $country->status = COUNTRY_INACTIVE;
-
-        $country->name = e(trim($request->country_name));
-
-        $country->currency_name = e(trim($request->currency_name));
-
-        $country->currency_symbol = e(strtoupper(trim($request->currency_symbol)));
-
+        $country->is_active = $request->is_active;
         $country->code = e(trim($request->code));
-
-        $country->flag = "";
-
-        $country->phone = 8;
-
-        $country->time_zone = e(trim($request->time_zone));
-        // get all languages
-        $languages = Language::pluck('id');
-
-        $typedLanguages = $request->language;
-
-        //dd($languages);
+        if($request->hasfile('flag')){
+            $flag = $request->file(['flag']);
+            $name_cover = $flag->getClientOriginalName();
+            // get the image extension
+            $imgExtension = $flag->getClientOriginalExtension();
+            //profile Images uploading path
+            $path =  Storage::putFileAs('/public/Flag', $flag, $name_cover);
+            $country->flag =  $name_cover;
+        }
         if ($country->save()) {
-            // Delete old relation
-            $countryLanguages = [];
-            foreach ($languages as $language) {
-                if (isset($typedLanguages[$language]))
-                    $countryLanguages[$language]['name'] = e(trim($typedLanguages[$language]));
-
-            }
-
-            $country->language()->detach();
-
-            $country->language()->attach($countryLanguages);
+            $article_data = [
+                'en' => [
+                    'name' => $request->input('en_name'),
+                ],
+                'ar' => [
+                    'name' => $request->input('ar_name'),
+                ],
+            ];
+            $article = Country::findOrFail($country->id);
+            $article->update($article_data);
 
             DB::commit();
             return redirect('/admin/countries')->with([

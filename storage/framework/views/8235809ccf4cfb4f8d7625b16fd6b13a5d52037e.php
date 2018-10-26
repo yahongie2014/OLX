@@ -39,7 +39,7 @@
                                 <input type="hidden" value="<?php echo e($country->id); ?>" name="country_id">
                                 <div class="form-body overflow-hide">
                                     <div class="checkbox checkbox-primary pr-10 pull-left">
-                                        <input id="languageAvailability" value="1" name="status" type="checkbox" <?php if(old('is_active')): ?> checked <?php elseif($country->is_active == COUNTRY_ACTIVE): ?> checked <?php endif; ?>>
+                                        <input id="languageAvailability" value="1" name="is_active" type="checkbox" <?php if(old('is_active')): ?> checked <?php elseif($country->is_active == COUNTRY_ACTIVE): ?> checked <?php endif; ?>>
                                         <label for="languageAvailability"> <?php echo e(__("general.available")); ?> </label>
                                     </div>
                                     <div class="clearfix"></div>
@@ -67,6 +67,30 @@
                                         </span>
                                         <?php endif; ?>
                                     </div>
+
+                                    <div class="form-group <?php echo e($errors->has('flag') ? ' has-error' : ''); ?>">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="mt-40">
+                                                    <input type="file"
+                                                           name="flag"
+                                                           id="flag"
+                                                           class="dropify"
+                                                           data-default-file="<?php echo e(asset(\Storage::url('Flag/'.$country->flag))); ?>"
+                                                           accept=".jpg,.jpeg,.png" />
+                                                </div>
+                                                <?php if($errors->has('flag')): ?>
+                                                    <span class="help-block"
+                                                          style="color : red">
+                                                <strong><?php echo e($errors->first('flag')); ?></strong>
+                                            </span>
+                                                <?php endif; ?>
+
+                                                <label class="control-label mb-10" for="exampleInputuname_01"><?php echo e(__("general.Service")); ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -75,25 +99,38 @@
                                 <hr class="light-grey-hr"/>
                                 <div class="panel panel-default card-view">
                                     <div class="panel-wrapper collapse in">
+                                        <div class="panel-heading">
+                                            <?php echo e(__("general.Localization")); ?>
 
+                                        </div>
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-body overflow-hide">
-                                                        <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <div class="form-group <?php echo e($errors->has('language.'. $language->id) ? ' has-error' : ''); ?>">
-                                                            <label class="control-label mb-10" for="exampleInputuname_01" ><?php echo e($language->name); ?></label>
+                                                        <div id="english-link" class="form-group <?php echo e($errors->has('en_name') ? ' has-error' : ''); ?>">
+                                                            <label class="control-label mb-10" for="exampleInputuname_01" ><?php echo e(__("general.name_en")); ?></label>
                                                             <div class="input-group">
 
-                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="language[<?php echo e($language->id); ?>]" value=<?php if(old('language.'. $language->id)): ?> <?php echo e(old('language.'. $language->id)); ?> <?php elseif(isset($countryLanguages[$language->id])): ?> "<?php echo e($countryLanguages[$language->id]->pivot->name); ?>" <?php else: ?> ""  <?php endif; ?>  />
+                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="en_name" value=<?php if(old('en_name')): ?> "<?php echo e(old('en_name')); ?>" <?php else: ?> "<?php echo e($country->translate('en')->name); ?>" <?php endif; ?> required   />
                                                             </div>
-                                                            <?php if($errors->has('language.'. $language->id)): ?>
-                                                            <span class="help-block">
-                                                                <strong><?php echo e($errors->first('language.'. $language->id)); ?></strong>
+                                                            <?php if($errors->has('en_name')): ?>
+                                                                <span class="help-block">
+                                                                <strong><?php echo e($errors->first('en_name')); ?></strong>
                                                             </span>
                                                             <?php endif; ?>
                                                         </div>
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <div id="arabic-link" class="form-group <?php echo e($errors->has('ar_name') ? ' has-error' : ''); ?>">
+                                                            <label class="control-label mb-10" for="exampleInputuname_01" ><?php echo e(__("general.name_ar")); ?></label>
+                                                            <div class="input-group">
+                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="ar_name" value=<?php if(old('ar_name')): ?> "<?php echo e(old('ar_name')); ?>" <?php else: ?> "<?php echo e($country->translate('ar')->name); ?>" <?php endif; ?> required   />
+                                                            </div>
+                                                            <?php if($errors->has('name.')): ?>
+                                                                <span class="help-block">
+                                                                <strong><?php echo e($errors->first('ar_name')); ?></strong>
+                                                            </span>
+                                                            <?php endif; ?>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,6 +138,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="form-actions mt-10">
                                 <button type="submit" class="btn btn-success mr-10 mb-30"><?php echo e(__('general.Save')); ?></button>
                             </div>
@@ -125,6 +164,8 @@
         "use strict";
         /* Select2 Init*/
         $(".select2").select2();
+        $('.dropify').dropify();
+
     });
 </script>
 <?php $__env->stopSection(); ?>

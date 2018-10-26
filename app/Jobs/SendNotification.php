@@ -12,7 +12,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use Log;
 
-define("GOOGLE_API_KEY", "AAAAbcImFjE:APA91bFdizGK_jsQfjDSxFPwOLHBUkMAsys-78YuZr7B2L1JRgzy2ICu0SRNsct478ohlrVDRuItfYtHUxpgtraJy1EYQGq2j0MdBSV43JOStfOjvnpYaGTqz20ZiUe5EyghN5aDr4vv");
+//define("GOOGLE_API_KEY", "AAAAbcImFjE:APA91bFdizGK_jsQfjDSxFPwOLHBUkMAsys-78YuZr7B2L1JRgzy2ICu0SRNsct478ohlrVDRuItfYtHUxpgtraJy1EYQGq2j0MdBSV43JOStfOjvnpYaGTqz20ZiUe5EyghN5aDr4vv");
 class SendNotification implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;

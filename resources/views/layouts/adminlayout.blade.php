@@ -93,10 +93,10 @@
                         <a href="{{url('/admin/services')}}">{{__("general.Service Types")}}</a>
                     </li>
                     <li>
-                        <a href="{{url('/admin/paytypes')}}">{{__("general.Payment Types")}}</a>
+                        <a href="{{url('/admin/payment')}}">{{__("general.Payment Types")}}</a>
                     </li>
                     <li>
-                        <a href="#">{{__("general.Admins")}}</a>
+                        <a href="{{url('/admin/users/admin')}}">{{__("general.Admins")}}</a>
                     </li>
                 </ul>
             </li>

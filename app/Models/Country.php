@@ -30,7 +30,7 @@ class Country extends Model
      *
      * @var array
      */
-    protected $fillable = ['is_active', 'code', 'deleted_at'];
+    protected $fillable = ['is_active','flag', 'code', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

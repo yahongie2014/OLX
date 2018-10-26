@@ -47,29 +47,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-card-giftcard mr-10"></i><?php echo e(__("general.servicesTypesDiscounts")); ?></h6>
-                                            <hr class="light-grey-hr"/>
-                                            <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <div class="col-md-3">
-                                                <div class="form-group <?php echo e($errors->has('service.'. $service->id) ? ' has-error' : ''); ?>">
-                                                    <label class="control-label mb-10" for="exampleInputuname_01" ><?php echo e($service->name); ?></label>
-                                                    <div class="input-group">
-
-                                                        <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="service[<?php echo e($service->id); ?>]" value=<?php if(isset($serviceDiscount[$service->id])): ?> "<?php echo e($serviceDiscount[$service->id]); ?>" <?php else: ?> 0  <?php endif; ?>  />
-                                                        <div class="input-group-addon">
-                                                            %
-                                                        </div>
-                                                    </div>
-                                                    <?php if($errors->has('service.'. $service->id)): ?>
-                                                    <span class="help-block">
-                                                        <strong><?php echo e($errors->first('service.'. $service->id)); ?></strong>
-                                                    </span>
-                                                    <?php endif; ?>
-                                                </div>
-                                            </div>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        </div>
-                                        <div class="col-md-12">
                                             <h6 class="txt-dark capitalize-font"><i class="fa fa-credit-card mr-10"></i><?php echo e(__("general.paymentTypesDiscounts")); ?></h6>
                                             <hr class="light-grey-hr"/>
                                             <?php $__currentLoopData = $paymentTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $paymentType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

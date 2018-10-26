@@ -39,7 +39,7 @@
                                         <th>#</th>
                                         <th>{{__("general.country_id")}}</th>
                                         <th>{{__("general.Name")}}</th>
-                                        <th>{{__("general.Currency")}}</th>
+                                        <th>{{__("general.Flag")}}</th>
                                         <th>{{__("general.Code")}}</th>
                                         <th>{{__("general.Status")}}</th>
                                         <th>{{__("general.Edit")}}</th>
@@ -51,10 +51,12 @@
                                         <td class="txt-dark centerCol">{{$loop->iteration}}</td>
                                         <td class="txt-dark centerCol">{{$country->id}}</td>
                                         <td class="txt-dark centerCol">{{$country->name}}</td>
-                                        <td class="txt-dark centerCol">{{$country->currency_symbol}}</td>
+                                        <td class="txt-dark centerCol">
+                                            <img src="{{asset(\Storage::url('Flag/'.$country->flag))}}" style="width: 11%;height: 5%;"/>
+                                        </td>
                                         <td class="txt-dark centerCol">{{$country->code}}</td>
                                         <td class="centerCol">
-                                            @if($country->status == COUNTRY_ACTIVE)
+                                            @if($country->is_active == COUNTRY_ACTIVE)
                                                 <span class="label label-success font-weight-100">{{__("general.active")}}</span>
                                             @else
                                                 <span class="label label-danger font-weight-100">{{__("general.inactive")}}</span>

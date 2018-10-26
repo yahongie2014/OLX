@@ -40,7 +40,7 @@
                                         <th>#</th>
                                         <th><?php echo e(__("general.country_id")); ?></th>
                                         <th><?php echo e(__("general.Name")); ?></th>
-                                        <th><?php echo e(__("general.Currency")); ?></th>
+                                        <th><?php echo e(__("general.Flag")); ?></th>
                                         <th><?php echo e(__("general.Code")); ?></th>
                                         <th><?php echo e(__("general.Status")); ?></th>
                                         <th><?php echo e(__("general.Edit")); ?></th>
@@ -52,10 +52,12 @@
                                         <td class="txt-dark centerCol"><?php echo e($loop->iteration); ?></td>
                                         <td class="txt-dark centerCol"><?php echo e($country->id); ?></td>
                                         <td class="txt-dark centerCol"><?php echo e($country->name); ?></td>
-                                        <td class="txt-dark centerCol"><?php echo e($country->currency_symbol); ?></td>
+                                        <td class="txt-dark centerCol">
+                                            <img src="<?php echo e(asset(\Storage::url('Flag/'.$country->flag))); ?>" style="width: 11%;height: 5%;"/>
+                                        </td>
                                         <td class="txt-dark centerCol"><?php echo e($country->code); ?></td>
                                         <td class="centerCol">
-                                            <?php if($country->status == COUNTRY_ACTIVE): ?>
+                                            <?php if($country->is_active == COUNTRY_ACTIVE): ?>
                                                 <span class="label label-success font-weight-100"><?php echo e(__("general.active")); ?></span>
                                             <?php else: ?>
                                                 <span class="label label-danger font-weight-100"><?php echo e(__("general.inactive")); ?></span>

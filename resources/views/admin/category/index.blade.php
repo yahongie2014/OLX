@@ -39,6 +39,7 @@
                                         <th>#</th>
                                         <th>{{__("general.category_id")}}</th>
                                         <th>{{__("general.Name")}}</th>
+                                        <th>{{__("general.Service")}}</th>
                                         <th>{{__("general.Status")}}</th>
                                         <th>{{__("general.Edit")}}</th>
                                     </tr>
@@ -49,9 +50,12 @@
                                         <td class="txt-dark centerCol">{{$loop->iteration}}</td>
                                         <td class="txt-dark centerCol">{{$category->id}}</td>
                                         <td class="txt-dark centerCol">{{$category->name}}</td>
+                                        <td class="txt-dark centerCol">
+                                            <img src="{{asset(\Storage::url('Services/'.$category->icon))}}" style="width: 11%;height: 5%;"/>
+                                        </td>
 
                                         <td class="centerCol">
-                                            @if($category->status == CATEGORY_ACTIVE)
+                                            @if($category->is_active == CATEGORY_ACTIVE)
                                                 <span class="label label-success font-weight-100">{{__("general.active")}}</span>
                                             @else
                                                 <span class="label label-danger font-weight-100">{{__("general.inactive")}}</span>

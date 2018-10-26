@@ -45,12 +45,14 @@ Route::resource('profile', 'UserController', ['only' => ['show', 'update']]);
 Route::resource('languages', 'LanguageController', ['except' => ['destroy', 'show']]);
 Route::resource('countries','CountryAdminController',['except' => ['destroy' , 'show']]);
 Route::resource('cities','CityController',['except' => ['destroy' , 'show']]);
-Route::resource('categories', 'CategoryController', ['except' => ['destroy', 'show']]);
+Route::resource('categories', 'CategoryAdminController', ['except' => ['destroy', 'show']]);
 Route::resource('services', 'ServiceTypeController', ['except' => ['destroy', 'show']]);
 Route::resource('orders', 'OrderController', ['only' => ['index', 'show']]);
 Route::post('orders/refuse', 'OrderController@adminRefuseOrder');
 Route::post('orders/assign','OrderController@adminAssignDeliveryToOrder');
 Route::resource('provider', "ProviderController");
+Route::resource('payment', "ProviderController");
+Route::resource('users/admin', "AdminController");
 });
 
 Route::group(['prefix' => '/provider', 'middleware' => 'Providers'], function () {

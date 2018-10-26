@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->integer('is_active')->default(1);
             $table->float('longitude',13,2);
             $table->float('latitudes',13,2);
+            $table->string('icon');
             $table->softDeletes();
             $table->timestamps();
         });

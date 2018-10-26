@@ -36,21 +36,32 @@
                                 <div class="form-body overflow-hide">
                                     <div class="form-group">
                                         <div class="checkbox checkbox-primary pr-10 pull-left">
-                                            <input id="cityAvailability" value="1" name="status" type="checkbox" @if(old('status')) checked @endif>
+                                            <input id="cityAvailability" value="1" name="is_active" type="checkbox" @if(old('is_active')) checked @endif>
                                             <label for="cityAvailability"> {{__("general.available")}} </label>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-
-                                    <div class="form-group {{ $errors->has('city_name') ? ' has-error' : '' }}">
-                                        <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.city_name")}}</label>
+                                    <div class="form-group {{ $errors->has('longitude') ? ' has-error' : '' }}">
+                                        <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.longitude")}}</label>
                                         <div class="input-group">
 
-                                            <input type="text" maxlength="90" class="form-control " id="exampleInputuname_01" name="city_name" value="{{old('city_name')}}" required />
+                                            <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="longitude"  required />
                                         </div>
-                                        @if ($errors->has('city_name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('city_name') }}</strong>
+                                        @if ($errors->has('longitude'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('longitude') }}</strong>
+                                        </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group {{ $errors->has('latitudes') ? ' has-error' : '' }}">
+                                        <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.latitudes")}}</label>
+                                        <div class="input-group">
+
+                                            <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01"name="latitudes" required />
+                                        </div>
+                                        @if ($errors->has('latitudes'))
+                                            <span class="help-block">
+                                            <strong>{{ $errors->first('latitudes') }}</strong>
                                         </span>
                                         @endif
                                     </div>
@@ -69,7 +80,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-sm-6 col-mx-auto">
                                 <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-translate mr-10"></i>{{__("general.Localization")}}</h6>
                                 <hr class="light-grey-hr"/>
@@ -82,20 +92,31 @@
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-body overflow-hide">
-                                                        @foreach($languages as $language)
-                                                        <div class="form-group {{ $errors->has('language.'. $language->id) ? ' has-error' : '' }}">
-                                                            <label class="control-label mb-10" for="exampleInputuname_01" >{{$language->name}}</label>
+                                                        <div id="english-link" class="form-group {{ $errors->has('en_name') ? ' has-error' : '' }}">
+                                                            <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.name_en")}}</label>
                                                             <div class="input-group">
 
-                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="language[{{$language->id}}]" value="{{old('language.'. $language->id)}}"  />
+                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="en_name" value="{{old('en_name')}}"  />
                                                             </div>
-                                                            @if ($errors->has('language.'. $language->id))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('language.'. $language->id) }}</strong>
+                                                            @if ($errors->has('en_name'))
+                                                                <span class="help-block">
+                                                                <strong>{{ $errors->first('en_name') }}</strong>
                                                             </span>
                                                             @endif
                                                         </div>
-                                                        @endforeach
+                                                        <div id="arabic-link" class="form-group {{ $errors->has('ar_name') ? ' has-error' : '' }}">
+                                                            <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.name_ar")}}</label>
+                                                            <div class="input-group">
+
+                                                                <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="ar_name" value="{{old('ar_name')}}"  />
+                                                            </div>
+                                                            @if ($errors->has('name.'))
+                                                                <span class="help-block">
+                                                                <strong>{{ $errors->first('ar_name') }}</strong>
+                                                            </span>
+                                                            @endif
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,6 +124,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="form-actions mt-10">
                                 <button type="submit" class="btn btn-success mr-10 mb-30">{{__('general.Save')}}</button>
                             </div>

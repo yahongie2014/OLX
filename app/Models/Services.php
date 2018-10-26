@@ -11,7 +11,7 @@ class Services extends Model
     use SoftDeletes, Translatable;
     public $useTranslationFallback = true;
     public $translationModel = ServicesTranslation::class;
-    public $translatedAttributes = ['name', 'desc', 'icon'];
+    public $translatedAttributes = ['name', 'desc'];
 
     protected $with = ['translations'];
 
@@ -31,7 +31,7 @@ class Services extends Model
      *
      * @var array
      */
-    protected $fillable = ['is_active', 'longitude', 'latitudes', 'deleted_at'];
+    protected $fillable = ['is_active','icon', 'longitude', 'latitudes', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

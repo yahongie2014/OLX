@@ -17,7 +17,6 @@ class CreateServicesTranslationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('desc');
-            $table->string('icon');
             $table->unsignedInteger('services_id');
             $table->enum('locale',array(["en","ar"]))->index();
             $table->foreign('services_id')->references('id')->on('services')->onDelete('cascade');

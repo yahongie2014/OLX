@@ -92,10 +92,10 @@
                         <a href="<?php echo e(url('/admin/services')); ?>"><?php echo e(__("general.Service Types")); ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo e(url('/admin/paytypes')); ?>"><?php echo e(__("general.Payment Types")); ?></a>
+                        <a href="<?php echo e(url('/admin/payment')); ?>"><?php echo e(__("general.Payment Types")); ?></a>
                     </li>
                     <li>
-                        <a href="#"><?php echo e(__("general.Admins")); ?></a>
+                        <a href="<?php echo e(url('/admin/users/admin')); ?>"><?php echo e(__("general.Admins")); ?></a>
                     </li>
                 </ul>
             </li>

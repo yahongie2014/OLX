@@ -54,7 +54,7 @@
                                         <td class="txt-dark centerCol"><?php echo e($city->country->name); ?></td>
 
                                         <td class="centerCol">
-                                            <?php if($city->status == 1): ?>
+                                            <?php if($city->is_active == 1): ?>
                                                 <span class="label label-success font-weight-100"><?php echo e(__("general.active")); ?></span>
                                             <?php else: ?>
                                                 <span class="label label-danger font-weight-100"><?php echo e(__("general.inactive")); ?></span>
