@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Cities;
+use App\Language;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -29,7 +30,7 @@ class Country extends Model
      *
      * @var array
      */
-    protected $fillable = ['is_active', 'code', 'deleted_at'];
+    protected $fillable = ['is_active','flag', 'code', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -54,9 +55,14 @@ class Country extends Model
     protected $with = ['translations'];
 
     public function cities(){
-        return $this->hasMany(Cities::class);
 
+        return $this->hasMany(Cities::class);
     }
+    public function language(){
+
+        return $this->belongsToMany(Language::class, CountriesTranslation::class, 'countries_id')->withPivot('name');
+    }
+
 
 
 }

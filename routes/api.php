@@ -17,12 +17,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['middleware' => 'Localization'], function () {
+
 //User Control Auth
 Route::post('login', 'AuthController@login');
 Route::post('signup', 'AuthController@signup');
 Route::post('reset-password', 'AuthController@reset');
 //Resource For Unknown User
 Route::apiResource('Cities', 'CitiesController');
+Route::apiResource('Languages', 'LanguagesApiController');
 Route::apiResource('Countries', 'CountryController');
 Route::apiResource('Services', 'ServicesController');
 Route::apiResource('Child-Services', 'SubServicesController');
@@ -39,6 +42,7 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('Vendor/Products', 'ProductsController');
     Route::apiResource('Vendor/Ads', 'AdvertisingController');
     Route::apiResource('Vendor/Orders', 'OrdersController');
+    Route::apiResource('Vendor/Percentage', 'PercentageControllerAPI');
     Route::apiResource('Bank', 'BankAccountsController');
     Route::apiResource('Favourites', 'BookmarkController');
     Route::apiResource('Vendor/Orders', 'OrdersController');
@@ -50,6 +54,7 @@ Route::post('auth/socket','HomeController@authSocket');
 
 Route::group(['middleware' => ['setlanguage']], function () {
 Route::resource('languages', 'LanguageController', ['only' => ['index']]);
+});
 });
 });
 });

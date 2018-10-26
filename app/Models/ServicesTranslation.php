@@ -22,7 +22,7 @@ class ServicesTranslation extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'desc', 'icon', 'services_id', 'locale', 'deleted_at'];
+    protected $fillable = ['name', 'desc', 'services_id', 'locale', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.

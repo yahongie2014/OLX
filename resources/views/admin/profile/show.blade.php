@@ -45,29 +45,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-card-giftcard mr-10"></i>{{__("general.servicesTypesDiscounts")}}</h6>
-                                            <hr class="light-grey-hr"/>
-                                            @foreach($services as $service)
-                                            <div class="col-md-3">
-                                                <div class="form-group {{ $errors->has('service.'. $service->id) ? ' has-error' : '' }}">
-                                                    <label class="control-label mb-10" for="exampleInputuname_01" >{{$service->name}}</label>
-                                                    <div class="input-group">
-
-                                                        <input type="text" maxlength="20" class="form-control " id="exampleInputuname_01" name="service[{{$service->id}}]" value=@if(isset($serviceDiscount[$service->id])) "{{$serviceDiscount[$service->id]}}" @else 0  @endif  />
-                                                        <div class="input-group-addon">
-                                                            %
-                                                        </div>
-                                                    </div>
-                                                    @if ($errors->has('service.'. $service->id))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('service.'. $service->id) }}</strong>
-                                                    </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <div class="col-md-12">
                                             <h6 class="txt-dark capitalize-font"><i class="fa fa-credit-card mr-10"></i>{{__("general.paymentTypesDiscounts")}}</h6>
                                             <hr class="light-grey-hr"/>
                                             @foreach($paymentTypes as $paymentType)

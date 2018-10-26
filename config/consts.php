@@ -1,6 +1,6 @@
 <?php
 
-define('PROVIDER', 2);
+define('PROVIDER', 1);
 define('USER', 4);
 define('ADMIN', 1);
 

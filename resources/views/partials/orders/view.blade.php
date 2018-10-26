@@ -10,19 +10,11 @@
                         <div class="form-wrap">
                             <div class="form-body">
                                 <div class="row">
-                                    @if($loginType != PROVIDER)
+                                    @if(Auth::user()->is_vendor != 1)
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label mb-10">{{__("general.Provider Name")}}  </label>
                                             <input type="text" class="form-control searchInputText"  id="provider_name"   >
-                                        </div>
-                                    </div>
-                                    @endif
-                                    @if($loginType != DRIVER)
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="control-label mb-10">{{__("general.Delivery Name")}}  </label>
-                                            <input type="text" class="form-control searchInputText"  id="delivery_name" >
                                         </div>
                                     </div>
                                     @endif
@@ -66,7 +58,7 @@
                                             <label class="control-label mb-10">{{__("general.Extra Services")}}</label>
                                             <select class="selectpicker" data-style="form-control btn-default btn-outline" multiple data-style="form-control btn-default btn-outline" id="extra_service_id">
                                                 @foreach($services as $service)
-                                                    @if($service->type == EXTRA_SERVICE_TYPE)
+                                                    @if($service->is_active == 1)
                                                         <option value="{{$service->id}}" >{{$service->name}}</option>
                                                     @endif
                                                 @endforeach
@@ -83,16 +75,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="control-label mb-10">{{__("general.Status")}}</label>
-                                            <select class="selectpicker" data-style="form-control btn-default btn-outline" data-placeholder="Choose" multiple data-style="form-control btn-default btn-outline" id="order_status">
-                                                @foreach($orderStatuses as $orderStatus)
-                                                <option value="{{$loop->index}}" @if(in_array($loop->index,$selectedStatuses)) selected @endif >{{__("general." . $orderStatus)}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
+                                    {{--<div class="col-md-3">--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label class="control-label mb-10">{{__("general.Status")}}</label>--}}
+                                            {{--<select class="selectpicker" data-style="form-control btn-default btn-outline" data-placeholder="Choose" multiple data-style="form-control btn-default btn-outline" id="order_status">--}}
+                                                {{--@foreach($orderStatuses as $orderStatus)--}}
+                                                {{--<option value="{{$loop->index}}" @if(in_array($loop->index,$selectedStatuses)) selected @endif >{{__("general." . $orderStatus)}}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label mb-10 text-left">{{__('general.Required at from')}}</label>
@@ -113,18 +105,6 @@
                                                     <span class="fa fa-calendar"></span>
                                                 </span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label class="control-label mb-10">{{__("general.Order Location")}}</label>
-                                            <select class="selectpicker" data-style="form-control btn-default btn-outline" id="order_location">
-
-                                                <option value="-1"></option>
-                                                <option value="{{USER_UPDATED_ORDER}}" @if(USER_UPDATED_ORDER == $selectedWithLocation) selected @endif >{{__("general.ordersWithLocation")}}</option>
-                                                <option value="{{USER_NOT_UPDATED_ORDER}}" @if(USER_NOT_UPDATED_ORDER == $selectedWithLocation)) selected @endif >{{__("general.ordersWithOutLocation")}}</option>
-
-                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +145,6 @@
                                             <th>{{__("general.Order ID")}}</th>
                                             <th>{{__("general.Provider Name")}}</th>
                                             <th>{{__("general.Client Name")}}</th>
-                                            <th>{{__("general.Delivery Name")}}</th>
                                             <th>{{__("general.Required at")}}</th>
                                             <th>{{__("general.Status")}}</th>
                                             <th>{{__("general.LastUpdatedAt")}}</th>

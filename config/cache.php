@@ -59,14 +59,7 @@ return [
             ],
             'options' => [
             ],
-            'servers' => array_map(function ($s) {
-                $parts = explode(":", $s);
-                return [
-                    'host' => $parts[0],
-                    'port' => $parts[1],
-                    'weight' => 100,
-                ];
-            })
+            'servers' => []
         ],
 
         'redis' => [

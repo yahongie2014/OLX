@@ -80,6 +80,8 @@ return [
 
     'locale' => 'en',
 
+    'supported_languages' => ['en' => 'English', 'ar' => 'Arabic'],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -153,7 +155,6 @@ return [
          */
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Laracademy\ModelGenerator\ModelGeneratorServiceProvider::class,
-        Spatie\Fractal\Fractal::class,
         /*
          * Application Service Providers...
          */

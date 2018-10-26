@@ -23,7 +23,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
 
-     return OrdersApi::collection($this->orders->paginate());
+     return OrdersApi::collection($this->orders->with("Items")->paginate());
     }
 
     /**
@@ -67,13 +67,8 @@ class OrdersController extends Controller
         if ($validator->fails()) {
             return response()->json($validator)->setStatusCode(400);
         } else {
-            $only = $this->orders->findOrFail($id);
 
-            if ($request->user()->id !== $only->user_id) {
-                return response()->json(['error' => 'You can only show your Orders.'], 403);
-            }
-
-            return new OrdersApi($only);
+            return OrdersApi::collection($this->orders->with("Items")->paginate());
         }
 
     }

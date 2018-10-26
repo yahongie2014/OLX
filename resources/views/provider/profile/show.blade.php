@@ -8,7 +8,7 @@
 @parent
 
 <li>
-    <a href="{{url('/vendors/profile/' . Auth::user()->id)}}">
+    <a href="{{url('/provider/profile/' . Auth::user()->id)}}">
         {{__("general.Profile")}}
     </a>
 </li>

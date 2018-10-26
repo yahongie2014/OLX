@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Language;
 use Illuminate\Database\Eloquent\Model;
 
 class CountriesTranslation extends Model
@@ -40,5 +41,6 @@ class CountriesTranslation extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
 
 }

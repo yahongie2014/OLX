@@ -2,6 +2,8 @@
 
 namespace App;
 use App\Models\Message;
+use App\Models\OrderItmes;
+use App\Models\Orders;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,6 +57,15 @@ class User extends Authenticatable  {
     {
         return $this->belongsTo(Language::class);
     }
+    public function firebase_tokens()
+    {
+        return $this->hasMany(UserFireBaseToken::class);
+    }
+    public function user(){
+
+        return $this->hasMany(Orders::class);
+    }
+
 
 
 }

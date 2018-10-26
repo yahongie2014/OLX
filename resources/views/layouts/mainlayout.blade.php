@@ -190,8 +190,10 @@
                 <li class="dropdown auth-drp">
                     @if(Auth::user())
                         <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown">
-                            <img src=@if(Auth::user()->image) "{{asset(Auth::user()->image)}}"
-                                 @else {{asset("dist/img/user1.png")}} @endif alt="user_auth"
+                            <img src=@if(Auth::user()->image)
+                                    "{{asset(\Storage::url('Avatar/'.Auth::user()->image))}}"
+                                 @else {{asset("dist/img/user1.png")}}
+                                 @endif alt="user_auth"
                                  class="user-auth-img img-circle"/>
                             <span class="user-online-status"></span>
                         </a>
@@ -240,6 +242,7 @@
                 <div class="panel-wrapper collapse in">
                     <div class="panel-body  pa-0">
                         <div class="profile-box">
+{{--
                             <div class="profile-cover-pic" style="min-height: 296px;max-height: 296px;">
                                 @if(Auth::user())
                                     <img src=@if(Auth::user()->cover_image) "{{asset(Auth::user()->cover_image)}}"
@@ -253,6 +256,7 @@
 
                                 @endif
                             </div>
+--}}
                             <div class="profile-info">
                                 <div class="profile-img-wrap" style="width: 90%;padding: 1%">
 
@@ -317,7 +321,7 @@
             <footer class="footer container-fluid pl-30 pr-30">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><?php echo date("Y")?>&copy; Services. Ontime.sa</p>
+                        <p><?php echo date("Y")?>&copy; At Time. Ontime.sa</p>
                     </div>
                 </div>
             </footer>
