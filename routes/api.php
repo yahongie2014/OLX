@@ -24,6 +24,7 @@ Route::apiResource('Cities', 'CitiesController');
 Route::apiResource('Languages', 'LanguagesApiController');
 Route::apiResource('Countries', 'CountryController');
 Route::apiResource('languages', 'LanguageController', ['only' => ['index']]);
+Route::post('confirmation', 'AuthController@confirm');
 Route::middleware('Verify')->group(function () {
 Route::apiResource('Services', 'ServicesController');
 Route::apiResource('Child-Services', 'SubServicesController');
