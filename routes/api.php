@@ -32,7 +32,6 @@ Route::apiResource('User/Products', 'ProductUserController');
 Route::apiResource('User/Ads', 'AdsUserController');
 //Protected Login To Authntcate
 Route::middleware('auth:api')->group(function () {
-Route::post('confirmation', 'AuthController@confirm');
 Route::get('logout', 'AuthController@logout');
 Route::post('profile', 'AuthController@user');
 Route::apiResource('User/Orders', 'OrdersUserController');
