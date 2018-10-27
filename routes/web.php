@@ -28,7 +28,7 @@ Route::get('/clear', function() {
     return 'DONE'; //Return anything
 });
 
-
+Route::group(['middleware' => ['Blocked']], function () {
 Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['setlanguage']], function () {
 Route::post('/user/password', 'UserController@changePassword');
@@ -64,10 +64,7 @@ Route::resource('orders', 'UserController');
 Route::resource('ads', 'UserController');
 Route::resource('products', 'UserController');
 });
-
-
 });
-
-
+});
 });
 
