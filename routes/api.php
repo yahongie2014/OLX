@@ -24,6 +24,7 @@ Route::apiResource('Cities', 'CitiesController');
 Route::apiResource('Languages', 'LanguagesApiController');
 Route::apiResource('Countries', 'CountryController');
 Route::apiResource('languages', 'LanguageController', ['only' => ['index']]);
+Route::middleware('auth:api')->group(function () {
 Route::post('confirmation', 'AuthController@confirm');
 Route::middleware('Verify')->group(function () {
 Route::apiResource('Services', 'ServicesController');
@@ -31,7 +32,6 @@ Route::apiResource('Child-Services', 'SubServicesController');
 Route::apiResource('User/Products', 'ProductUserController');
 Route::apiResource('User/Ads', 'AdsUserController');
 //Protected Login To Authntcate
-Route::middleware('auth:api')->group(function () {
 Route::get('logout', 'AuthController@logout');
 Route::post('profile', 'AuthController@user');
 Route::apiResource('User/Orders', 'OrdersUserController');
