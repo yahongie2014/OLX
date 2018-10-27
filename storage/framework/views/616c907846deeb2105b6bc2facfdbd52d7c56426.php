@@ -100,7 +100,7 @@
                                         <td><?php echo e($user->email); ?></td>
                                         <td>
                                             <img src=<?php if($user->image): ?>
-                                                    "<?php echo e(asset(\Storage::url('Avatar/'.Auth::user()->image))); ?>"
+                                                    "<?php echo e(asset(\Storage::url('Avatar/'.$user->image))); ?>"
                                                  <?php else: ?> <?php echo e(asset("dist/img/user1.png")); ?>
 
                                                  <?php endif; ?> alt="user_auth"

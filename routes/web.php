@@ -46,11 +46,13 @@ Route::resource('languages', 'LanguageController', ['except' => ['destroy', 'sho
 Route::resource('countries','CountryAdminController',['except' => ['destroy' , 'show']]);
 Route::resource('cities','CityController',['except' => ['destroy' , 'show']]);
 Route::resource('categories', 'CategoryAdminController', ['except' => ['destroy', 'show']]);
-Route::resource('services', 'ServiceTypeController', ['except' => ['destroy', 'show']]);
+Route::resource('services', 'ServiceTypeAdminController', ['except' => ['destroy', 'show']]);
 Route::resource('orders', 'OrderController', ['only' => ['index', 'show']]);
 Route::post('orders/refuse', 'OrderController@adminRefuseOrder');
 Route::post('orders/assign','OrderController@adminAssignDeliveryToOrder');
 Route::resource('provider', "ProviderController");
+Route::get('provider/activation/{providerId}' , 'ProviderController@adminProviderActivation');
+Route::get('activation/{id}' , 'AdminController@adminActivation');
 Route::resource('payment', "ProviderController");
 Route::resource('users/admin', "AdminController");
 });

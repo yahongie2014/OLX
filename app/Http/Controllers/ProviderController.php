@@ -20,8 +20,8 @@ class ProviderController extends Controller
     public function index(Request $request)
     {
 
-        $providers = User::select("id")
-            ->where('is_vendor',\PROVIDER)
+        $providers = User::select("*")
+            ->where('is_vendor',PROVIDER)
             ->orderBy('id','desc')
             ->get();
 
@@ -38,7 +38,7 @@ class ProviderController extends Controller
                 $provider->is_verify = PROVIDER_INACTIVE;
                 $msg = __("general.yourProviderAccountDeActivated");
             }else{
-                $provider->status = PROVIDER_ACTIVE;
+                $provider->is_verify = PROVIDER_ACTIVE;
                 $msg = __("general.yourProviderAccountActivated");
             }
 
@@ -109,45 +109,18 @@ class ProviderController extends Controller
             $request->all(),
             [
 
-                'provider_id' => 'required|integer|exists:providers,id|in:' . $id,
-                'service' => 'present|array|nullable' ,
-                'service.*' => 'numeric|max:100',
-                'paymentType' => 'present|array',
-                'paymentType.*' => 'numeric|max:100|nullable'
+                'provider_id' => 'required|integer|exists:users,id|in:' . $id,
             ]
         )->validate();
 
         DB::beginTransaction();
 
-        $provider = Provider::find($request->provider_id);
+        $provider = User::find($request->provider_id);
 
         $provider->promo_code = str_random(8);
 
         if($provider->save()){
-            // Save provider applied discount on services
-
-            $selectedServices = ServiceType::whereIn('id',array_keys($request->service))->pluck('id')->toArray();
-            $servicesDiscounts = [];
-            foreach ($request->service as $k => $discount){
-                if(in_array($k , $selectedServices) && (intval($discount) > 0))
-                    $servicesDiscounts[$k]['discount'] = intval($discount);
-            }
-
-            $provider->services_discounts()->sync($servicesDiscounts);
-
-            // Save provider applied discount on payment types
-
-            $selectedPaymentTypes = PaymentType::whereIn('id',array_keys($request->paymentType))->pluck('id')->toArray();
-            $paymentTypesDiscounts = [];
-            foreach ($request->paymentType as $k => $discount){
-                if(in_array($k , $selectedPaymentTypes) && (intval($discount) > 0))
-                    $paymentTypesDiscounts[$k]['discount'] = intval($discount);
-            }
-
-            // Clear previous payment types for this provider before saveing the new ones
-            $provider->payment_type_discounts()->sync($paymentTypesDiscounts);
             DB::commit();
-
             return redirect()->back()->with(['messageSuccess' => __("general.providerPromoCodeUpdated")]);
         }else{
             DB::rollBack();

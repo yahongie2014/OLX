@@ -40,6 +40,7 @@
                                         <th>{{__("general.service_type_id")}}</th>
                                         <th>{{__("general.Name")}}</th>
                                         <th>{{__("general.Type")}}</th>
+                                        <th>{{__("general.mainServiceType")}}</th>
                                         <th>{{__("general.Status")}}</th>
                                         <th>{{__("general.Edit")}}</th>
                                     </tr>
@@ -51,14 +52,12 @@
                                         <td class="txt-dark centerCol">{{$service->id}}</td>
                                         <td class="txt-dark centerCol">{{$service->name}}</td>
                                         <td class="txt-dark centerCol">
-                                            @if($service->type == MAIN_SERVICE_TYPE)
-                                            <span class="label label-info font-weight-100">{{__("general.mainServiceType")}}</span>
-                                            @else
                                             <span class="label label-primary font-weight-100">{{__("general.extraServiceType")}}</span>
-                                            @endif
+                                            <br>
                                         </td>
+                                        <td>{{$service->services["name"]}}</td>
                                         <td class="centerCol">
-                                            @if($service->status == SERVICE_TYPE_ACTIVE)
+                                            @if($service->is_active == SERVICE_TYPE_ACTIVE)
                                                 <span class="label label-success font-weight-100">{{__("general.active")}}</span>
                                             @else
                                                 <span class="label label-danger font-weight-100">{{__("general.inactive")}}</span>

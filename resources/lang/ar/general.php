@@ -12,6 +12,9 @@ return [
     */
 
     'Don\'t have an account?' => 'لا تمتلك حساب ؟',
+    'Create_New_Admin' => 'اضافه مدير جديد للنظام',
+    'yourAdminAccountActivated' => 'تم تفعيل عضويتك كمدير',
+    'yourAdminAccountDeActivated' => 'تم حذف عضويتك كمدير',
     'percentage' => "يجب عليك دفع القيمه المستحقه",
     'latitudes' => "الموقع الجغرافى الافقى",
     'longitude' => "الموقع الجغرافى الرأسى",

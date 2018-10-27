@@ -109,7 +109,8 @@ class UserController extends Controller
         //dd($outputData);
 
         return view($outputView)
-            ->with( $outputData );    }
+            ->with( $outputData );
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -228,7 +229,7 @@ class UserController extends Controller
     }
 
     public function updateUserFireBaseToken(Request $request){
-        Validator::make(
+        \Validator::make(
             $request->all(),
             [
                 'firebase_token' => 'required|string',

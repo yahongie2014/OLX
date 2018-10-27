@@ -12,6 +12,9 @@ return [
     */
 
     'Don\'t have an account?' => 'Don\'t have an account?',
+    'Create_New_Admin' => 'Add New Admin',
+    'yourAdminAccountActivated' => 'you have Privilege as Admin',
+    'yourAdminAccountDeActivated' => "you Don't Have Permission As Admin ",
     'Sign Up' => "Sign Up",
     'latitudes' => "Latitudes",
     'longitude' => "Longitude",
