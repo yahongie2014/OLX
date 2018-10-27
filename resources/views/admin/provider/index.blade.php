@@ -100,7 +100,7 @@
                                         <td>{{$user->email}}</td>
                                         <td>
                                             <img src=@if($user->image)
-                                                    "{{asset(\Storage::url('Avatar/'.Auth::user()->image))}}"
+                                                    "{{asset(\Storage::url('Avatar/'.$user->image))}}"
                                                  @else {{asset("dist/img/user1.png")}}
                                                  @endif alt="user_auth"
                                                  class="user-auth-img img-circle"/>
