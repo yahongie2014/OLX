@@ -118,6 +118,15 @@
                                     <h3 class="text-center txt-dark mb-10 brand-text-white"><?php echo e(__("general.Sign in")); ?></h3>
                                 </div>
                                 <div class="form-wrap ">
+                                    <?php if(session()->has('messageDanger')): ?>
+                                        <div class="alert alert-danger alert-dismissable alert-style-1">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <i class="zmdi zmdi-alert-circle-o"></i><?php echo e(session()->get('messageDanger')); ?>
+
+                                        </div>
+                                    <?php endif; ?>
                                     <form method="POST" action="<?php echo e(route('login')); ?>">
                                         <?php echo e(csrf_field()); ?>
 

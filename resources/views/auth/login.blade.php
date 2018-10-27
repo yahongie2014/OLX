@@ -118,6 +118,14 @@
                                     <h3 class="text-center txt-dark mb-10 brand-text-white">{{__("general.Sign in")}}</h3>
                                 </div>
                                 <div class="form-wrap ">
+                                    @if(session()->has('messageDanger'))
+                                        <div class="alert alert-danger alert-dismissable alert-style-1">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <i class="zmdi zmdi-alert-circle-o"></i>{{ session()->get('messageDanger') }}
+                                        </div>
+                                    @endif
                                     <form method="POST" action="{{ route('login') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} ">
