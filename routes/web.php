@@ -65,6 +65,9 @@ Route::resource('ads', 'UserController');
 Route::resource('products', 'UserController');
 });
 
+
 });
+
+
 });
 
