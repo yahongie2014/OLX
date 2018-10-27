@@ -3,10 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
+
 use Illuminate\Foundation\Application;
 
 class Localization
 {
+
     public function __construct(Application $app)
     {
         $this->app = $app;
@@ -40,13 +42,10 @@ class Localization
         // set the local language
         $this->app->setLocale($locale);
 
-        // get the response after the request is done
         $response = $next($request);
 
-        // set Content Languages header in the response
         $response->headers->set('Content-Language', $locale);
 
-        // return the response
         return $response;
     }
 }
