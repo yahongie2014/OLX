@@ -50,11 +50,11 @@ class AuthController extends Controller
             'CityId' => 'required|exists:cities,id|integer',
         ]);
 
-        $phoneV =$this->user->where("phone",$request->phone)->first();
-
-        if($phoneV){
-            return response()->json(['error' => 300, 'message' => 'Your phon number duplicated'])->setStatusCode(400);
-        }
+//        $phoneV =$this->user->where("phone",$request->phone)->first();
+//
+//        if($phoneV){
+//            return response()->json(['error' => 300, 'message' => 'Your phon number duplicated'])->setStatusCode(400);
+//        }
 
         $user = new $this->user([
             'name' => $request->name,
