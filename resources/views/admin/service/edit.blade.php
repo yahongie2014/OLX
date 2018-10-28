@@ -48,8 +48,8 @@
                                 <div class="form-group {{ $errors->has('services_id') ? ' has-error' : '' }}">
                                     <label class="control-label mb-10">{{__("general.mainServiceType")}}</label>
                                     <select class="form-control select2" name="services_id" required>
-                                        @foreach($main as $service)
-                                            <option value="{{$service->id}}" >{{$service->name}}</option>
+                                        @foreach($main_service as $serv)
+                                            <option value="{{$serv->id}}" >{{$serv->name}}</option>
                                         @endforeach
                                     </select>
                                     @if ($errors->has('services_id'))

@@ -42,7 +42,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'phone' => 'required',
+            'phone' => 'required|phone|unique:users',
             'longitude' => 'required',
             'latitudes' => 'required',
             'password' => 'required|string',
@@ -53,7 +53,7 @@ class AuthController extends Controller
         $user = new $this->user([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->input('phone'),
+            'phone' => $request->phone,
             'longitude' => $request->longitude,
             'latitudes' => $request->latitudes,
             'city_id' => $request->CityId,

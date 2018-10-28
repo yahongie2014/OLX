@@ -15,7 +15,7 @@
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "^3.2",
         "weglot/translate-laravel": "^0.3.6"
-    },
+		},
     "require-dev": {
         "filp/whoops": "~2.0",
         "nunomaduro/collision": "~1.1",

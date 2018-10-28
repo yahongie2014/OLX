@@ -137,13 +137,12 @@ class ServiceTypeAdminController extends Controller
      */
     public function edit($id)
     {
-        //
-        $service = $this->serviceTransformer->withTranslation()->with(['services'])->where('id',$id)->first();
+        $main_service = Services::all();
+        $service = $this->serviceTransformer->whereHas('translations')->where('id',$id)->first();
         if($service) {
-
             return view('admin.service.edit')->with([
                 'service' => $service,
-                'main' => Services::withTranslation()->get()
+                'main_service' => $main_service,
             ]);
         } else
             return redirect('/admin/service')->with(['messageDanger' => __('general.serviceNotFound') ]);
