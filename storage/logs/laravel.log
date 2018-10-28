@@ -34,3 +34,4 @@
 #7 C:\\Users\\yahOn\\Desktop\\OLX\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #8 {main}
 "} 
+[2018-10-28 12:03:10] local.INFO: {"multicast_id":4634779203047550331,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"https:\/\/updates.push.services.mozilla.com\/m\/gAAAAABb1aV9bRugz3i2J7KBqcXbU_PvS9eDa5xCS5hJ5Rs4vSLC-oFARRP06gzHFwKBdwlWnubSzjkBHrjzHvQJXDVjQVSXxS7UOJNCO-7nNDRogIUnHmdApXGIZh-J1DiKOSeOKz2ieHgqHRBSxNox6di2RqSyY1diZt3agHkwrkOlB8lFHBxcY4Z1YDU4tb7zFus0QK8D"}]}  
