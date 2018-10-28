@@ -31,7 +31,8 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-        $generate_number = rand(1544, 100000);
+       // $generate_number = rand(1544, 1000);
+        $generate_number = "1234";
         if ($request->vendor) {
             $request->validate([
                 'vendor' => 'required|integer',
