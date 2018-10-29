@@ -239,9 +239,6 @@ return [
     'LinkIsNotFound' => 'الرابط الذي طلبته غير موجود',
     'registeredAsProvider' => 'سجل كمتجر جديد ,',
     'newUserRegistration' => 'تسجيل مستخدم جديد :',
-    'registeredAsDriver' => 'سجل كموصل جديد',
-    'yourDriverAccountActivated' => 'تم تفعيل حسابك كموصل',
-    'yourDriverAccountDeActivated' => 'تم ايقاف حسابك كموصل',
     'yourProviderAccountActivated' => 'تم تفعيل حسابك كمتجر' ,
     'yourProviderAccountDeActivated' => 'تم ايقاف حسابك كمتجر',
     'newOrderCreted' => "تم انشاء طلب جديد",
@@ -358,5 +355,4 @@ return [
     'ORDER_STATUS_DELIVERY_STARTED' => 'السائق بدأ الطلب',
     'DELIVERY_STARTED' => ' بدأ الطلب',
     'Provider Info' => 'بيانات المتجر',
-    'CarType' => 'نوع السيارة'
 ];

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27e9dcc6-ba46-4fcd-80d4-7c2cb93606d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,7 +68,7 @@
     <session id="-1755103725">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.17" value="1" />
@@ -82,7 +81,7 @@
           <entry key="css" value="3" />
           <entry key="json" value="3" />
           <entry key="lock" value="1" />
-          <entry key="php" value="93" />
+          <entry key="php" value="94" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
@@ -91,7 +90,7 @@
           <entry key="Blade" value="23" />
           <entry key="CSS" value="3" />
           <entry key="JSON" value="4" />
-          <entry key="PHP" value="70" />
+          <entry key="PHP" value="71" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -124,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+            <state relative-caret-position="2961">
+              <caret line="230" column="9" lean-forward="true" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -374,6 +373,24 @@
               <item name="OLX" type="b2602c69:ProjectViewProjectNode" />
               <item name="OLX" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="OLX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OLX" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OLX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OLX" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OLX" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OLX" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -426,12 +443,12 @@
       <workItem from="1540708227982" duration="594000" />
       <workItem from="1540717864765" duration="5933000" />
       <workItem from="1540726309075" duration="4552000" />
-      <workItem from="1540777821610" duration="384000" />
+      <workItem from="1540777821610" duration="2319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57884000" />
+    <option name="totallyTimeSpent" value="59819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -733,8 +750,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+        <state relative-caret-position="2961">
+          <caret line="230" column="9" lean-forward="true" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
         </state>
       </provider>
     </entry>

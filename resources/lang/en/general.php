@@ -355,5 +355,4 @@ return [
     'DELIVERY_STARTED' => 'Start order',
     'Provider Info' => 'Provider Info',
     'CarType' => 'Car Type'
-//------------------------------------last copy at 02-18-2018 -------------------
 ];

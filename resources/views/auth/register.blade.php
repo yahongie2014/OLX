@@ -112,8 +112,7 @@ $countries = \App\Models\Country::all();
                     <div class="auth-form  ml-auto mr-auto no-float">
                         <video id="video_background" class="video_bg" preload="auto" autoplay="true" loop="loop"
                                muted="muted" volume="0">
-                            <source src="{{asset('dist/img/jibli.mp4')}}" type="video/mp4">
-                            <source src="{{asset('dist/img/jibli.ogg')}}" type="video/ogg">
+                            <source src="{{asset('dist/img/intro.mp4')}}" type="video/mp4">
                         </video>
                         <div class="overlay">
                             <div class="gradient-overlay gradient-17 opacity-80"></div>
