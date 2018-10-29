@@ -31,7 +31,8 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-        $generate_number = rand(1544, 100000);
+       // $generate_number = rand(1544, 1000);
+        $generate_number = "1234";
         if ($request->vendor) {
             $request->validate([
                 'vendor' => 'required|integer',
@@ -41,7 +42,7 @@ class AuthController extends Controller
 
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+//            'email' => 'required|string|email|unique:users',
             'phone' => 'required',
             'longitude' => 'required',
             'latitudes' => 'required',
@@ -50,10 +51,16 @@ class AuthController extends Controller
             'CityId' => 'required|exists:cities,id|integer',
         ]);
 
+//        $phoneV =$this->user->where("phone",$request->phone)->first();
+//
+//        if($phoneV){
+//            return response()->json(['error' => 300, 'message' => 'Your phone number duplicated'])->setStatusCode(400);
+//        }
+
         $user = new $this->user([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->input('phone'),
+            'phone' => $request->phone,
             'longitude' => $request->longitude,
             'latitudes' => $request->latitudes,
             'city_id' => $request->CityId,
@@ -76,9 +83,22 @@ class AuthController extends Controller
         $send = $this->SendSms($request->input('phone'), 'Welcome to My Services, your verification code ' . $generate_number);
 
         DB::commit();
+        $credentials = request(['email', 'password']);
+
+        if (!Auth::attempt($credentials))
+            return response()->json([
+                'message' => 'Unauthorized'
+            ], 401);
+        $user = $request->user();
+        $tokenResult = $user->createToken('Personal Access Token');
+        $token = $tokenResult->token;
+        $token->save();
+
 
         return response()->json([
-            'message' => 'Successfully created user!'
+            'message' => 'Successfully created user!',
+            'access_token' => $tokenResult->accessToken,
+            'token_type' => 'Bearer',
         ], 201);
     }
 
@@ -287,6 +307,6 @@ class AuthController extends Controller
 
         }
 
-        return response()->json( ["Data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
+        return response()->json( ["data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
     }
 }
