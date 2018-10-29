@@ -27,18 +27,31 @@ class Controller extends BaseController
 
     public function SendSms($phone ,$message)
     {
+        $data = array(
+            "user" => "al3omdh25",
+            "pass" => "Emad2525",
+            "sender" => "At Time",
+            "to" => $phone,
+            "message" => $message,
+        );
 
-        $ch = curl_init("http://www.jawalbsms.ws/api.php/sendsms?user=al3omdh25&pass=Emad2525&to=$phone&message=$message&sender=At Time");
+        $data_string = json_encode($data);
+
+
+        $ch = curl_init("http://www.jawalbsms.ws/api.php/sendsms");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json')
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string))
         );
         $result = curl_exec($ch);
         if ($result === FALSE) {
             Log::error('Curl failed: ' . curl_error($ch));
         }
         else{
+            //echo $result;
             Log::info($result);
         }
 
