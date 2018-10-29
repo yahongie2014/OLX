@@ -251,7 +251,6 @@ return [
     'Driver data updated successfully' => 'تم تعديل بيانات السائق',
     'pleaseReviewYourOrder' => ' برجاء مراجعته وتحديد مكان التسليم :',
     'orderCreatedForYouBy' => 'تم انشاء طلب لك من المتجر ',
-    'byJiibli' => 'في جب.لي',
     'totalOrdersCount' => 'اجمالي عدد الطلبات',
     'totalDayOrdersCount' => 'طلبات اليوم',
     'totalMonthOrdersCount' => 'طلبات هذا الشهر',
