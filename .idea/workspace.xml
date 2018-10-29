@@ -69,7 +69,7 @@
     <session id="-1755103725">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.8" value="1" />
@@ -98,7 +98,7 @@
         <counts>
           <entry key="css" value="1" />
           <entry key="json" value="1" />
-          <entry key="php" value="909" />
+          <entry key="php" value="925" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -106,7 +106,7 @@
           <entry key="Blade" value="90" />
           <entry key="CSS" value="1" />
           <entry key="JSON" value="1" />
-          <entry key="PHP" value="819" />
+          <entry key="PHP" value="835" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -123,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+            <state relative-caret-position="336">
+              <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
             </state>
           </provider>
         </entry>
@@ -424,12 +424,12 @@
       <workItem from="1540701238750" duration="1191000" />
       <workItem from="1540708227982" duration="594000" />
       <workItem from="1540717864765" duration="5933000" />
-      <workItem from="1540726309075" duration="3456000" />
+      <workItem from="1540726309075" duration="4552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56404000" />
+    <option name="totallyTimeSpent" value="57500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -778,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="336">
+          <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
         </state>
       </provider>
     </entry>

@@ -54,7 +54,7 @@ class AuthController extends Controller
 //        $phoneV =$this->user->where("phone",$request->phone)->first();
 //
 //        if($phoneV){
-//            return response()->json(['error' => 300, 'message' => 'Your phon number duplicated'])->setStatusCode(400);
+//            return response()->json(['error' => 300, 'message' => 'Your phone number duplicated'])->setStatusCode(400);
 //        }
 
         $user = new $this->user([
@@ -84,8 +84,16 @@ class AuthController extends Controller
 
         DB::commit();
 
+        $user = $request->user();
+        $tokenResult = $user->createToken('Personal Access Token');
+        $token = $tokenResult->token;
+        $token->save();
+
+
         return response()->json([
-            'message' => 'Successfully created user!'
+            'message' => 'Successfully created user!',
+            'access_token' => $tokenResult->accessToken,
+            'token_type' => 'Bearer',
         ], 201);
     }
 
@@ -294,6 +302,6 @@ class AuthController extends Controller
 
         }
 
-        return response()->json( ["Data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
+        return response()->json( ["data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
     }
 }
