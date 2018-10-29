@@ -27,11 +27,8 @@ class Controller extends BaseController
 
     public function SendSms($phone ,$message)
     {
-        $user = "al3omdh25";
-        $pass = "Emad2525";
-        $sender = "At Time";
 
-        $ch = curl_init("http://www.jawalbsms.ws/api.php/sendsms?user=$user&pass=$pass&to=$phone&message=$message&sender=$sender");
+        $ch = curl_init("http://www.jawalbsms.ws/api.php/sendsms?user=al3omdh25&pass=Emad2525&to=$phone&message=$message&sender=At Time");
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
