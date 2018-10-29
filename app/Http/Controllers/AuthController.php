@@ -83,7 +83,12 @@ class AuthController extends Controller
         $send = $this->SendSms($request->input('phone'), 'Welcome to My Services, your verification code ' . $generate_number);
 
         DB::commit();
+        $credentials = request(['email', 'password']);
 
+        if (!Auth::attempt($credentials))
+            return response()->json([
+                'message' => 'Unauthorized'
+            ], 401);
         $user = $request->user();
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
