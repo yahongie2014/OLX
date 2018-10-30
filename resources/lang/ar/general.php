@@ -10,7 +10,9 @@ return [
     |
     |
     */
-
+    "Product_name" =>"اسم المنتج",
+    "DESC" =>"الوصف",
+    "Price" =>"سعر المنتج",
     'Don\'t have an account?' => 'لا تمتلك حساب ؟',
     'Create_New_Admin' => 'اضافه مدير جديد للنظام',
     'yourAdminAccountActivated' => 'تم تفعيل عضويتك كمدير',
@@ -333,7 +335,7 @@ return [
     'default' => 'الاساسي',
     'loadingLocation' => 'موقع الفرع',
     'loading_name' => 'اسم الفرع',
-    'addNewLoading' => 'اضافة فرع',
+    'addNewProduct' => 'اضافة منتج جديد',
     'loading_id' => 'رقم الفرع',
     'providerLoadingUpdatedSuccessfully' => 'تم تعديل بيانات الفرع',
     'errorUpdateProviderLoading' => 'خطأ في تعديل الفرع',

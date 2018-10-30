@@ -10,7 +10,9 @@ return [
     |
     |
     */
-
+    "Product_name" =>"Product Name",
+    "DESC" =>"Desceription ",
+    "Price" =>"Product Price",
     'Don\'t have an account?' => 'Don\'t have an account?',
     'Create_New_Admin' => 'Add New Admin',
     'yourAdminAccountActivated' => 'you have Privilege as Admin',
@@ -335,7 +337,7 @@ return [
     'default' => 'Default',
     'loadingLocation' => 'Branch location',
     'loading_name' => 'Branch name',
-    'addNewLoading' => 'Add new branch',
+    'addNewProduct' => 'Add new product',
     'loading_id' => 'Branch id',
     'providerLoadingUpdatedSuccessfully' => 'Branch updated successfully',
     'errorUpdateProviderLoading' => 'Error updating branch',

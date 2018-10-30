@@ -79,8 +79,7 @@
 
 <video id="video_background" class="video_bg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
 
-    <source src="<?php echo e(asset('dist/img/jibli.mp4')); ?>" type="video/mp4">
-    <source src="<?php echo e(asset('dist/img/jibli.ogg')); ?>" type="video/ogg">
+                            <source src="<?php echo e(asset('dist/img/intro.mp4')); ?>" type="video/mp4">
 
 </video>
 <div class="wrapper pa-0 gradient-17 ">

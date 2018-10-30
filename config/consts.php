@@ -42,8 +42,8 @@ define('LANGUAGE_NOT_DEFAULT', 0);
 define('DEFAULT_LANGUAGE', 1);
 
 
-define('PROVIDER_LOADING_INACTIVE', 0);
-define('PROVIDER_LOADING_ACTIVE', 1);
+define('PRODUCT_INACTIVE', 0);
+define('PRODUCT_ACTIVE', 1);
 
 define('CAR_TYPE_INACTIVE', 0);
 define('CAR_TYPE_ACTIVE', 1);

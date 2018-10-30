@@ -24,9 +24,9 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <a href="{{url('/provider/loading/create')}}" >
+                            <a href="{{url('/provider/products/create')}}" >
                                 <button class="btn btn-success btn-block btn-rounded btn-outline  btn-success">
-                                    {{__("general.addNewLoading")}}
+                                    {{__("general.addNewProduct")}}
                                 </button>
                             </a>
                         </div>
@@ -39,23 +39,23 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{__("general.loading_id")}}</th>
-                                        <th>{{__("general.Name")}}</th>
-                                        <th>{{__("general.Address")}}</th>
+                                        <th>{{__("general.Product_name")}}</th>
+                                        <th>{{__("general.DESC")}}</th>
                                         <th>{{__("general.Status")}}</th>
-                                        <th>{{__("general.default")}}</th>
+                                        <th>{{__("general.Price")}}</th>
                                         <th>{{__("general.Edit")}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($loadings as $loading)
+                                    @foreach($list as $lists)
                                     <tr>
                                         <td class="txt-dark centerCol">{{$loop->iteration}}</td>
-                                        <td class="txt-dark centerCol">{{$loading->id}}</td>
-                                        <td class="txt-dark centerCol">{{$loading->name}}</td>
-                                        <td class="txt-dark centerCol">{{$loading->address}}</td>
+                                        <td class="txt-dark centerCol">{{$lists->id}}</td>
+                                        <td class="txt-dark centerCol">{{$lists->name}}</td>
+                                        <td class="txt-dark centerCol">{{$lists->desc}}</td>
 
                                         <td class="centerCol">
-                                            @if($loading->status == PROVIDER_LOADING_ACTIVE)
+                                            @if($lists->is_active == PRODUCT_ACTIVE)
                                             <span class="label label-success font-weight-100">{{__("general.active")}}</span>
                                             @else
                                             <span class="label label-danger font-weight-100">{{__("general.inactive")}}</span>
@@ -63,15 +63,10 @@
 
                                         </td>
                                         <td class="centerCol">
-                                            @if($loading->default == PROVIDER_LOADING_DEFAULT)
-                                            <span class="label label-primary font-weight-100">{{__("general.default")}}</span>
-
-                                            @endif
-
+                                            {{$lists->price}}
                                         </td>
-
                                         <td class="centerCol">
-                                            <a href="{{url('provider/loading/' . $loading->id . '/edit/')}}" class="text-inverse pr-10" title="Edit" data-toggle="tooltip">
+                                            <a href="{{url('provider/products/' . $lists->id . '/edit/')}}" class="text-inverse pr-10" title="Edit" data-toggle="tooltip">
                                                 <i class="zmdi zmdi-edit txt-danger"></i>
                                             </a>
                                         </td>

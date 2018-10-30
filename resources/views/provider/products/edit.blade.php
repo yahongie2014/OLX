@@ -28,7 +28,7 @@
         <div class="panel panel-default card-view">
             <div class="panel-wrapper collapse in">
                 <div class="panel-body">
-                    <form action="{{url('/provider/loading/' . $loading->id)}}"  method="POST">
+                    <form action="{{url('/provider/loading/' . $pro->id)}}"  method="POST">
                         <div class="row">
                             <h6 class="txt-dark capitalize-font"><i class="ti ti-location-pin mr-10"></i>{{__("general.LoadingInformation")}}</h6>
                             <hr class="light-grey-hr"/>
@@ -42,64 +42,21 @@
                                         <div class="form-body overflow-hide">
                                             <div class="form-group {{ $errors->has('status') ? ' has-error' : '' }}">
                                                 <div class="checkbox checkbox-primary pr-10 pull-left">
-                                                    <input id="loadingAvailability" value="1" name="status" type="checkbox" @if(old('status')) checked @elseif($loading->status == PROVIDER_LOADING_ACTIVE) checked @endif>
+                                                    <input id="loadingAvailability" value="1" name="is_active" type="checkbox" @if(old('is_active')) checked @elseif($pro->is_active == PRODUCT_ACTIVE) checked @endif>
                                                     <label for="loadingAvailability"> {{__("general.available")}} </label>
                                                 </div>
                                                 @if ($errors->has('status'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('status') }}</strong>
+                                                    <strong>{{ $errors->first('is_active') }}</strong>
                                                 </span>
                                                 @endif
                                                 <div class="clearfix"></div>
-                                            </div>
-                                            @if($loading->default != PROVIDER_LOADING_DEFAULT)
-                                            <div class="form-group">
-                                                <div class="checkbox checkbox-primary pr-10 pull-left">
-                                                    <input id="loadingDefault" value="1" name="default_loading" type="checkbox" @if(old('default_loading')) checked @endif>
-                                                    <label for="loadingDefault"> {{__("general.default")}} </label>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            @endif
-                                            <div class="form-group {{ $errors->has('loading_name') ? ' has-error' : '' }}">
-                                                <label class="control-label mb-10" for="exampleInputuname_01" >{{__("general.loading_name")}}</label>
-                                                <div class="input-group">
-
-                                                    <input type="text" maxlength="90" class="form-control " id="exampleInputuname_01" name="loading_name" value=@if(old('loading_name')) "{{old('loading_name')}}" @else "{{$loading->name}}" @endif required />
-                                                </div>
-                                                @if ($errors->has('loading_name'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('loading_name') }}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group {{ $errors->has('loading_address') ? ' has-error' : '' }}">
-                                                <label class="control-label mb-10">{{__("general.Address")}}  </label>
-                                                <textarea class="form-control required" cols="20" id="exampleInputAddress" name="loading_address" >@if(old('loading_address')){{e(old('loading_address'))}} @else {{$loading->address}} @endif</textarea>
-                                                @if ($errors->has('loading_address'))
-                                                <span class="help-block">
-                                                                <strong>{{ $errors->first('loading_address') }}</strong>
-                                                            </span>
-                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <input type="hidden" id="loadingLat" name="loading_lat" value="{{$loading->lat}}" />
-                                        <input type="hidden" id="loadingLong" name="loading_long" value="{{$loading->long}}" />
-
-                                        <label class="control-label mb-10">{{__("general.loadingLocation")}}  </label>
-
-                                        <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box">
-                                        <div id="googleMap" style="width:100%;height:400px;"></div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="row">
                                 <div class="form-actions mt-10">

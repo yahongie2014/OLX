@@ -105,7 +105,7 @@ class CategoryAdminController extends Controller
                 ],
                 'ar' => [
                     'name' => $request->input('ar_name'),
-                    'desc' => $request->input('en_name'),
+                    'desc' => $request->input('ar_desc'),
                 ],
             ];
             $article = $this->category->findOrFail($category->id);
