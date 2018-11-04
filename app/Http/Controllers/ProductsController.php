@@ -82,7 +82,7 @@ class ProductsController extends Controller
             $product->user_id = $request->user()->id;
             $product->update();
         }
-        if ($product->save()) {
+        if ($product->save() && $request->Images) {
             $file = $request->file('Images');
             foreach ($file as $files) {
                 $name_image = $files->getClientOriginalName();
@@ -94,7 +94,7 @@ class ProductsController extends Controller
                 $img->save();
 
             }
-
+            
             if ($request->locale_ar) {
                 $pro_trnslator = new $this->trnslator();
                 $pro_trnslator->name = $request->name_ar;

@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
-
+Vue.prototype.$eventHub = new Vue()
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,6 +17,27 @@ window.Vue = require('vue');
 
 Vue.component('chat-messages', require('./components/ChatMessages.vue'));
 Vue.component('chat-form', require('./components/ChatForm.vue'));
+import router from './routes'
+import store from './store'
+import Datatable from 'vue2-datatable-component'
+import VueAWN from 'vue-awesome-notifications'
+import vSelect from 'vue-select'
+import datePicker from 'vue-bootstrap-datetimepicker'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'
+
+Vue.use(Datatable)
+Vue.use(VueAWN, {
+    position: 'top-right'
+})
+Vue.use(datePicker)
+Vue.use(VueSweetalert2)
+
+Vue.component('back-buttton', require('./components/BackButton.vue'))
+Vue.component('bootstrap-alert', require('./components/Alert.vue'))
+Vue.component('event-hub', require('./components/EventHub.vue'))
+Vue.component('vue-button-spinner', require('./components/VueButtonSpinner.vue'))
+Vue.component('v-select', vSelect)
 
 const app = new Vue({
     el: '#app',
