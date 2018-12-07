@@ -34,6 +34,7 @@ class AdsForm extends FormRequest
             'cities' => 'required|exists:cities,id',
             'products' => 'required|exists:products,id',
             'locale' => 'required',
+            'cover_image' => 'required',
         ];
     }
     public function messages()

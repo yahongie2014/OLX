@@ -7,6 +7,7 @@ use App\Http\Resources\CartApi;
 use App\Models\Cart;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -24,7 +25,7 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-      return CartApi::collection($this->cart->where("user_id", $request->user()->id)->paginate());
+        return CartApi::collection($this->cart->where("user_id", $request->user()->id)->paginate());
     }
 
     /**
@@ -47,8 +48,8 @@ class CartController extends Controller
     {
         $count = $this->cart->where('product_id', '=', $request->product_id)->where('user_id', '=', $request->user()->id)->count();
 
-        if ($count){
-            return response()->json(["message" => "The given data was invalid",'errors' => 'product already in your cart'])->setStatusCode(400);
+        if ($count) {
+            return response()->json(["message" => "The given data was invalid", 'errors' => 'product already in your cart'])->setStatusCode(400);
         }
         $cart = new $this->cart($request->all());
         $product = $this->product->find($request->product_id);
@@ -89,7 +90,7 @@ class CartController extends Controller
      */
     public function update(CartForm $request, $id)
     {
-        $cart =  $this->cart->findOrFail($id);
+        $cart = $this->cart->findOrFail($id);
         $product = $this->product->find($request->product_id);
         $cart->price = $product->price * $request->qty;
         $cart->qty = $request->qty;
@@ -130,4 +131,17 @@ class CartController extends Controller
             return response()->json(["message" => "Item IS Deleted"]);
         }
     }
+
+
+    public function multiply(Request $request)
+    {
+        foreach ($request->id as $items) {
+            $single = $this->cart->findOrFail($items);
+            $single->delete();
+            DB::commit();
+            return response()->json(["message" => "Cart Items Deleted !"]);
+        }
+    }
+
+
 }

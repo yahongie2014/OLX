@@ -7,17 +7,20 @@ use App\Http\Resources\OrdersUserApi;
 use App\Models\Cart;
 use App\Models\OrderItmes;
 use App\Models\Orders;
+use App\Order_status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class OrdersUserController extends Controller
 {
-    public function __construct(Orders $orders, Cart $cart, OrderItmes $ord_item)
+    public function __construct(Orders $orders, Cart $cart, OrderItmes $ord_item,Order_status $status)
     {
         $this->middleware('auth:api');
         $this->orders = $orders;
         $this->cart = $cart;
         $this->ord_item = $ord_item;
+        $this->status = $status;
     }
 
     /**
@@ -74,7 +77,10 @@ class OrdersUserController extends Controller
                     $items->delete();
                 }
             }
-
+            $order_status = new $this->status();
+            $order_status->status = 1;
+            $order_status->order_id = $make->id;
+            $order_status->save();
         }
         DB::commit();
         return new OrdersUserApi($make);

@@ -155,6 +155,8 @@ return [
          */
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Laracademy\ModelGenerator\ModelGeneratorServiceProvider::class,
+        Laravel\Dusk\DuskServiceProvider::class,
+        Musonza\Chat\ChatServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -212,6 +214,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Chat' => Musonza\Chat\Facades\ChatFacade::class,
 
     ],
 

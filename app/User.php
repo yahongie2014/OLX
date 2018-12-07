@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use App\Models\Message;
+use App\Message;
 use App\Models\OrderItmes;
 use App\Models\Orders;
 use Illuminate\Database\Eloquent\Model;

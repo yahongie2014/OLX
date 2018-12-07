@@ -68,7 +68,6 @@ class AdvertisingController extends Controller
                 return response()->json(['error' => 'You can only add your Products.'], 403);
             }
         }
-
         if ($request->locale_ar) {
 
             $rules = array(
@@ -83,9 +82,17 @@ class AdvertisingController extends Controller
                 return response()->json(['errors' => $validator->errors()->all()])->setStatusCode(422);
             }
         }
+        if($request->cover_image){
+            $file_cover = $request->file('cover_image');
+            $name_cover = $file_cover->getClientOriginalName();
+            $ext_cover = $file_cover->getClientOriginalExtension();
+            $cover = Storage::putFileAs('/public/AdsImages', $file_cover, $name_cover);
+        }
 
         $ads = new $this->ads($request->all());
         $ads->user_id = $request->user()->id;
+        $ads->cover_image = $name_cover;
+
         if ($ads->save()) {
             foreach ($product_id as $items) {
                 $adpro = new $this->adproducts($request->all());
@@ -179,9 +186,62 @@ class AdvertisingController extends Controller
      * @param  \App\Models\Advertising $advertising
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Advertising $advertising)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:advertisings,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $adsEdit = $this->ads->findOrfail($id);
+            if ($request->is_delivery) {
+                $adsEdit->is_delivery = $request->is_delivery;
+            }
+            if ($request->desc) {
+                $adsEdit->desc = $request->desc;
+            }
+            if ($request->price) {
+                $adsEdit->price = $request->price;
+            }
+            if ($request->percentage) {
+                $adsEdit->percentage = $request->percentage;
+            }
+            if($request->services_id){
+                $adsEdit->services_id = $request->services_id;
+            }
+            if($request->subservices_id){
+                $adsEdit->subservices_id = $request->subservices_id;
+            }
+
+            if($request->is_active){
+                $adsEdit->is_active = $request->is_active;
+            }
+            if($request->cover_image){
+                $file_cover = $request->file('cover_image');
+                $name_cover = $file_cover->getClientOriginalName();
+                $ext_cover = $file_cover->getClientOriginalExtension();
+                $cover = Storage::putFileAs('/public/AdsImages', $file_cover, $name_cover);
+                $adsEdit->cover_image = $name_cover;
+            }
+            if($request->services_id){
+                $adsEdit->services_id = $request->services_id;
+            }
+            if($request->subservices_id){
+                $adsEdit->subservices_id = $request->subservices_id;
+            }
+            $adsEdit->update();
+
+            return new AdsApi($adsEdit);
+        }
+
     }
 
     /**

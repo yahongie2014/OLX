@@ -3,11 +3,14 @@
 namespace App\Http\Resources;
 
 use App\Models\Advertising;
+use App\Models\BankAccounts;
 use App\Models\OrderItmes;
 use App\Models\Products;
+use App\Order_status;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class OrdersApi extends JsonResource
 {
@@ -35,17 +38,19 @@ class OrdersApi extends JsonResource
         return [
             "Identifier" => $this->id,
             "WebSiteName" => env('APP_NAME', 'At Time'),
-            "OrderStatus" => $this->status,
+            "OrderStatus" => OrderStatus::collection(Order_status::where("order_id",$this->id)->get()),
             "CompanyName" => Auth::user()->name,
-            "CompanyImage" => Auth::user()->image,
+            "CompanyImage" => url(Storage::url('Avatar/'. Auth::user()->image)),
             "CustomerName" => $this->user->name,
-            "CustomerImage" => $this->user->image,
+            "CustomerImage" => url(Storage::url('Avatar/'. $this->user->image)),
             "OrderNumber" => "#" . $this->order_number,
             "PromoCode" => (boolean)$this->promo_code_id,
             "OrderItems" => OrdersItemsApi::collection($orders_d),
+            "YourAccount" => BankApi::collection(BankAccounts::where("user_id",Auth::user()->id)->get()),
             "TotalProfit" => $orders,
             "WebsiteMustPaid" => $percent,
             "PercentageWebsite" => env("PERCENTAGE") . "%",
+            "CreateIn" => $this->created_at,
         ];
 
 

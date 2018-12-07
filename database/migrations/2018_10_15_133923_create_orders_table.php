@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('status',array(1,2,3,4,5,6))->default(1)->comment('1 : ORDER_REQUEST , 2 : ORDER_PAID, 3 : ORDER_ACCEPTED, 4 : ORDER_PERPARED, 5 : ORDER_IN_DELIVERY, 6 : ORDER_DELVERID');
+            $table->timestamp('order_status_update');
             $table->unsignedInteger('user_id');
             $table->string('order_number');
             $table->unsignedInteger('promo_code_id');

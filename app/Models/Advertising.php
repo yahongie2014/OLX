@@ -31,7 +31,7 @@ class Advertising extends Model
      *
      * @var array
      */
-    protected $fillable = ['is_active', 'services_id', 'subservices_id', 'user_id', 'deleted_at'];
+    protected $fillable = ['is_active','cover_image', 'services_id', 'subservices_id', 'user_id', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -77,7 +77,7 @@ class Advertising extends Model
 
     public function Adsproducts(){
 
-        return $this->hasMany(Advertising::class);
+        return $this->hasMany(AdsProducts::class);
 
     }
 

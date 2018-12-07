@@ -31,8 +31,8 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-       // $generate_number = rand(1544, 1000);
-        $generate_number = "1234";
+        $generate_number = rand(1544, 1000);
+        //$generate_number = "1234";
         if ($request->vendor) {
             $request->validate([
                 'vendor' => 'required|integer',
@@ -42,7 +42,7 @@ class AuthController extends Controller
 
         $request->validate([
             'name' => 'required|string',
-//            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email|unique:users',
             'phone' => 'required',
             'longitude' => 'required',
             'latitudes' => 'required',
@@ -51,11 +51,11 @@ class AuthController extends Controller
             'CityId' => 'required|exists:cities,id|integer',
         ]);
 
-//        $phoneV =$this->user->where("phone",$request->phone)->first();
-//
-//        if($phoneV){
-//            return response()->json(['error' => 300, 'message' => 'Your phone number duplicated'])->setStatusCode(400);
-//        }
+        $phoneV =$this->user->where("phone",$request->phone)->first();
+
+        if($phoneV){
+            return response()->json(['error' => 300, 'message' => 'Your phone number duplicated'])->setStatusCode(400);
+        }
 
         $user = new $this->user([
             'name' => $request->name,

@@ -1,6 +1,8 @@
 <?php
 
+use App\Events\MessagePosted;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,13 @@ Route::apiResource('Languages', 'LanguagesApiController');
 Route::apiResource('Countries', 'CountryController');
 Route::apiResource('languages', 'LanguageController', ['only' => ['index']]);
 Route::middleware('auth:api')->group(function () {
+Route::post('messages', function () {
+$user = Auth::user();
+$message = $user->messages()->create([
+'message' => request()->get('message')
+]);
+broadcast(new MessagePosted($message, $user))->toOthers();
+});
 Route::post('confirmation', 'AuthController@confirm');
 Route::middleware('Verify')->group(function () {
 Route::apiResource('Services', 'ServicesController');
@@ -37,6 +46,7 @@ Route::post('profile', 'AuthController@user');
 Route::apiResource('User/Orders', 'OrdersUserController');
 Route::apiResource('User/Payment', 'PaymentController');
 Route::apiResource('Cart', 'CartController');
+Route::post('multiply', 'CartController@multiply');
 Route::apiResource('Bank', 'BankAccountsController');
 Route::apiResource('Favourites', 'BookmarkController');
 Route::apiResource('Rates', 'RatesController');

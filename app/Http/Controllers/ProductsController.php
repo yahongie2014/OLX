@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator,AdsProducts $ads)
+    public function __construct(Products $products, ProductsImages $image, ProductsTranslation $trnslator, AdsProducts $ads)
     {
         // App::setLocale(env("LOCALE"));
         $this->middleware('auth:api');
@@ -94,7 +94,7 @@ class ProductsController extends Controller
                 $img->save();
 
             }
-            
+
             if ($request->locale_ar) {
                 $pro_trnslator = new $this->trnslator();
                 $pro_trnslator->name = $request->name_ar;
@@ -148,9 +148,9 @@ class ProductsController extends Controller
      * @param  \App\Models\Products $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit(Products $id)
     {
-        //
+        return new ProductsApi(Product::find($id));
     }
 
     /**
@@ -162,6 +162,59 @@ class ProductsController extends Controller
      */
     protected function update(Request $request, $id)
     {
+        $validator = \Validator::make(
+            ['id' => $id],
+            array(
+                'id' => 'required|exists:products,id|integer',
+            ),
+            [
+                'id' => __("validation.required"),
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json($validator)->setStatusCode(400);
+        } else {
+            $soft = $this->products->findOrFail($id);
+            $pro_edit = $this->trnslator->where("products_id", $soft->id)->get();
+            $pro_trnslate = $this->products->findOrfail($id);
+            if ($request->name) {
+                $pro_trnslate->name = $request->name;
+            }
+            if ($request->desc) {
+                $pro_trnslate->desc = $request->desc;
+            }
+            if ($request->price) {
+                $pro_trnslate->price = $request->price;
+            }
+            if ($request->name_ar) {
+                $pro_trnslate->name_ar = $request->name_ar;
+            }
+            if ($request->desc_ar) {
+                $pro_trnslate->desc_ar = $request->desc_ar;
+            }
+            if ($request->price_ar) {
+                $pro_trnslate->desc_ar = $request->price_ar;
+            }
+            if ($request->cover_image) {
+                $pro_trnslate->cover_image = $request->cover_image;
+            }
+            if($request->is_active){
+                $pro_trnslate->is_active = $request->is_active;
+            }
+            if($request->cover_image){
+                $file_cover = $request->file('cover_image');
+                $name_cover = $file_cover->getClientOriginalName();
+                $ext_cover = $file_cover->getClientOriginalExtension();
+                $cover = Storage::putFileAs('/public/Products', $file_cover, $name_cover);
+                $pro_trnslate->cover_image = $name_cover;
+            }
+
+            $pro_trnslate->update();
+
+
+            return new ProductsApi($pro_trnslate);
+        }
     }
 
     /**
@@ -190,18 +243,19 @@ class ProductsController extends Controller
             if ($request->user()->id !== $soft->user_id) {
                 return response()->json(['error' => 'You can only delete your Product.'], 403);
             }
-            $mage_path = $this->images->where("products_id",$id)->get();
-            foreach ($mage_path as $items){
+            $mage_path = $this->images->where("products_id", $id)->get();
+            foreach ($mage_path as $items) {
                 $single = $this->images->findOrFail($items->id);
                 $single->delete();
             }
-            $ads = $this->ads->where("product_id",$id)->get();
-            foreach ($ads as $ad){
+            $ads = $this->ads->where("product_id", $id)->get();
+            foreach ($ads as $ad) {
                 $items = $this->ads->findOrFail($ad->id);
                 $items->delete();
             }
             $soft->delete();
             DB::commit();
+
             return response()->json(["message" => "Product $soft->name was Deleted"]);
         }
 

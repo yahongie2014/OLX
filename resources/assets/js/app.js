@@ -6,8 +6,6 @@
  */
 
 require('./bootstrap');
-window.Vue = require('vue');
-Vue.prototype.$eventHub = new Vue()
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,59 +13,48 @@ Vue.prototype.$eventHub = new Vue()
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
-import router from './routes'
-import store from './store'
-import Datatable from 'vue2-datatable-component'
-import VueAWN from 'vue-awesome-notifications'
-import vSelect from 'vue-select'
-import datePicker from 'vue-bootstrap-datetimepicker'
-import VueSweetalert2 from 'vue-sweetalert2'
-import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'
-
-Vue.use(Datatable)
-Vue.use(VueAWN, {
-    position: 'top-right'
-})
-Vue.use(datePicker)
-Vue.use(VueSweetalert2)
-
-Vue.component('back-buttton', require('./components/BackButton.vue'))
-Vue.component('bootstrap-alert', require('./components/Alert.vue'))
-Vue.component('event-hub', require('./components/EventHub.vue'))
-Vue.component('vue-button-spinner', require('./components/VueButtonSpinner.vue'))
-Vue.component('v-select', vSelect)
+Vue.component('example', require('./components/Example.vue'));
+Vue.component('chat-message', require('./components/ChatMessage.vue'));
+Vue.component('chat-log', require('./components/ChatLog.vue'));
+Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 
 const app = new Vue({
     el: '#app',
-
     data: {
-        messages: []
+        messages: [],
+        usersInRoom: []
     },
+    methods: {
+        addMessage(message) {
+            // Add to existing messages
+            this.messages.push(message);
 
+            // Persist to the database etc
+            axios.post('/messages', message).then(response => {
+                // Do whatever;
+            })
+        }
+    },
     created() {
-        this.fetchMessages();
+        axios.get('/messages').then(response => {
+            this.messages = response.data;
+        });
 
-        Echo.private('chat')
-            .listen('MessageSent', (e) => {
+        Echo.join('chatroom')
+            .here((users) => {
+                this.usersInRoom = users;
+            })
+            .joining((user) => {
+                this.usersInRoom.push(user);
+            })
+            .leaving((user) => {
+                this.usersInRoom = this.usersInRoom.filter(u => u != user)
+            })
+            .listen('MessagePosted', (e) => {
                 this.messages.push({
                     message: e.message.message,
                     user: e.user
                 });
             });
-    },
-
-    methods: {
-        fetchMessages() {
-            axios.get('/messages').then(response => {
-                this.messages = response.data;
-            });
-        },
-        addMessage(message) {
-            this.messages.push(message);
-
-            axios.post('/messages', message).then(response => {});
-        }
     }
 });

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Order_status;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,7 @@ class Orders extends Model
      *
      * @var array
      */
-    protected $fillable = ['status', 'user_id', 'order_number', 'promo_code_id', 'total', 'deleted_at'];
+    protected $fillable = ['status', 'order_status_update','user_id', 'order_number', 'promo_code_id', 'total', 'deleted_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,7 +37,9 @@ class Orders extends Model
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'order_status_update' => 'date:hh:mm'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -58,6 +61,9 @@ class Orders extends Model
 
         return $this->morphMany(AdsProducts::class,Products::class,"product_id","id","product_id");
 
+    }
+    public function status(){
+        return $this->hasMany(Order_status::class,"id");
     }
 
 
