@@ -17,6 +17,7 @@ class CreateAdvertisingsTable extends Migration
             $table->increments('id');
             $table->string('cover_image');
             $table->integer('is_active')->default(1);
+            $table->integer('is_subscribe')->default(0);
             $table->integer('viewer')->default(0);
             $table->unsignedInteger('services_id');
             $table->unsignedInteger('subservices_id');

@@ -28,6 +28,7 @@ class AdsApi extends JsonResource
             "CompanyImage" => url(Storage::url('Avatar/'. $this->users->image)),
             "Rating" => (float)Rates::where("vendor_id",$this->users->id)->avg("average"),
             "Company Info" => $this->desc,
+            "Subscribe" => (boolean)$this->is_subscribe,
             "Viewers Count" => (int)$this->viewer,
             "ServicesId" => $this->services->id,
             "ServicesName" => $this->services->name,

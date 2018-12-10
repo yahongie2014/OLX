@@ -35,6 +35,7 @@ class AdsUerApi extends JsonResource
             "BookmarkedId" => $book_id,
             "IsBookmarked" => $val,
             "CompanyName" => $this->users->name,
+            "Subscribe" => (boolean)$this->is_subscribe,
             "CompanyImage" => url(Storage::url('Avatar/'. $this->users->image)),
             "CompanyInfo" => $this->desc,
             "Rating" => (float)Rates::where("vendor_id",$this->user_id)->avg("average"),

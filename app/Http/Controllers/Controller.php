@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\User;
 use App\UserFireBaseToken;
 use Session;
@@ -11,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
+use Curl;
 define("GOOGLE_API_KEY", "AAAAbcImFjE:APA91bFdizGK_jsQfjDSxFPwOLHBUkMAsys-78YuZr7B2L1JRgzy2ICu0SRNsct478ohlrVDRuItfYtHUxpgtraJy1EYQGq2j0MdBSV43JOStfOjvnpYaGTqz20ZiUe5EyghN5aDr4vv");
 
 class Controller extends BaseController
@@ -27,36 +27,16 @@ class Controller extends BaseController
 
     public function SendSms($phone ,$message)
     {
-        $data = array(
-            "user" => "al3omdh25",
-            "pass" => "Emad2525",
-            "sender" => "At Time",
-            "to" => $phone,
-            "message" => $message,
-        );
+        $curl = new Curl();
 
-        $data_string = json_encode($data);
-
-
-        $ch = curl_init("http://www.jawalbsms.ws/api.php/sendsms");
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data_string))
-        );
-        $result = curl_exec($ch);
-        if ($result === FALSE) {
-            Log::error('Curl failed: ' . curl_error($ch));
-        }
-        else{
-            //echo $result;
-            Log::info($result);
-        }
+        $username = "al3omdh25";		// The user name of gateway
+        $password = "Emad2525"; 			// the password of gateway
+        $sender = "At Time";
+        $url = "http://www.jawalbsms.ws/api.php/sendsms?user=$username&pass=$password&to=$phone&message=$message&sender=$sender";
+        $urlDiv = explode("?", $url);
+        $result = $curl->_simple_call("post", $urlDiv[0], $urlDiv[1], array("TIMEOUT" => 3));
 
         return true;
-
     }
 
     public function sendNotificationsToUser($msg,$user = 0 ,$withAdmin = true , $clickAction = ""){

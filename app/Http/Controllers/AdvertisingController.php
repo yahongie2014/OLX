@@ -92,6 +92,7 @@ class AdvertisingController extends Controller
         $ads = new $this->ads($request->all());
         $ads->user_id = $request->user()->id;
         $ads->cover_image = $name_cover;
+        $ads->is_subscribe = $request->is_subscribe;
 
         if ($ads->save()) {
             foreach ($product_id as $items) {
@@ -220,6 +221,10 @@ class AdvertisingController extends Controller
             if($request->subservices_id){
                 $adsEdit->subservices_id = $request->subservices_id;
             }
+            if($request->is_subscribe){
+                $adsEdit->is_subscribe = $request->is_subscribe;
+            }
+
 
             if($request->is_active){
                 $adsEdit->is_active = $request->is_active;
