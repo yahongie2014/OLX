@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookmarkForm;
+use App\Http\Resources\AdsUerApi;
 use App\Http\Resources\FavouriteApi;
+use App\Models\Advertising;
 use App\Models\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -11,10 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 class BookmarkController extends Controller
 {
-    public function __construct(Bookmark $book)
+    public function __construct(Bookmark $book,Advertising $ads)
     {
         $this->middleware('auth:api');
         $this->book = $book;
+        $this->ads = $ads;
     }
 
     /**
@@ -24,7 +27,9 @@ class BookmarkController extends Controller
      */
     public function index(Request $request)
     {
-        return FavouriteApi::collection($this->book->with("users")->where("user_id",$request->user()->id)->paginate());
+        $book = $this->book->select("*")->where("user_id",$request->user()->id)->get();
+
+        return AdsUerApi::collection($this->ads->with("users")->where("id",$book[0]['ads_id'])->whereNull('deleted_at')->paginate());
     }
 
     /**
