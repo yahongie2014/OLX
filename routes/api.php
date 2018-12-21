@@ -46,6 +46,7 @@ Route::get('logout', 'AuthController@logout');
 Route::post('profile', 'AuthController@user');
 Route::apiResource('User/Orders', 'OrdersUserController');
 Route::apiResource('User/Payment', 'PaymentController');
+Route::apiResource('OrderStatus', 'OrderStatusController');
 Route::apiResource('Cart', 'CartController');
 Route::post('multiply', 'CartController@multiply');
 Route::apiResource('Bank', 'BankAccountsController');
@@ -53,6 +54,7 @@ Route::apiResource('Favourites', 'BookmarkController');
 Route::apiResource('Rates', 'RatesController');
 Route::group(['prefix' => '/Vendor', 'middleware' => 'VendorAccess'], function () {
 Route::apiResource('Products', 'ProductsController');
+Route::apiResource('OrderStatus', 'OrderStatusController');
 Route::apiResource('Ads', 'AdvertisingController');
 Route::apiResource('Percentage', 'PercentageControllerAPI');
 Route::apiResource('Orders', 'OrdersController');
