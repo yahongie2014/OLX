@@ -44,10 +44,10 @@ class SearchController extends Controller
                 return AdsApi::collection($this->ads->whereNull('deleted_at')->where("id", $ad->id)->paginate());
         }elseif ($request->name){
             $adsss = $this->ads->select("*")
-                ->leftjoin("ads_cities","ads_cities.ads_id","=","advertisings.id")
-                ->leftjoin("services","services.id","=","advertisings.services_id")
-                ->leftjoin("services_translations","services_translations.services_id","=","services.id")
-                ->where("services_translations.name", 'LIKE', '%' . $request->name . '%')
+                ->leftjoin("ads_products","ads_products.ads_id","=","advertisings.id")
+                ->leftjoin("products","products.id","=","ads_products.ads_id")
+                ->leftjoin("products_translations","products_translations.products_id","=","products.id")
+                ->where("products_translations.name", 'LIKE', '%' . $request->name . '%')
                 ->get();
             foreach ($adsss as $adi)
                 return AdsApi::collection($this->ads->whereNull('deleted_at')->where("id", $adi->id)->paginate());

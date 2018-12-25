@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdsForm;
+use App\Http\Resources\AdsApi;
 use App\Http\Resources\AdsUerApi;
 use App\Models\AdsCities;
 use App\Models\AdsProducts;
@@ -24,6 +25,32 @@ class AdsUserController extends Controller
      */
     public function index(Request $request)
     {
+        if($request->city){
+            $ads = $this->ads->select("*")
+                ->leftjoin("ads_cities","ads_cities.ads_id","=","advertisings.id")
+                ->where("ads_cities.city_id",'LIKE', '%' ."$request->city")
+                ->get();
+            foreach ($ads as $ad)
+                return AdsUerApi::collection($this->ads->whereNull('deleted_at')->where("id", $ad->id)->paginate());
+        }elseif($request->name){
+            $adsss = $this->ads->select("*")
+                ->leftjoin("ads_products","ads_products.ads_id","=","advertisings.id")
+                ->leftjoin("products","products.products","=","ads_products.ads_id")
+                ->leftjoin("products_translations","products_translations.products_id","=","products.id")
+                ->where("products_translations.name", 'LIKE', '%' . $request->name . '%')
+                ->get();
+            foreach ($adsss as $adi)
+                return AdsApi::collection($this->ads->whereNull('deleted_at')->where("id", $adi->id)->paginate());
+        }elseif ($request->orderd){
+            $adsss_order = $this->ads->select("*")
+                ->leftjoin("ads_products","ads_products.ads_id","=","advertisings.id")
+                ->leftjoin("products","products.id","=","ads_products.ads_id")
+                ->leftjoin("products_translations","products_translations.products_id","=","products.id")
+                ->where("products_translations.price", 'LIKE', '%' . $request->orderd . '%')
+                ->get();
+            foreach ($adsss_order as $adi_o)
+                return AdsApi::collection($this->ads->whereNull('deleted_at')->where("id", $adi_o)->paginate());
+        }
         return AdsUerApi::collection($this->ads->with("users")->whereNull('deleted_at')->paginate());
     }
 
