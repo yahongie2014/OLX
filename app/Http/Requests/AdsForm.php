@@ -35,6 +35,7 @@ class AdsForm extends FormRequest
             'products' => 'required|exists:products,id',
             'locale' => 'required',
             'cover_image' => 'required',
+            'is_subscribe' => 'required',
         ];
     }
     public function messages()

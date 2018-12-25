@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cities;
+use App\Http\Resources\UserProfile;
+use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -46,6 +48,7 @@ class AuthController extends Controller
             'phone' => 'required',
             'longitude' => 'required',
             'latitudes' => 'required',
+            'firebase_token' => 'required',
             'password' => 'required|string',
             'vendor' => 'integer',
             'CityId' => 'required|exists:cities,id|integer',
@@ -64,6 +67,7 @@ class AuthController extends Controller
             'longitude' => $request->longitude,
             'latitudes' => $request->latitudes,
             'city_id' => $request->CityId,
+            'firebase_token' => $request->firebase_token,
             'activation_code' => $generate_number,
             'password' => bcrypt($request->password)
         ]);
@@ -295,6 +299,10 @@ class AuthController extends Controller
             if ($request->DeactiveAccount) {
                 $userprofile->is_blocked = $request->DeactiveAccount;
             }
+            if($request->firebase_token){
+                $userprofile->firebase_token = $request->firebase_token;
+
+            }
             if ($request->file('image')) {
                 $image = $request->file('image');
                 $name_cover = $image->getClientOriginalName();
@@ -307,6 +315,32 @@ class AuthController extends Controller
 
         }
 
-        return response()->json( ["data" => $request->user()->only(["id","name","image","phone","email","longitude","latitudes","company_number"]),"CityLocation" => $request->user()->city->name]);
+        return UserProfile::collection($this->user->where("id",Auth::user()->id)->get());
     }
+
+    public function profile(){
+        return UserProfile::collection($this->user->where("id",Auth::user()->id)->get());
+    }
+
+    public function notification(Request $request)
+    {
+        $notify = Notification::where("user_id", Auth::user()->id)->paginate();
+
+        if ($request->is_read) {
+            $request->validate([
+                'is_read' => 'required|exists:notifications,id|integer'
+            ]);
+
+            $userprofile = Notification::find($request->is_read);
+            $userprofile->is_read = 1;
+            $userprofile->save();
+        }
+        return response()->json(["data" => [
+            "Messages" => $notify,
+            "success" => true,
+        ]]);
+
+    }
+
+
 }

@@ -29,7 +29,9 @@ class AdsUerApi extends JsonResource
             $val= true;
         }
 
-        $book_id = Bookmark::where('ads_id',$this->id)->get();
+            $book_id = Bookmark::where("ads_id",$this->id)->where("user_id",Auth::user()->id)->get();
+
+
         return [
             "Identifier" => $this->id,
             "BookmarkedId" => $book_id,

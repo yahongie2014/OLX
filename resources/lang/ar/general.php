@@ -356,4 +356,5 @@ return [
     'ORDER_STATUS_DELIVERY_STARTED' => 'السائق بدأ الطلب',
     'DELIVERY_STARTED' => ' بدأ الطلب',
     'Provider Info' => 'بيانات المتجر',
+    'search' => 'لا يوجد نتائج بحث فى هذه المنطقه',
 ];

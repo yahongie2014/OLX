@@ -58,7 +58,7 @@ class SendNotification implements ShouldQueue
 
         }
 
-        $userTokens = UserFireBaseToken::whereIn('user_id',$usersToNotify)->pluck('firebase_token')->toArray();
+        $userTokens = User::whereIn('id',$usersToNotify)->pluck('firebase_token')->toArray();
 
         if(count($userTokens) > 0) {
             $fields = array(

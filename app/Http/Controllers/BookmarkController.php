@@ -9,6 +9,7 @@ use App\Models\Advertising;
 use App\Models\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class BookmarkController extends Controller
@@ -27,9 +28,10 @@ class BookmarkController extends Controller
      */
     public function index(Request $request)
     {
-        $book = $this->book->select("*")->where("user_id",$request->user()->id)->get();
 
-        return AdsUerApi::collection($this->ads->with("users")->where("id",$book[0]['ads_id'])->whereNull('deleted_at')->paginate());
+    //    return AdsUerApi::collection($this->ads->with("users")->whereNull('deleted_at')->paginate());
+
+        return FavouriteApi::collection($this->book->where("user_id",Auth::user()->id)->paginate());
     }
 
     /**

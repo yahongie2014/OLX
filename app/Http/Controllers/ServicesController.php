@@ -24,7 +24,7 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        return ServicesApi::collection($this->services->whereNull('deleted_at')->paginate());
+        return ServicesApi::collection($this->services->whereNull('deleted_at')->get());
 
     }
 

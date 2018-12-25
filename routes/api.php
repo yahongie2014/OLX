@@ -44,7 +44,10 @@ Route::apiResource('User/Ads', 'AdsUserController');
 //Protected Login To Authntcate
 Route::get('logout', 'AuthController@logout');
 Route::post('profile', 'AuthController@user');
+Route::get('view-profile', 'AuthController@profile');
 Route::apiResource('User/Orders', 'OrdersUserController');
+Route::post('User/RequestOrder', 'SearchController@index');
+Route::post('User/Notifications', 'AuthController@notification');
 Route::apiResource('User/Payment', 'PaymentController');
 Route::apiResource('OrderStatus', 'OrderStatusController');
 Route::apiResource('Cart', 'CartController');

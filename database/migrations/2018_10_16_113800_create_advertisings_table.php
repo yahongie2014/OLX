@@ -21,6 +21,7 @@ class CreateAdvertisingsTable extends Migration
             $table->integer('viewer')->default(0);
             $table->unsignedInteger('services_id');
             $table->unsignedInteger('subservices_id');
+            $table->integer('is_subscribe')->default(0);
             $table->unsignedInteger('user_id');
             $table->foreign('services_id')->references('id')->on('services')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

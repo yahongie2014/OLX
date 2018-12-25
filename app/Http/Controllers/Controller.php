@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Notification;
 use App\User;
 use App\UserFireBaseToken;
 use Session;
@@ -11,7 +12,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Curl;
-define("GOOGLE_API_KEY", "AAAAbcImFjE:APA91bFdizGK_jsQfjDSxFPwOLHBUkMAsys-78YuZr7B2L1JRgzy2ICu0SRNsct478ohlrVDRuItfYtHUxpgtraJy1EYQGq2j0MdBSV43JOStfOjvnpYaGTqz20ZiUe5EyghN5aDr4vv");
+define("GOOGLE_API_KEY", "AAAAyK5PY7U:APA91bHOd0FzCjeYP3ls4bUjBC9nVe1M3MNbRpvv2KW83UgOPp2Y6GjdrtJOIDJStDCFOVHkcZ85RT-UvQMePYE8yt_yMWg15C2Vf4dDsNBCDttXankdQ9FplZW9XEQTH840pq6YXZ6a");
 
 class Controller extends BaseController
 {
@@ -54,14 +55,16 @@ class Controller extends BaseController
             //dd($usersToNotify);
         }
 
-        $userTokens = UserFireBaseToken::whereIn('user_id',$usersToNotify)->pluck('firebase_token')->toArray();
+        $userTokens = User::whereIn('id',$usersToNotify)->pluck('firebase_token')->toArray();
 
-        /* WebNotification::create([
-             'user_id' => $user,
-             'title' => $msgTitle,
-             'body' => $msg,
+        $notify = new Notification();
+        $notify->user_id = $user;
+        $notify->message = $msg;
+        $notify->is_read = 0;
+        $notify->status = 1;
+        $notify->link = $clickAction;
+        $notify->save();
 
-         ]);*/
 
         //dd($userTokens);
         if(count($userTokens) > 0) {

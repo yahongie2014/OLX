@@ -356,5 +356,7 @@ return [
     'ORDER_STATUS_DELIVERY_STARTED' => 'Driver started order',
     'DELIVERY_STARTED' => 'Start order',
     'Provider Info' => 'Provider Info',
-    'CarType' => 'Car Type'
+    'CarType' => 'Car Type',
+    'search' => 'No Result here',
+
 ];
